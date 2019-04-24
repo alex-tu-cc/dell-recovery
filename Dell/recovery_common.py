@@ -155,20 +155,21 @@ def check_family(test):
 
 def check_vendor():
     """Checks to make sure that the app is running on Dell HW"""
-    path = '/sys/class/dmi/id/'
-    variables = ['bios_vendor', 'sys_vendor']
-    valid = [b'dell', b'alienware', b'wyse', b'innotek']
-    for var in variables:
-        target = os.path.join(path, var)
-        if os.path.exists(target):
-            with open(target, 'rb') as rfd:
-                value = rfd.read().strip()
-                if not value:
-                    return True
-                value = value.split()[0].lower()
-            if value in valid:
-                return True
-    return check_rebrand()
+    return True
+#    path = '/sys/class/dmi/id/'
+#    variables = ['bios_vendor', 'sys_vendor']
+#    valid = [b'dell', b'alienware', b'wyse', b'innotek']
+#    for var in variables:
+#        target = os.path.join(path, var)
+#        if os.path.exists(target):
+#            with open(target, 'rb') as rfd:
+#                value = rfd.read().strip()
+#                if not value:
+#                    return True
+#                value = value.split()[0].lower()
+#            if value in valid:
+#                return True
+#    return check_rebrand()
 
 def check_rebrand():
     """If on a rebrand system, see if it was originally created
