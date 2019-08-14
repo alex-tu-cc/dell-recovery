@@ -1,0 +1,282 @@
+# Dutch translation for dell-recovery
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: dell-recovery@packages.debian.org\n"
+"POT-Creation-Date: 2013-02-25 18:38-0600\n"
+"PO-Revision-Date: 2009-12-08 12:30+0000\n"
+"Last-Translator: cumulus007 <Unknown>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:00+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:17001
+msgid "Building Dell Recovery Media..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:19001
+msgid "Opening Burner..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:20001
+msgid "Dell Recovery"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:21001
+msgid "Recovery Type"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:22001
+msgid ""
+"This Dell Recovery Media can be used to restore the original factory "
+"software."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:23001
+msgid ""
+"It is recommended you back up all important data before running this tool."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:24001
+msgid "Restore Linux OS partitions"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:25001
+msgid "This will rebuild all OS and swap partitions to factory defaults."
+msgstr ""
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:26001 ../dell-recovery.templates:29001
+msgid "WARNING: All personal files and changes will be lost."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:27001
+msgid "Restore entire hard drive."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:28001
+msgid "This will rebuild all utility, recovery, and OS partitions."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:30001
+msgid "Restore only Linux OS partition."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:31001
+msgid "This option allows you to resize any existing partitions."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:32001
+msgid ""
+"ERROR: This recovery media only functions on Dell and Alienware systems."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:33001
+msgid "Building Recovery Partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:34001
+msgid "NOTE: Please be patient, this may take a while."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:35001
+msgid "Your system will restart automatically several times."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:36001
+msgid "Create Dell Recovery Media"
+msgstr "Dell herstelmedia aanmaken"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:37001
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:38001
+msgid ""
+"It is highly recommended that you generate media and store it in a safe "
+"place."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:39001
+msgid "Save recovery media to an external USB flash drive"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:40001
+msgid "Note: This requires a USB flash drive with approximately 2GB free."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:41001
+msgid "Save recovery media to DVD"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:42001
+msgid "Note: This requires writable DVD media."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:43001
+msgid "Don't generate recovery media at this time"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:44001
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:45001
+msgid "ERROR: This media is only valid on Dell systems."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:46001
+msgid "Dell End User License Agreement"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:47001
+msgid "I have read and accept these terms."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:48001
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:49001
+msgid "Restore #OS# to factory state"
+msgstr ""
+
+#~ msgid "Permission Denied"
+#~ msgstr "Toegang geweigerd"
+
+#~ msgid "Cannot connect to dbus"
+#~ msgstr "Kan geen verbinding maken met dbus"
+
+#~ msgid "Opening Burner"
+#~ msgstr "Brander openen"
+
+#~ msgid "Recovery Partition: "
+#~ msgstr "Herstelpartitie: "
+
+#~ msgid "Building ISO"
+#~ msgstr "ISO wordt aangemaakt"
+
+#~ msgid "ISO Image"
+#~ msgstr "ISO-beeldbestand"
+
+#~ msgid "System policy prevents reading raw devices"
+#~ msgstr "Systeem houdt lezen raw-apparaten tegen"
+
+#~ msgid "<activity placeholder>"
+#~ msgstr "<activity placeholder>"
+
+#~ msgid "Dell Recovery Media Creator"
+#~ msgstr "Dell herstelmedia aanmaken"
+
+#~ msgid "Cancel Recovery Media Creator"
+#~ msgstr "Herstelmedia aanmaken annuleren"
+
+#~ msgid "No media, create ISO image"
+#~ msgstr "Geen media, maak ISO-beeldbestand aan"
+
+#~ msgid "DVD+/-RW Disc"
+#~ msgstr "Dvd+/-rw-schijf"
+
+#~ msgid "USB Flash Drive"
+#~ msgstr "Usb-stick"
+
+#~ msgid "Are you sure you want to cancel the Recovery Media creation process?"
+#~ msgstr "Weet u zeker dat u het herstelmediaproces wilt stoppen?"
+
+#~ msgid ""
+#~ "An existing image was found (possibly from a previous run).  Would you "
+#~ "like to remove this old copy and regenerate the image?"
+#~ msgstr ""
+#~ "Er is een bestaand beeldbestand gevonden (waarschijnlijk van een vorige "
+#~ "keer). Wilt u deze oude kopie verwijderen en een nieuw beeldbestand "
+#~ "aanmaken?"
+
+#~ msgid "Utility Partition: "
+#~ msgstr "Hulpmiddelen-partitie "
+
+#~ msgid "Confirm Selections"
+#~ msgstr "Bevestig uw keuzes"
+
+#~ msgid "Recovery Media Creation Process Complete"
+#~ msgstr "Aanmaken herstelmedium gereed"
+
+#~ msgid "Choose Media Type"
+#~ msgstr "Kies mediumtype"
+
+#~ msgid "Media Type: "
+#~ msgstr "Mediumtype: "

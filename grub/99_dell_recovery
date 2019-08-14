@@ -1,0 +1,37 @@
+#!/bin/bash -e
+
+source /usr/lib/grub/grub-mkconfig_lib
+
+cat << EOF
+menuentry "#RECOVERY_TEXT#" {
+        search --no-floppy --hint '(hd0,#PARTITION#)' --set --fs-uuid #UUID#
+        set uuid_options="uuid=#UUID#"
+        if [ -s /factory/common.cfg ]; then
+            source /factory/common.cfg
+        else
+            set options="boot=casper automatic-ubiquity noprompt quiet splash nomodeset"
+        fi
+        if [ -s /factory/post-rts-gfx.cfg ]; then
+            source /factory/post-rts-gfx.cfg
+        fi
+        if [ -s /factory/post-rts-wlan.cfg ]; then
+            source /factory/post-rts-wlan.cfg
+        fi
+        #Support starting from a loopback mount (Only support ubuntu.iso for filename)
+        if [ -f /ubuntu.iso ]; then
+            loopback loop /ubuntu.iso
+            set root=(loop)
+            set options="iso-scan/filename=/ubuntu.iso \$options"
+        fi
+        if [ -n "\${lang}" ]; then
+            set options="locale=\$lang \$options"
+        fi
+        if [ -s /factory/dual_enable ]; then
+            set options="dell-recovery/dual_boot=true \$options"
+        fi 
+
+        linux   /casper/vmlinuz.efi dell-recovery/recovery_type=#REC_TYPE# \$uuid_options \$options
+	initrd	/casper/initrd.lz
+}
+EOF
+

@@ -1,0 +1,125 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+#
+# Dell Recovery
+#
+# Copyright (C) 2010 Dell Inc,
+#   Author: Mario Limonciello
+#
+# This is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 2 of the License, or at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this application; if not, write to the Free Software Foundation, Inc., 51
+# Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+##################################################################################
+
+from Dell.recovery_common import find_partition, check_version, find_burners
+import optparse
+import os
+import subprocess
+
+target = os.path.expanduser("~/Downloads")
+try:
+    p = subprocess.Popen(["xdg-user-dir","DOWNLOAD"], stdout=subprocess.PIPE,
+                         universal_newlines=True)
+    downloadpath = p.communicate()[0].strip()
+    if p.returncode == 0 and downloadpath:
+        target = downloadpath
+except OSError:
+    pass
+
+
+usage = '%prog [options]'
+parser = optparse.OptionParser(usage=usage)
+parser.set_defaults(
+    version='',
+    media="dvd",
+    builder=False,
+    target=target,
+    overwrite=False,
+    xrev=False,
+    branch=False,
+    burn=False
+    )
+parser.add_option('-c', '--check-version', dest='checkversion', action='store_true',
+                  help='Show the version information.')
+parser.add_option('-v', '--override-version', dest='version',
+                  help='Override the automatic version number generation of this ISO.')
+parser.add_option('-m', '--media', dest='media',
+                  help='Set type of recovery media to create [dvd, usb, iso].')
+parser.add_option('-t', '--target', dest='target',
+                  help='Set target directory to store ISO in when completed.')
+parser.add_option('-o', '--overwrite', dest='overwrite', action='store_true',
+                  help='Force overwrite of any existing file')
+parser.add_option('--builder', dest='builder', action='store_true',
+                  help='Enable OEM Builder mode for assembling an image from multiple sources.')
+parser.add_option('--show-development-tags', dest='xrev', action='store_true',
+                  help='Show development git tags when operating in builder mode.  By default, these are hidden if stable tags are present.')
+parser.add_option('--override-branch-mode', dest='branch', action='store_true',
+                  help='Show branches instead of tags in builder mode.  This is most useful when the tip of the branch is known stable.')
+parser.add_option('--burn', dest='burn', action='store_true',
+                  help="Run in burn/nag mode. Causes a burner to be invoked if media is set and an ISO exists.")
+(options, args) = parser.parse_args()
+
+
+
+if __name__ == '__main__':
+    if options.checkversion:
+        print("Version: %s" % check_version())
+    else:
+        import dbus.mainloop.glib
+        dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+        recovery = find_partition()
+
+        #If we don't find an RP, assume builder mode.
+        if not options.burn and not recovery and not options.builder:
+            options.builder = True
+    
+        args = (recovery,
+                options.version,
+                options.media,
+                options.target,
+                options.overwrite)
+
+        #don't ever autostart again
+        autostart=os.path.expanduser("~/.config/autostart/dell-recovery.desktop")
+        reminder = os.path.expanduser("~/.config/dell-recovery/reminder")
+        for item in (autostart, reminder):
+            if os.path.exists(item):
+                os.remove(item)
+
+        if options.burn:
+            command = ''
+            iso = ''
+            (dvd, usb) = find_burners()
+            for item in os.listdir(target):
+                if item.endswith('.iso'):
+                    iso = item
+                    break
+            if options.media == 'dvd' and dvd and iso:
+                command = dvd + [iso]
+            elif options.media == 'usb' and usb and iso:
+                command = usb + [iso]
+            else:
+                print("Error with burn mode.  Please invoke in standard mode.")
+            if command:
+                subprocess.call(command)
+        else:
+            if options.builder:
+                from Dell.recovery_advanced_gtk import AdvancedGeneratorGTK
+                args += (options.xrev,
+                         options.branch)
+                tool = AdvancedGeneratorGTK(*args)
+            else:
+                from Dell.recovery_basic_gtk import BasicGeneratorGTK
+                tool = BasicGeneratorGTK(*args)
+
+            tool.run()

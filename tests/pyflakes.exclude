@@ -1,0 +1,26 @@
+# Exclude the following from pyflakes failures.
+#touching a file
+Dell/recovery_basic_gtk.py:*: local variable 'wfd' is assigned to but never used
+
+#ignoring first few lines read
+Dell/recovery_backend.py:*: local variable 'timestamp' is assigned to but never used
+Dell/recovery_backend.py:*: local variable 'distributor_string' is assigned to but never used
+Dell/recovery_backend.py:*: local variable 'zip_obj' is assigned to but never used
+Dell/recovery_common.py:*: local variable 'type' is assigned to but never used
+
+#no code yet for rhel
+Dell/recovery_advanced_gtk.py:*: local variable 'bto_version' is assigned to but never used
+Dell/recovery_advanced_gtk.py:*: local variable 'output_text' is assigned to but never used
+Dell/recovery_advanced_gtk.py:*: local variable 'distributor' is assigned to but never used
+Dell/recovery_advanced_gtk.py:*: local variable 'release' is assigned to but never used
+Dell/recovery_advanced_gtk.py:*: local variable 'arch' is assigned to but never used
+
+#touching a file
+ubiquity/dell-bootstrap.py:*: local variable 'wfd' is assigned to but never used
+
+#allows for running on own
+ubiquity/dell-default-ui.py:*: redefinition of unused 'InstallPlugin' from line *
+ubiquity/dell-default-ui.py:*: redefinition of unused 'install_misc' from line *
+
+#ignore error
+ubiquity/dell-default-ui.py:*: local variable 'e' is assigned to but never used

@@ -1,0 +1,134 @@
+#!/bin/sh
+#
+#       <SUCCESS-SCRIPT>
+#
+#       Called in the event that postinstall (chroot) steps complete successfully
+#
+#       Copyright 2008-2016 Dell Inc.
+#           Mario Limonciello <Mario_Limonciello@Dell.com>
+#           Hatim Amro <Hatim_Amro@Dell.com>
+#           Michael E Brown <Michael_E_Brown@Dell.com>
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+#
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#
+#       You should have received a copy of the GNU General Public License
+#       along with this program; if not, write to the Free Software
+#       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#       MA 02110-1301, USA.
+
+# BE AWARE THAT THIS SCRIPT IS CALLED FROM OUTSIDE THE CHROOT.
+# The OS is mounted under $TARGET
+
+. /usr/share/dell/scripts/fifuncs "target"
+
+set -x
+set -e
+
+IFHALT "(SUCCESS) Clean-Up .."
+chroot $TARGET /usr/share/dell/scripts/pool.sh cleanup
+
+#Fixup APT how we want it for a successful oem-config run
+rm -f $TARGET/var/lib/apt/lists/*Packages
+rm -f $TARGET/etc/apt/sources.list.d/dell.list
+#https://bugs.launchpad.net/ubuntu/+source/choose-mirror/+bug/550694
+if [ -f "$TARGET/etc/apt/sources.list" ]; then
+    sed -i "s/http:\/\/.*.archive.ubuntu.com/http:\/\/archive.ubuntu.com/" $TARGET/etc/apt/sources.list
+fi
+
+#The script below was removed because we use a package based solution in
+#Somerville Trusty OSP1 image. Old Trusty image still needs this to re-enable
+#NetworkManager. (LP: #1476151)
+
+#We disabled Ethernet in phase 1 and 2 of installation, now enable it back. (LP: #1329148)
+if [ -f "$TARGET/etc/init/network-manager.conf.orig" ]; then
+    mv $TARGET/etc/init/network-manager.conf.orig $TARGET/etc/init/network-manager.conf
+fi
+
+if [ "$BOOTDEV" = "$TARGETDEV" ]; then
+    if [ -d "/isodevice" ]; then
+        RP="/isodevice"
+    else
+        RP="/cdrom"
+    fi
+    mount -o remount,rw $RP
+
+    # Bypass the grub2-signed issue. (LP: #1482514)
+    IFHALT "Renaming .disk/info to .disk/info.recovery"
+
+    if [ -f "$RP/.disk/info.recovery" -a -f "$RP/.disk/info" ]; then
+        rm -fr $RP/.disk/info
+    elif [ -f "$RP/.disk/info" ]; then
+        mv $RP/.disk/info $RP/.disk/info.recovery
+    fi
+
+    fistlog="/tmp/fist.log"
+    if [ -f $RP/SDR ]; then
+        dualos=`sed -n '/DUALOS/=' $RP/SDR`
+        if [ $dualos ]; then
+            fistlog="/tmp/DUALOS_FIST.LOG"
+        fi
+    fi
+
+    IFHALT "Clean up FI Env..."
+    rm -rf $RP/scripts/chroot-scripts/os-post/95-set_UTC_TZ.sh
+    rm -rf $RP/misc/dell-unsupported.py
+    rm -rf $RP/misc/run-tz-fix
+    rm -rf $RP/misc/tz_offset.py
+    rm -rf $RP/command.com
+    rm -rf $RP/autoexec.bat
+    rm -rf $RP/dellbio.bin
+    rm -rf $RP/dellrmk.bin
+    rm -rf $RP/linld.com
+    rm -rf $RP/cmd.cfg
+    rm -rf $RP/srv
+    rm -rf $RP/factory/*.dll
+    rm -rf $RP/factory/*.exe
+    rm -rf $RP/factory/*.bat
+    rm -fr $RP/factory/grubenv
+    rm -rf $RP/.disk/casper-uuid*
+
+    IFHALT "Regenerate md5sum.txt at the end..."
+    $(python3 << EOF
+from Dell.recovery_common import regenerate_md5sum
+regenerate_md5sum("$RP")
+EOF
+)
+
+    IFHALT "Report the LOG..."
+    # create a dmesg.log file to record the dmesg info
+    touch $TARGET/$LOG/dmesg.log 2>&1
+    chattr +a $TARGET/$LOG/dmesg.log
+    dmesg >> $TARGET/$LOG/dmesg.log
+
+    if [ -f /dell/fist/tal ]; then
+        cp $TARGET/$LOG/chroot.sh.log $fistlog
+        /dell/fist/tal PutFiles $fistlog
+        /dell/fist/tal PutFiles "$TARGET/$LOG/dmesg.log"
+        rm -rf /cdrom/debs/fist
+    fi
+
+    #If we have collecting log folders,remove it
+    if [ -d /cdrom/OSLogs ]; then
+        rm -rf /cdrom/OSLogs
+    fi
+
+
+    #If we have another script to run, do it
+    if [ -f $RP/scripts/chroot-scripts/SUCCESS-SCRIPT ]; then
+        $RP/scripts/chroot-scripts/SUCCESS-SCRIPT
+        rm -f $RP/scripts/chroot-scripts/SUCCESS-SCRIPT
+        rm -f $RP/scripts/chroot-scripts/FAIL-SCRIPT
+        IFHALT "(SUCCESS) Report to logs.. Done!"
+    fi
+
+fi
+
+IFHALT "(SUCCESS) Clean-Up .. Done!"

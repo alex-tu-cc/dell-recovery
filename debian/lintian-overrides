@@ -1,0 +1,8 @@
+dell-recovery: too-long-short-description-in-templates ubiquity/text/bootstrap_information_label
+dell-recovery: too-long-short-description-in-templates ubiquity/text/recovery_information_label
+dell-recovery: too-long-short-description-in-templates ubiquity/text/recovery_warning_label
+dell-recovery: too-long-short-description-in-templates ubiquity/text/no_media_warning
+dell-recovery: using-first-person-in-templates ubiquity/text/accept_button
+dell-recovery: no-debconf-config
+dell-recovery: debconf-is-not-a-registry usr/share/ubiquity/dell-bootstrap
+

@@ -1,0 +1,78 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+#
+# «recovery-media-backend» - Dell Recovery D-Bus backend Executable
+#
+# Copyright (C) 2009, Dell Inc.
+#           (C) 2008, Canonical Ltd
+#
+# Author:
+#  - Martin Pitt <martin.pitt@canonical.com>
+#  - Mario Limonciello <Mario_Limonciello@Dell.com>
+#
+# This is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 2 of the License, or at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this application; if not, write to the Free Software Foundation, Inc., 51
+# Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+##################################################################################
+
+
+import sys, optparse, logging, gettext
+
+from Dell.recovery_backend import Backend
+
+def parse_argv():
+    '''Parse command line arguments, and return (options, args) pair.'''
+
+    parser = optparse.OptionParser()
+    parser.add_option ('--debug', action='store_true',
+        dest='debug', default=False,
+        help='Enable debugging messages.')
+    parser.add_option ('-l', '--logfile', type='string', metavar='FILE',
+        dest='logfile', default=None,
+        help='Write logging messages to a file instead to stderr.')
+    parser.add_option ( '--timeout', type='int',
+        dest='timeout', metavar='SECS', default=0,
+        help='Timeout for D-BUS service (default 0: run forever)')
+    (opts, args) = parser.parse_args()
+    return (opts, args)
+
+def setup_logging(debug=False, logfile=None):
+    '''Setup logging.'''
+
+    logging.raiseExceptions = False
+    if debug:
+        logging.basicConfig(level=logging.DEBUG, filename=logfile,
+            format='%(asctime)s %(levelname)s: %(message)s')
+    else:
+        logging.basicConfig(level=logging.WARNING, filename=logfile,
+            format='%(levelname)s: %(message)s')
+
+def setup_gettext():
+    kwargs = {}
+    if sys.version < '3':
+        kwargs['unicode'] = True
+    gettext.install('dell-recovery', **kwargs)
+
+setup_gettext()
+argv_options, argv_args = parse_argv()
+setup_logging(argv_options.debug, argv_options.logfile)
+
+
+svr = Backend.create_dbus_server()
+if not svr:
+    logging.error("Error spawning DBUS server")
+    sys.exit(10)
+if argv_options.timeout == 0:
+    svr.run_dbus_service()
+else:
+    svr.run_dbus_service(argv_options.timeout)

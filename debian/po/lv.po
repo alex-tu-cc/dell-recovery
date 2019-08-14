@@ -1,0 +1,228 @@
+# Latvian translation for dell-recovery
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: dell-recovery@packages.debian.org\n"
+"POT-Creation-Date: 2013-02-25 18:38-0600\n"
+"PO-Revision-Date: 2010-12-14 05:23+0000\n"
+"Last-Translator: Pēteris Krišjānis <pecisk@gmail.com>\n"
+"Language-Team: Latvian <lv@li.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:00+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:17001
+msgid "Building Dell Recovery Media..."
+msgstr "Būvē Dell atkopšanas mēdiju..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:19001
+msgid "Opening Burner..."
+msgstr "Atver rakstītāju..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:20001
+msgid "Dell Recovery"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:21001
+msgid "Recovery Type"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:22001
+msgid ""
+"This Dell Recovery Media can be used to restore the original factory "
+"software."
+msgstr ""
+"Šis Dell atkopšanas mēdijs var tikt izmantots, lai atjaunotu oriģinālo "
+"fabrikas programmatūru."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:23001
+msgid ""
+"It is recommended you back up all important data before running this tool."
+msgstr ""
+"Jums tiek rekomendēts rezervēt visus svarīgos datus pirms šī rīka palaišanas."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:24001
+msgid "Restore Linux OS partitions"
+msgstr "Atjaunot Linux OS sadaļas"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:25001
+msgid "This will rebuild all OS and swap partitions to factory defaults."
+msgstr ""
+"Šis pārbūvēs visas OS un maiņvietas sadaļas pēc fabrikas noklusētajiem "
+"iestatījumiem."
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:26001 ../dell-recovery.templates:29001
+msgid "WARNING: All personal files and changes will be lost."
+msgstr "BRĪDINĀJUMS: Visi peroniskie faili un izmaiņas tiks zaudētas."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:27001
+msgid "Restore entire hard drive."
+msgstr "Atjaunot visu cieto disku."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:28001
+msgid "This will rebuild all utility, recovery, and OS partitions."
+msgstr "Pārbūvēt visas utilītu, atjaunošanas un OS sadaļas."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:30001
+msgid "Restore only Linux OS partition."
+msgstr "Atjaunot tikai Linux OS sadaļu."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:31001
+msgid "This option allows you to resize any existing partitions."
+msgstr "Šī opcija ļaus jums izmainīt izmēru jebkurām eksistējošajām sadaļām."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:32001
+msgid ""
+"ERROR: This recovery media only functions on Dell and Alienware systems."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:33001
+msgid "Building Recovery Partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:34001
+msgid "NOTE: Please be patient, this may take a while."
+msgstr "PIEZĪME: Lūdzu, esat pacietīgi, tas aizņems kādu laiku."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:35001
+msgid "Your system will restart automatically several times."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:36001
+msgid "Create Dell Recovery Media"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:37001
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr ""
+"Dell atkopšanas mēdijs var tikt izmantots, lai atjaunotu jūsu sistēmu tādā "
+"stāvoklī, kādā jūs to iegādājāties."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:38001
+msgid ""
+"It is highly recommended that you generate media and store it in a safe "
+"place."
+msgstr ""
+"Ir ļoti ieteicams, ka jūs izveidojiet mēdiju un noglabājiet to drošā vietā."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:39001
+msgid "Save recovery media to an external USB flash drive"
+msgstr "Saglabāt atkopšanas mēdiju ārējā USB zibatmiņas diskā"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:40001
+msgid "Note: This requires a USB flash drive with approximately 2GB free."
+msgstr ""
+"Piezīme: nepieciešams USB zibatmiņas dzinis ar apmēram 2GB brīvas vietas."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:41001
+msgid "Save recovery media to DVD"
+msgstr "Saglabāt atkopšanas mēdiju DVD"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:42001
+msgid "Note: This requires writable DVD media."
+msgstr "Piezīme: nepieciešams rakstāms DVD mēdijs."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:43001
+msgid "Don't generate recovery media at this time"
+msgstr "Šoreiz neizveidot atkopšanas mēdiju"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:44001
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr ""
+"Atkopšanas mēdijs var tikt izveidots vēlāk, izvēloties doto rīku no Sistēmas "
+"izvēlnes."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:45001
+msgid "ERROR: This media is only valid on Dell systems."
+msgstr "KĻŪDA: šis mēdijs ir derīgs tikai Dell sistēmām."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:46001
+msgid "Dell End User License Agreement"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:47001
+msgid "I have read and accept these terms."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:48001
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:49001
+msgid "Restore #OS# to factory state"
+msgstr ""

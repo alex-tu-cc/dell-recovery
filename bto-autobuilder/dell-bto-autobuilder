@@ -1,0 +1,319 @@
+#!/usr/bin/env python3
+# vim: set filetype=python :
+''' BTO Automatic Builder
+Author: peter.petrakis@canonical.com
+Date:   29/07/10
+License: GPLv2
+Description: Create a BTO image non-interactively
+
+Coding Style:
+ * No line shall ever be greater than 80 chars, use line continuations
+   where necessary to achieve this.
+ * Generally styled after Linux kernel C coding standards
+'''
+
+import os, sys, subprocess, optparse, re, tempfile
+from Dell.recovery_common import DBUS_BUS_NAME, DBUS_INTERFACE_NAME, \
+                                 check_version,           \
+                                 dbus_sync_call_signal_wrapper
+import dbus.mainloop.glib
+from datetime import datetime
+
+try:
+    import progressbar
+except ImportError:
+    print('Error: python-progressbar is not installed', file=sys.stderr)
+    sys.exit(1)
+
+class FidTag:
+    ''' Convenience class that cleans up how the Dell FID
+        repo is version and offers some sorting and presentation
+        capabilities '''
+
+    def __init__(self, tag):
+        self.tag = tag
+        # data format: 10.04_A01
+        if hasattr(tag, 'name'):
+            tag = tag.name
+        self.lsb_release, self.revision = tag.split('_')
+        self.year, self.month = self.lsb_release.split('.')
+
+        # so much for duck typing, have to cast here or the comparisons
+        # just won't work like you'd expect, there isn't even a toi
+        # method :(
+        self.year = int(self.year)
+        self.month = int(self.month)
+
+        self.revision_class = self.revision[0]
+        self.minor_revision = int(self.revision[1:])
+
+    def is_arev(self):
+        '''Stable (A-rev) development tag'''
+        return self.revision_class == 'A'
+
+    def is_xrev(self):
+        '''Unstable (X-rev) development tag'''
+        return self.revision_class == 'X'
+
+    def __lt__(self, other):
+        if self.year < other.year and self.month == other.month:
+            return True
+        elif self.year == other.year and self.month < other.month:
+            return True
+        elif self.year == other.year and self.month == other.month:
+            if self.revision_class == other.revision_class:
+                return self.minor_revision < other.minor_revision
+            else:
+                if self.is_xrev():
+                    return True
+                else:
+                    return False
+        else:
+            return False
+
+    def __eq__(self, other):
+        if self.lsb_release == other.lsb_release and \
+                self.revision == other.revision:
+            return True
+        else:
+            return False
+
+    def __str__(self):
+        return self.tag.name
+# End FidTag class
+
+class Install:
+    ''' Update class to satisfy status update requirements which are
+        normally handled by a gui. Leverages the progressbar module
+        and is tailored to the recovery tools D-Bus callback update
+        api.'''
+
+    def __init__(self):
+        self.old_state = 'starting progress tracking'
+        self.state = None
+        self.progress = progressbar.ProgressBar()
+        self.progress.start()
+
+    def update_percent(self, state, num):
+        self._print_once(state)
+        if num < 100:
+            self.progress.update(num)
+        else:
+            self.progress.finish()
+
+    def update_plain(self, state):
+        self._print_once(state)
+
+    def _print_once(self, state):
+        self.old_state = self.state
+        self.state = state
+
+        if self.old_state != self.state:
+            print('Stage: %s' % self.state)
+
+    # instead of defining a callback function to pass
+    # to the dell bto builder, we make the class itself
+    # callable and just pass the instance
+    def __call__(self, state, num):
+        num = float(num)
+        if num < 0:
+            self.update_plain(state)
+        else:
+            self.update_percent(state, num)
+# end Install class
+
+def parse_argv():
+    '''Set up argument parsing'''
+    usage = '%prog -b BASE_ISO -d DRIVERS_FILE [options]'
+
+    parser = optparse.OptionParser(usage=usage, \
+                version=('Version: %s' % check_version()))
+
+    parser.add_option('-d', '--drivers', type='string', metavar='FILE',
+                      dest='drivers', default=None,
+                      help=('list of FISH driver packages, newline delimited'))
+
+    parser.add_option('-b', '--base-iso', type='string', dest='base',
+                      default=None,
+                      help=('ISO image baseline for overlay'))
+
+    parser.add_option('-t', '--tag', type='string', dest='tag',
+                      default='',
+                      help=('Override BTO version tag used'))
+
+    parser.add_option('--target-name-prefix', type='string',
+                      dest='bto_name_prefix',
+                      default=None,
+                      help=('Specify output ISO name prefix only'))
+
+    parser.add_option('--target-name', type='string', dest='bto_name',
+                      default=None,
+                      help=('Specify output ISO name'))
+
+    parser.add_option('--target-platform', type='string', dest='bto_platform',
+                      default=None,
+                      help=('Specify the platform information'))
+
+    parser.add_option('--target-dir', type='string', dest='bto_dir',
+                      default='/tmp',
+                      help=('Output directory for iso images: default /tmp'))
+
+    parser.add_option('--dell-recovery', type='string', dest='dell_deb',
+                      default=None,
+                      help=('Use specific dell recovery package'))
+
+    parser.add_option('--no-update', action="store_true", dest='no_update',
+                      help=("Don't include newer dell-recovery automatically"))
+
+    opts, args = parser.parse_args()
+
+    if opts.drivers == None or opts.base == None:
+        parser.print_help()
+        sys.exit(1)
+
+    if opts.bto_name != None and opts.bto_name_prefix != None:
+        print('Use one bto naming style', file=sys.stderr)
+        sys.exit(1)
+
+    return opts, args
+
+def setup_dbus():
+    '''Prepare the dbus connection to the backend'''
+    bus = dbus.SystemBus()
+    proxy = bus.get_object(DBUS_BUS_NAME, '/RecoveryMedia')
+    iface = dbus.Interface(proxy, DBUS_INTERFACE_NAME)
+    return (bus, iface, proxy)
+
+def config_dell_recovery_package(callback, base, dell_deb):
+    ''' required logic for the dell installer to locate the
+        correct dell recovery deb and then incorporate this into
+        the BTO iso.'''
+
+    if callback(base) and dell_deb == None:
+        print('Using ISO included dell-recovery package')
+        return ''
+
+    if dell_deb != None:
+        print('Incorporate specific dell-recovery package')
+        import apt_inst
+        import apt_pkg
+        control = apt_inst.DebFile(dell_deb).control.extractdata("control")
+        sections = apt_pkg.TagSection(control)
+        if sections["Package"] != 'dell-recovery':
+            print('Provided dell recovery, %s is invalid' %
+                  os.path.basename(dell_deb))
+            return ''
+        else:
+            print('Using provided dell recovery:%s' %
+                  os.path.basename(dell_deb))
+            return os.path.realpath(dell_deb)
+
+if __name__ == '__main__':
+    options, params = parse_argv()
+
+    drivers = []
+    try:
+        with open(os.path.realpath(options.drivers), 'r') as f:
+            for line in f.readlines():
+                line = line.strip()      # remove leading and trailing spaces
+                line = line.rstrip('\n') # trim newline
+                if line == '' or re.match('^\s*#.*', line):
+                    continue # accomodate simple comments
+                drivers.append(line)
+
+    except Exception as err:
+        print('There was an error parsing the drivers driver file, aborting',
+              file=sys.stderr)
+        print(err, file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+        (bus, iface, proxy) = setup_dbus()
+
+        base = os.path.realpath(options.base)
+        (bto_version, distributer,
+            release, arch, output, platform) = iface.query_iso_information(base)
+
+        if options.tag:
+            current_tag = FidTag(release + '_' + options.tag)
+        elif bto_version == '[native]':
+            current_tag = FidTag(release + '_A00')
+        elif bto_version:
+            current_tag = FidTag(release + '_' + bto_version)
+        else:
+            current_tag = FidTag(release + '_X00')
+        
+        dell_recovery_pkg = config_dell_recovery_package(
+                                     iface.query_have_dell_recovery,
+                                     base,
+                                     options.dell_deb)
+
+        bto_name = 'ubuntu-%s-%s-dell_%s.iso' % (current_tag.lsb_release, arch,
+                        current_tag.revision)
+
+        if options.bto_name_prefix != None:
+            bto_name = options.bto_name_prefix + '-' + bto_name
+
+        if options.bto_name != None:
+            # there is no versioning applied here. I'm assuming that if
+            # you're concerned enough to change the iso name that you're
+            # probably also providing your own tag name. In which case
+            # you should version the iso yourself.
+            bto_name = options.bto_name
+            if not bto_name.endswith('.iso'):
+                bto_name += '.iso'
+
+        if options.bto_platform != None:
+            platform = options.bto_platform
+
+        #try to open the file as a user first so when it's overwritten, it
+        #will be with the correct permissions
+        try:
+            if not os.path.isdir(options.bto_dir):
+                os.makedirs(options.bto_dir)
+            with open(os.path.join(options.bto_dir, bto_name), 'w') as wfd:
+                pass
+        except IOError:
+            #this might have been somwehere that the system doesn't want us
+            #writing files as a user, oh well, we tried
+            pass
+
+        print('BTO ISO: %s (platform: %s, revision: %s)' % (os.path.join(options.bto_dir, bto_name),
+            platform, current_tag.revision))
+
+        print('List of drivers to be mixed into %s' % bto_name)
+        for fishie in drivers:
+            print(fishie)
+
+        # so what's happening here is two dbus functions are being called,
+        # create_ubuntu on behalf of assemble_image. The former handles the
+        # actual iso building process, while the later incorporates most
+        # of the cli args to produce the custom BTO
+        #
+        dbus_sync_call_signal_wrapper(iface, # D-Bus handle
+            'assemble_image',                # Explicit function call
+            {'report_progress':Install()},   # handles D-Bus progress updates
+            base,                            # baseline iso
+            drivers,                         # driver FISH packages
+            '',                              # application FISH packages
+            dell_recovery_pkg,               # specify pkg source
+            'create_ubuntu',                 # called by 'assemble_image'
+            current_tag.revision,
+            os.path.join(options.bto_dir, bto_name),
+            platform,
+            options.no_update)
+
+        print('Build complete: %s' % os.path.join(options.bto_dir, bto_name))
+    except dbus.DBusException as err:
+        if hasattr(err, '_dbus_error_name') and err._dbus_error_name == \
+                'org.freedesktop.DBus.Error.ServiceUnknown':
+            pass
+        else:
+            print('Received %s when closing recovery-media-backend '\
+                'DBus service' % str(err))
+    except Exception as err:
+        print(err, file=sys.stderr)
+        sys.exit(1)
+    finally:
+        iface.request_exit() # will call atexit in dell backend

@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" 
+	"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY app "Dell Recovery">
+]>
+<!--<?yelp:chunk-depth 4?>-->
+<!--
+      (Do not remove this comment block.)
+  Version: 2.0
+  Last modified: Mar 25, 2010
+  Maintainers:
+               Mario Limonciello <mario_limonciello@dell.com>
+               
+  Translators:
+               (translators put your name and email here)
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="en">
+  <!-- please do not change the id; for translations, change lang to -->
+  <!-- appropriate code -->
+  <articleinfo>
+    <title>Dell Recovery Manual</title>
+    <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2000</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+    <!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher>
+      <publishername>Ubuntu Documentation Project</publishername>
+    </publisher> 
+    &legal;
+    <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+    <authorgroup>
+      <author>
+        <firstname>Mario</firstname>
+        <surname>Limonciello</surname>
+        <email>mario_limonciello@dell.com</email>
+      </author>
+    </authorgroup>
+    <abstract>
+      <para>Creating and using &app; Media.</para>
+    </abstract> 
+  </articleinfo> 
+  <!-- ============= Document Body ============================= -->
+
+  <!-- ============= Introduction ============================== -->
+  <sect1 id="introduction">
+    <title>What is &app; for?</title>
+    <para>
+      &app; can be used in the event that something disastrous happens
+      to your computer causing it to not boot or perform as well as it did when
+      first shipped to you.
+    </para>
+    <para>
+      It's recommended that you create Recovery Media when you first receive a
+      machine, mainly so you don't forget until it's too late.
+    </para>
+    <para>
+      This tool can also be used to run recovery directly from the Hard Disk,
+      for the event that you have done something bad to the system causing to
+      perform suboptimally.  See <xref linkend="restoring-hdd"/> for details.
+    </para>
+  </sect1>
+  <sect1 id="create_mode">
+    <title>Creating Recovery Media</title>
+    <para>
+      To create recovery media, select the first option in the &app;
+      tool, titled "Build OS Media".  You will be asked what media type you want
+      to create.  The tool will dynamically detect what your machine supports and
+      only offer the appropriate type(s).
+    </para>
+    <figure id="media_types">
+      <title>Possible Media Types</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/media_type.png"
+                       format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>DVD, USB, ISO destination types</phrase>
+          </textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+    <para>
+      The amount of time it takes to create the recovery media will depend on a
+      variety of factors including but not limited to, system speed, memory quantity,
+      other runnings applications, and target media quality.
+    </para>
+    <para>
+      If you choose the "ISO" type media, the ISO image will be stored in your Downloads
+      folder within your home directory.  You can burn it to a DVD using any standard DVD burning
+      tools, and to a USB key using USB-Creator for Ubuntu.
+    </para>
+  </sect1>
+  <sect1 id="restoring">
+  <title>Recovering your system</title>
+  <para>
+  This section of the document will walk you through how to recover your system
+  from either the hard drive or recovery media that you previously created.
+  </para>
+    <sect2 id="restoring-hdd">
+        <title>Recovering from the Hard Drive</title>
+        <para>
+          If you encounter a scenario that your machine is misbehaving, but your recovery partition is
+          intact, you will be able to run the factory OS recovery from the hard drive.
+        </para>
+        <para>
+          If your machine is able to boot up and log into the OS, select the "Restore System" option in
+          the &app; tool.
+        <figure id="welcome-figure">
+          <title>&app; Welcome Screen</title>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="figures/welcome.png"
+                           format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </figure>
+        </para>
+        <para>
+          If your machine is unable to boot up, press shift at the BIOS screen to bring up the Ubuntu bootloader.
+          Select the last option on the list: "Restore Ubuntu to factory shipped state"
+        </para>
+        <figure id="grub-figure">
+          <title>GRUB OS Chooser</title>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="figures/grub.png"
+                           format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </figure>
+        <para>
+          Either scenario will bring up the following confirmation screen before proceeding with recovery.
+        </para>
+        <figure id="hdd-recovery-figure">
+          <title>HDD Recovery Confirmation Screen</title>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="figures/hdd-recovery.png"
+                           format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </figure>
+    </sect2>
+    <sect2 id="restoring-dvd-usb">
+        <title>Recovering from previously created recovery media</title>
+        <para>
+          If your machine is no longer booting and the recovery partition is not intact, you will be able
+          to run the recovery from the DVD or USB media you created earlier.
+        </para>
+        <para>
+        While booting your machine, press F12 at the BIOS post screen.  This will display a list of possible
+        device.  Choose the appropriate media that you burned earlier.
+        </para>
+        <figure id="bios-device-figure">
+          <title>HDD Recovery Confirmation Screen</title>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="figures/boot_options.png"
+                           format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </figure>
+        <para>
+        A Dell logo will appear.  Press enter to boot into the OS recovery wizard.
+        </para>
+        <para>
+        You will be brought to a recovery screen allowing you to rebuild entirely to factory state, or to resize
+        your existing OS install.  If you choose the second option, the installer will not build a 
+        recovery partition, but will keep all data intact.
+        </para>
+        <figure id="usb-recovery-figure">
+          <title>DVD and USB Recovery Screen</title>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="figures/usb-recovery.png"
+                           format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </figure>
+      </sect2>
+    </sect1>
+  <sect1 id="bto-media">
+    <title>Build-to-Order (BTO) Custom Images</title>
+    <para>
+      The &app; tool includes an additional more advanced mode that allows
+      you to apply additional granularity to the type of image that is generated.
+      This mode can be used to insert additional drivers, and applications
+      into the generated image.
+    </para>
+    <para>
+      If your system does not contain a recovery partition, the tool will automatically
+      launch in BTO builder mode.  If your system contains a recovery partition, but you
+      want to forcefully launch in BTO builder mode, run the tool from command line like below.
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>Command line</term>
+        <listitem>
+          <para>Execute the following command:
+          <command>dell-recovery --builder</command></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  <sect2 id="bto-base">
+    <title>Base OS image</title>
+    <para>
+      The first page in BTO builder mode is the base OS image.  Normally you will want
+      to select an Ubuntu ISO image to use.  It is recommended that you use a DVD or
+      custom built ISO image.  This is because CD based images won't contain some proprietary
+      drivers and language packages.  Due to this deficiency, there will be a reduced experience
+      when using them.
+    </para>
+    <para>
+      Alternatively, if you are running
+      the tool on a system with a recovery partition, one of the available options
+      will be to use that recovery partition for the base OS image.
+    </para>
+    <figure id="bto-base-figure">
+      <title>Base OS Page</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/base_os.png"
+                       format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </sect2>
+  <sect2 id="bto-fid">
+    <title>Factory Install Development (FID) Overlay</title>
+    <para>
+      The second page in BTO builder mode is the FID overlay
+      selection.  This is the special sauce that is added to all Ubuntu images to allow them
+      to work properly in a Dell factory environment as well as a custom recovery solution on
+      a customer's system.
+    </para>
+    <para>
+      If you are using a recovery partition or existing BTO image, you will be
+      able to optionally skip this page and use the FID overlay included in the image.
+    </para>
+    <para>
+      Otherwise, you will want to select the "FID framework enclosed in a debian package".  You will
+      be able to either build the debian package from the currently running dell recovery version
+      or provide a .deb from launchpad or a similar source.
+    </para>
+    <figure id="bto-fid-figure">
+      <title>FID Overlay Page</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fid.png"
+                       format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </sect2>
+  <sect2 id="bto-drivers">
+    <title>Drivers</title>
+    <para>
+      The drivers page allows additional unconditionally installed drivers or
+      scripts to fit into the OS installation process.  These can be in the form
+      of Debian packages (debs) or specially crafted FISH packages that are designed
+      to hook into the install process.  The details for these packages is out of the
+      scope of this help guide however.
+    </para>
+    <figure id="bto-drivers-figure">
+      <title>Drivers Page</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/driver.png"
+                       format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </sect2>
+  <sect2 id="bto-applications">
+    <title>Applications</title>
+    <para>
+      The applications page is only applicable to machines being installed within
+      a factory environment.  It allows you to add applications that are tied to
+      Service Release Vehicle identifiers (SRVs) so that they can be conditionally
+      installed during factory process.
+    </para>
+    <para>
+      One of the early steps of factory process will analyze the contents of System
+      Descriptor Record (SDR) to see which SRVs were called out in the order.  The
+      SRVs that are called out in the order will be included in the rest of the process.
+      Any SRVs that were not called out in the order will be removed from the target system.
+    </para>
+    <para>
+      When choosing to add an applicatin, you will be asked to provide the SRV associated with
+      it.  Without accurately filling in this data, the process will not install these applications.
+    </para>
+    <figure id="bto-app-figure">
+      <title>Applications Page</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/application.png"
+                       format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+  </sect2>
+</sect1>
+</article>

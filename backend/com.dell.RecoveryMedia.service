@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.dell.RecoveryMedia
+Exec=/bin/sh -c '. /etc/default/locale; export LANG; exec /usr/share/dell/bin/recovery-media-backend -l /var/log/dell-recovery.log'
+User=root

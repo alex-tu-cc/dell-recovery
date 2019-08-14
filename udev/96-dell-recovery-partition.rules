@@ -1,0 +1,12 @@
+ACTION!="add|change", GOTO="dell_rp_end"
+SUBSYSTEM!="block", GOTO="dell_rp_end"
+
+#Factory shipped Dell linux boxes will always have
+#the second partition as a vfat with label "OS" or "install"
+#shouldn't clash with windows factory shipped systems
+#which may have "OS" as the third partition
+
+ENV{ID_FS_TYPE}=="vfat", ENV{ID_FS_LABEL}=="OS|install", ENV{ID_PART_ENTRY_NUMBER}=="2", ENV{UDISKS_IGNORE}="1", ENV{ID_PART_ENTRY_SCHEME}=="gpt"
+
+LABEL="dell_rp_end"
+

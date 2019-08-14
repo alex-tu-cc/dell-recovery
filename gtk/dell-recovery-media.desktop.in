@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+_Name=Dell Recovery
+Type=Application
+Terminal=false
+Exec=dell-recovery
+Icon=dell-dvd
+Categories=System;Settings
+

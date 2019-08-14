@@ -1,0 +1,24 @@
+.TH "DELL-RECOVERY-MEDIA" "1" "23 MAY 2009" "" ""
+.SH "NAME"
+dell\-recovery \- dell recovery suite
+.SH "DESCRIPTION"
+\fBdell\-recovery\fP is a tool for generating recovery media
+for Dell factory shipped systems.  This media can then be used to rebuild
+a system with a factory image in the event of a hard drive failure.
+
+.SH "USAGE"
+dell\-recovery [\-h|\-\-help] [\-r|\-\-rp RP] [\-m|\-\-media TYPE] [\-|\-\-target TARGET] [\-o|\-\-overwrite]
+
+\-h, \-\-help	Shows the application usage
+
+\-r, \-\-rp 	Override detected recovery partition with this file.
+
+\-m, \-\-media	Specify the media type to be burning [usb,dvd,iso]
+
+\-t, \-\-target	Specify the location to store the image.
+
+\-o, \-\-overwrite	Automatically override existing files.
+
+.SH "AUTHOR"
+\fBdell\-recovery\fP is by Mario Limonciello <Mario_Limonciello@Dell.com>
+

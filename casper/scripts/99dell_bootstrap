@@ -1,0 +1,155 @@
+#!/bin/sh
+#
+#       <99dell_bootstrap>
+#
+#       Casper initramfs plugin.
+#        - prepare on-media pool
+#        - loads the ubiquity dell bootstrap plugin into place
+#        - ensures that it will run
+#
+#       Copyright 2008-2011 Dell Inc.
+#           Mario Limonciello <Mario_Limonciello@Dell.com>
+#           Hatim Amro <Hatim_Amro@Dell.com>
+#           Michael E Brown <Michael_E_Brown@Dell.com>
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+#
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#
+#       You should have received a copy of the GNU General Public License
+#       along with this program; if not, write to the Free Software
+#       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#       MA 02110-1301, USA.
+# vim:ts=8:sw=8:et:tw=0
+
+PREREQ=""
+DESCRIPTION="Running DELL bootstrap..."
+
+prereqs ()
+{
+	echo "$PREREQ"
+}
+
+case $1 in
+# get pre-requisites
+prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+. /scripts/casper-functions
+load_confmodule
+
+log_begin_msg "$DESCRIPTION"
+
+export DEBIAN_HAS_FRONTEND=
+export DEBCONF_REDIR=
+export DEBIAN_FRONTEND=noninteractive
+
+# Early emergency installer fix
+if [ -e /root/cdrom/scripts/emergency.sh ]; then
+    . /root/cdrom/scripts/emergency.sh
+elif [ -e /root/isodevice/scripts/emergency.sh ]; then
+    . /root/isodevice/scripts/emergency.sh
+fi
+
+if [ -d /root/isodevice ]; then
+    if [ -f /root/isodevice/.disk/info.recovery -a ! -f /root/isodevice/.disk/info ]; then
+	mount -o remount,rw /root/isodevice
+	cp /root/isodevice/.disk/info.recovery /root/isodevice/.disk/info
+	mount -o remount,ro /root/isodevice
+    fi
+elif [ -f /root/cdrom/.disk/info.recovery -a ! -f /root/cdrom/.disk/info ]; then
+    mount -o remount,rw /root/cdrom
+    cp /root/cdrom/.disk/info.recovery /root/cdrom/.disk/info
+    mount -o remount,ro /root/cdrom
+fi
+
+#Force ubiquity to run in automatic regardless if there are ubiquity options in /proc/cmdline (except single user mode)
+if ! grep -q "single" /proc/cmdline 2>&1 >/dev/null; then
+    sed -i "s/ubiquity=\$/ubiquity=1/; s/\$automatic\ \$choose/--automatic/" /root/etc/init/ubiquity.conf
+fi
+#if they use a ubiquity icon it needs to run in automatic
+if [ -f /root/etc/init.d/casper ]; then
+	sed -i "s/prompt=1$/prompt=/;" /root/etc/init.d/casper
+fi
+sed -i "s/Exec=ubiquity/Exec=ubiquity --automatic/" /root/usr/share/applications/ubiquity-gtkui.desktop 2>/dev/null || true
+
+#Build custom pool (static and dynamic)
+if [ ! -x /root/usr/share/dell/scripts/pool.sh ]; then
+    mkdir -p /root/usr/share/dell/scripts/
+    cp /scripts/pool.sh /root/usr/share/dell/scripts/
+fi
+chroot /root /usr/share/dell/scripts/pool.sh
+
+#install if not installed, otherwise this will upgrade
+chroot /root apt-get install dell-recovery -y --no-install-recommends
+
+#only if we are in factory or bto-a
+if chroot /root apt-cache show fist 2>/dev/null 1>/dev/null; then
+    chroot /root apt-get install fist -y
+fi
+
+###Set up all preseeds###
+# First test for and load override / configurations preseeds
+# - needs to be loaded first so that we know if we are dual boot
+for seed in dell-recovery gfx wlan; do
+    if [ -e /root/cdrom/preseed/$seed.seed ]; then
+        casper-set-selections /root/cdrom/preseed/$seed.seed
+    fi
+done
+
+# Now load all the defaults included in all installs
+casper-set-selections "/root/usr/share/dell/casper/seeds/ubuntu.seed"
+
+# If we have a dual boot option, load the dual boot preseed
+if db_get dell-recovery/dual_boot && [ "$RET" = true ]; then
+    casper-set-selections "/root/usr/share/dell/casper/seeds/dual.seed"
+fi
+
+# Lastly, reload the override / configurations preseeds so that it is allowed to override stuff from ubuntu.seed and dual.seed
+for seed in dell-recovery gfx wlan; do
+    if [ -e /root/cdrom/preseed/$seed.seed ]; then
+        casper-set-selections /root/cdrom/preseed/$seed.seed
+    fi
+done
+
+# if no efibootmgr in livefs, force it.  needed for stage1
+if [ -d /sys/firmware/efi ] && [ ! -x /root/bin/efibootmgr ]; then
+    chroot /root apt-get install efibootmgr -y
+fi
+
+# In case we're running a kernel not in the squashfs already
+# we need to load modules into squashfs somehow
+KERNELS=$(find /root/cdrom/kernel -maxdepth 1 -type d 2>/dev/null | sed "s,/root,,; /\/cdrom\/kernel\/$/d")
+if [ -n "$KERNELS" ]; then
+    for KERNEL in $KERNELS; do
+        ln -s $KERNEL /root/lib/modules
+    done
+fi
+
+# Clear out debconf database backup files to save memory.
+rm -f /root/var/cache/debconf/*.dat-old
+
+# Later emergency installer fixes
+if [ -d /root/cdrom/scripts/emergency-scripts ]; then
+    for script in /root/cdrom/scripts/emergency-scripts/[0-9]*; do
+        . $script
+    done
+elif [ -d /root/isodevice/scripts/emergency-scripts ]; then
+    for script in /root/isodevice/scripts/emergency-scripts/[0-9]*; do
+        . $script
+    done
+fi
+
+log_end_msg
+
+exit 0
+

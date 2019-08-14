@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+<policyconfig>
+
+  <!-- 
+    Policy definitions for RecoveryMedia system actions.
+    (C) 2009 Dell Inc
+    Author: Mario Limonciello <Mario_Limonciello@Dell.com
+  -->
+
+  <vendor>Dell Recovery Media Creation Tool</vendor>
+  <vendor_url>https://launchpad.net/dell-recovery</vendor_url>
+  <icon_name>dell-dvd</icon_name>
+
+
+  <action id="com.dell.recoverymedia.query_bto_version">
+    <_description>Query BTO Version</_description>
+    <_message>System policy prevents reading raw devices</_message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+  <action id="com.dell.recoverymedia.query_iso_information">
+    <_description>Query ISO Information</_description>
+    <_message>System policy prevents reading raw devices</_message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+  <action id="com.dell.recoverymedia.restore">
+    <_description>Restore to Factory state</_description>
+    <_message>System policy prevents changing system bootup</_message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+
+  <action id="com.dell.recoverymedia.driverinstall">
+    <_description>Install Dell driver packages</_description>
+    <_message>System policy prevents installing packages.</_message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+
+  <action id="com.dell.recoverymedia.create">
+    <_description>Create/Assemble Dell Recovery ISO</_description>
+    <_message>System policy prevents reading raw devices</_message>
+    <defaults>
+      <allow_any>auth_admin_keep</allow_any>
+      <allow_inactive>auth_admin_keep</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+
+  <action id="com.dell.recoverymedia.request_exit">
+    <_description>Request closing the backend</_description>
+    <_message>System policy prevents closing processes without notice</_message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+  <action id="com.dell.recoverymedia.force_network">
+    <_description>Toggle Network Connectivity</_description>
+    <_message>System policy prohibits changing network without user consent</_message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+  <action id="com.dell.recoverymedia.burn_dvd">
+    <description>Burn DVD</description>
+    <message>Authentication is required to burn DVD</message>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/share/dell/scripts/wodim-iso.py</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">TRUE</annotate>
+  </action>
+</policyconfig> 
+

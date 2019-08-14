@@ -1,0 +1,2463 @@
+dell-recovery (1.61~somerville3) bionic; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Fix the installation problem when the volume name of Intel RSTe SATA RAID
+    doesn't end with number. (Closes #67)
+  * Make sure the path is set properly in the recovery backend.
+  * Support mdraid.
+  * Support Persistent Memory storage.
+  * Support meta by distribution.
+
+  [ Li-Hao Liao (Leon Liao) ]
+  * Query BIOS ID via tag 1.
+
+  [ Yuan-Chen Cheng ]
+  * add lvm2 and cryptsetup to recommends so they won't be removed in
+    encrypted rootfs use case.
+
+ -- Shih-Yuan Lee (FourDollars) <sylee@canonical.com>  Thu, 24 Jan 2019 11:25:03 +0800
+
+dell-recovery (1.60) disco; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Change the order of the kernel parameter options to avoid the propagation
+    by accident.
+  * Reduce some PyGIWarning messages.
+  * Use the regional mirror site instead of the global mirror site.
+  * Renew .disk/ubuntu_dist_channel for ubuntu-report.
+  * Support the installation on Intel RSTe SATA RAID.
+  * Support UBUNTU_DRIVERS_BLACKLIST mechanism in fish tarball.
+
+  [ Mario Limonciello ]
+  * Correct the detection of location of /target when using LVM
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Mon, 05 Nov 2018 17:44:20 -0600
+
+dell-recovery (1.59) bionic; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Increase the swap file size for hibernate.
+  * wodim-iso.py needs the admin privilege to make it work properly. (Closes: #57)
+
+  [ Mario Limonciello ]
+  * Fix a unicode issue with SMBIOS strings.
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Fri, 27 Apr 2018 12:53:18 -0500
+
+dell-recovery (1.58) bionic; urgency=medium
+
+  * Depend on the missing python3-distutils.
+
+ -- Shih-Yuan Lee (FourDollars) <sylee@canonical.com>  Tue, 10 Apr 2018 12:51:27 +0800
+
+dell-recovery (1.57) bionic; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Fix the local repository.
+  * Provide early emergency script.
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Tue, 27 Mar 2018 16:06:12 -0500
+
+dell-recovery (1.56) bionic; urgency=medium
+
+  * Add detection for Wyse systems to force minimal install mode
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Wed, 21 Feb 2018 09:09:00 -0600
+
+dell-recovery (1.55) bionic; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Add an option for dell-bto-autobuilder not to update dell-recovery automatically.
+
+  [ Kevin Rustin Wang ]
+  * fix an EULA bug
+
+  [ kevin_rustin_wang ]
+  * fix collect log function bug
+
+  [ Mario Limonciello ]
+  * Simplify travis build rule
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Wed, 07 Feb 2018 09:59:44 -0600
+
+dell-recovery (1.54) bionic; urgency=medium
+
+  [ Mario Limonciello ]
+  * Never allow grubenv to propogate to ISOs
+
+  [ Alex Tu ]
+  * filter out ":amd64" string when comparing new installed packages name (#47)
+  * counting on dpkg --print-architecture to filter out architecture postfix from package name. (#47)
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Fri, 27 Oct 2017 10:24:15 -0500
+
+dell-recovery (1.53) artful; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Fix more crash since c8be7db6e07c3a51d21181f4f90e5379e8feac68.
+
+ -- Shih-Yuan Lee (FourDollars) <fourdollars@gmail.com>  Fri, 13 Oct 2017 13:42:23 -0500
+
+dell-recovery (1.52) artful; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Recommend the missing package for DVD recovery media since
+    062d0f220f2032fef550cea573a6257eddf4d0d8.
+  * Fix the crash since c8be7db6e07c3a51d21181f4f90e5379e8feac68.
+  * Import the missing packages since
+    dd1958f418e67cf7019e8ee0cb0777a79d0d437f.
+  * Redirect the messages to /dev/ttyprintk. (Closes: #44)
+
+ -- Shih-Yuan Lee (FourDollars) <fourdollars@gmail.com>  Wed, 11 Oct 2017 08:11:10 -0500
+
+dell-recovery (1.51) artful; urgency=medium
+
+  * New release.
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Tue, 10 Oct 2017 12:19:56 -0500
+
+dell-recovery (1.50) artful; urgency=medium
+
+  [ kevinkellyspacey ]
+  * fix the case when installation failed shown red screen in grub (#23)
+  * add dmesg.log info (#26)
+  * check the apt-intsalled package list is really installed or not (#28)
+
+  [ Mario Limonciello ]
+  * add documentation about modifying a factory image
+  * fix clean rule
+  * Add Travis CI support
+  * deploy .deb's when tagging with travis
+  * fix executable bit of docker build script
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Wed, 14 Jun 2017 14:43:29 -0500
+
+dell-recovery (1.49) yakkety; urgency=medium
+
+  [ Shih-Yuan Lee ]
+  * Prevent from the crash when empty string. (#12)
+
+  [ Mario Limonciello ]
+  * Allow debranded SMBIOS strings to let the system install
+  * Detect rebrand scenarios
+  * Add dmidecode to dependencies for previous commit
+  * Raise privilege check when checking vendor since dmidecode needs root
+  * Try to install a metapackage based upon BIOS ID
+  * update standards version
+  * drop related items to dell-recovery driver disablement
+  * add more informative information to the fail log
+
+  [ Shih-Yuan Lee ]
+  * Only search for the prefix 'String 2:' and lowercase the BIOS ID. (#13)
+
+  [ Kai-Heng Feng ]
+  * Include post-rts-gfx.cfg and post-rts-wlan.cfg on user launched
+    recovery. (#16)
+
+  [ kevinkellyspacey ]
+  * fixed BIOS bootorder issue (#17)
+  * regenerate the md5sum.txt during both ISO building and FI process (#15)
+  * fix the swap partition delete issue
+  * fix a bug about initrd.lz type when the file path has hidden dir
+  * support dual os log file and change the tal order at last
+  * add DUALSYS and DUALRCVY for dual os partitions
+  * optimize the collecting log function
+
+ -- Mario Limonciello <mario.limonciello@dell.com>  Thu, 08 Sep 2016 10:10:12 -0500
+
+dell-recovery (1.48) xenial; urgency=medium
+
+  [ Shih-Yuan Lee ]
+  * Don't set BootNext for 'ubuntu' boot entry. (LP: #1564236) (#7)
+
+  [ Kevin Rustin Wang ]
+  * Fix swap deleting not working properly
+
+  [ Mario Limonciello ]
+  * cleanup whitespace
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Thu, 14 Apr 2016 17:14:09 -0500
+
+dell-recovery (1.47) xenial; urgency=medium
+
+  [ Mario Limonciello ]
+  * Write out MokSBStateRT as well (LP: #1568658)
+
+  [ Ivan Hu ]
+  * MokSBStateSet: need the NON_VOLATILE attribute
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 13 Apr 2016 11:31:39 -0500
+
+dell-recovery (1.46) xenial; urgency=medium
+
+  [ Mario Limonciello ]
+  * Add initial templates for dual boot
+  * Adjust dual boot seed. 
+  * Drop support for jockey
+  * Don't install DKMS in all images (let dependencies pull it in if necessary)
+  * Fix HDD based restoration
+  * cleanup FIST even if it was installed outside debs/fist
+  * If we have MokSBState.efi available, install/activate it on target system
+  * For debugging purposes output efibootmgr output in every install into logs
+  * Remove references to omsk recovery
+
+  [ Kevin Rustin Wang ]
+  * add UBUNTU partiton check
+  * fix get and set UBUNTU partition label
+  * only put the dual_boot content into ubuntu.seed can work
+  * if exist /factory/dual_enable file,do dual boot
+  * label the '/' mounted partition UBUNTU as default
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Don't purge casper. (LP: #1558990)
+  * Keep dell-recovery-casper not purged by ubiquity. (LP: #1558990)
+  * Use oem-config-prepare instead of hacking systemd target.
+  * Fix the problem that EFI boot configuration cannot be persistent in VirtualBox VM.
+  * Fix the script for creating MokSBStateSet boot entry. (#6)
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 11 Apr 2016 15:38:54 -0500
+
+dell-recovery (1.45) xenial; urgency=medium
+
+  * Add gitignore
+  * Move to Vcs-git
+  * Set ESP size to 250M by default
+  * Call gnome-session-quit instead of using dbus directly. (Fixes: #1)
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 15 Mar 2016 08:30:58 -0500
+
+dell-recovery (1.44) xenial; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * grub-installer will install related grub packages. No need to install grub
+    packages in the casper script. (LP: #1548643)
+
+  [ Mario Limonciello ]
+  * If efibootmgr not found in livefs, install it.
+  * Wait for kernel to settle /dev/ nodes before trying to make filesystems. 
+  * Enable oem-config via late script/systemd.
+  * Remove feature to propogate kernel options into target system.
+    This means that they would be required in a package to add GRUB option.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 09 Mar 2016 00:45:23 -0600
+
+dell-recovery (1.43) xenial; urgency=medium
+
+  * Virtualbox treats HDD as removable now, don't exclude removable
+    from candidate disks.  Some more exclusions will probably come up
+    as necessary later.
+  * newer initramfs-tools requires ORDER to be built properly. Adjust
+    how dell-recovery-casper hook runs to satisfy it.
+  * Since changes to apt pool setup, apt-setup fails.  Touch a dummy file
+    to satiate it.
+  * fix gi.repository imports to no longer complain about version loading.
+  * usb-creator has dropped support for persistence, disable this function.
+  * cleanup /etc/apt/sources.list.d/dell.list on pool cleanup too.
+  * call Reboot instead of RequestReboot (which is no longer implemented by
+    gnome session manager).
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 01 Mar 2016 09:25:32 -0600
+
+dell-recovery (1.42) xenial; urgency=medium
+
+  * Shuffle pool command cleanup phase to avoid issues with new apt.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 26 Feb 2016 17:56:13 -0600
+
+dell-recovery (1.41) xenial; urgency=medium
+
+  [ Mario Limonciello ]
+  * Disable MSDM table check.  It caused previously unforseen negative
+    consequences that are more important than it's original intention.
+  * Only modify casper init script if it exists.
+  * update standards version
+
+  [ Shih-Yuan Lee (Fourdollars) ]
+  * Bypass the grub2-signed issue #1097570 and support multiple recovery partitions. (LP: #1482514)
+  * Backward compatible improvement for the recovery media creation.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 26 Feb 2016 17:22:48 -0600
+
+dell-recovery (1.40) wily; urgency=medium
+
+  [ Mario Limonciello ]
+  * Only allow running dell-recovery on systems without an MSDM table.
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Make a simple GTK+3 UI to burn DVD with the minimum speed by wodim. (LP: #1464130)
+  * Use nomodeset by default. (LP: #1471767)
+  * Add the backward compatible fix for the network manager. (LP: #1476151)
+
+  [ Tammy Yang (wanchingy) ]
+  * Add dell-recovery-lp1488786.patch to handle the exception
+    if sources.list does not exist. (LP: #1488786)
+
+ -- Tammy Yang <tammy.yang@canonical.com>  Thu, 27 Aug 2015 17:16:35 +0800
+
+dell-recovery (1.39) wily; urgency=medium
+
+  * Fix hiding OS partition with changes to no UP.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 18 Jun 2015 05:41:22 -0500
+
+dell-recovery (1.38) wily; urgency=medium
+
+  [ Mario Limonciello ]
+  * SUCCESS_SCRIPT: don't call /tmp/set_bootable anymore.
+  * Drop b-d on grub packages since GRUB bootloader isn't built anymore.
+  * To make debugging easier on VirtualBox, enable VirtualBox DMI ID.
+  * It's possible some xorriso output is too short, don't crash when this
+    happens.
+  * Don't build a utility partition into image anymore.
+  * Fix building of ISO images that are compliant to dd.
+
+  [ Chen-Han Hsiao (Stanley) ]
+  * Add dependency of smartmontools used in ubiquity/dell-bootstrap.py
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Always put 'ubuntu' in BootNext if any. (LP: #1454503)
+  * Enable oem-config/reboot. (LP: #1441493)
+  * Don't force failsafe graphics off. (LP: #1457741)
+  * Support both of UEFI BIOS and legacy BIOS in casper. (LP: #1454439)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 17 Jun 2015 08:36:50 -0500
+
+dell-recovery (1.37) wily; urgency=medium
+
+  [ Mario Limonciello ]
+  * Fix usb-creator failing to write bootloader with dropped legacy support.
+  * Set BootNext after first stage.  Should help with systems that are failing to
+    commit BootOrder immediately.
+  * Drop another instance of DRMK reference.
+
+  [ Chen-Han Hsiao (Stanley) ]
+  * Use utf-8 encoding for filename. (LP: #1441060)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 12 May 2015 18:04:14 -0500
+
+dell-recovery (1.36) trusty; urgency=medium
+
+  [ Mario Limonciello ]
+  * Fix issue with formatting eMMC devices.
+  * Fix ISO building now that we don't have GRUB 32 bit involved
+  * Generate ISO image using xorriso so that it can be written using dd.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 07 May 2015 21:06:27 -0500
+
+dell-recovery (1.35) wily; urgency=medium
+
+  * Fix UEFI secure boot installs working improperly.
+  * Create entries using efibootmgr rather than relying on auto-add behavior.
+    This is explicitly done to ensure the following paths are tested early:
+    - Auto add behavior (booting off live media).
+    - Adding an entry.
+    - Booting an added entry.
+  * Don't remove entries starting with \efi\boot\bootx64.efi.  These can possibly
+    be coming from process or another OS and need to remain.
+  * Merge in some of Woodrow's fix for NVMe support.
+  * Rename efi directory on RP to efi.factory so that it won't show up in
+    nvram menu.
+  * If efi.factory is found when building an ISO, rename in the target ISO.
+  * Drop aging code that allowed for setting up a dual boot configuration.
+    This code was never updated for GPT installs, and that's what we do now.
+  * Drop support for setting up MBR layout and legacy.  All new systems are
+    GPT + UEFI.
+  * Set hints in grub.cfg to be gpt disks.
+  * Drop EFI factory bootloader.  Instead rely on signed bootloader.  This means
+    in factory process that we'll need to make sure that an appropriate grubenv
+    is placed to satisfy the factory the install process.
+  * Drop support for BIOS flash via UP (only works in legacy)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 05 May 2015 15:41:29 -0500
+
+dell-recovery (1.34) trusty; urgency=medium
+
+  * Add more changes to ubiquity plugin for eMMC disks.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 07 Apr 2015 17:44:40 -0500
+
+dell-recovery (1.33) vivid; urgency=medium
+
+  * Preseed partman/confirm_nooverwrite to prevent a prompt in newer OS.
+  * Fix driver installer for a mistake made in python2-3 conversion.
+  * Skip any installation scripts with installer in them to avoid updating
+    installer in a live system.
+  * Rewrite the path of anything referring to /cdrom in driver installer.
+  * Any apt-get purge lines don't fail the driver installer.
+  * Run ubuntu-drivers and apt-get -f install after driver installer finish
+    to catch missing outliers that didn't already get installed and cleaned up.
+  * Prevent from the crash in the OOBE. (LP: #1380508)
+  * Don't follow HintSystem to determine if disk is in system.  This throws off
+    eMMC disks.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 18 Mar 2015 18:29:05 -0500
+
+dell-recovery (1.32) vivid; urgency=low
+
+  [ Mario Limonciello ]
+  * change vendor check to check more variables and check for Wyse.
+  * Fix swap check recipe.  It was checking the wrong variable for size_gb.
+  * Add a 7-day delayed popup when recovery media isn't created at OOBE.
+    It will be launched at login if later than the 7th day.
+  * If no UP or RP found send empty strings rather than None
+  * Set default partition name to be DIAGS instead of DellUtility.
+    (LP: #1431857)
+
+  [ Steven Wu ]
+  * Add support for selecting multiple FISH packages at a time.
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Fix the progressbar issue when restoring the system from recovery
+    partition. (LP: #1324342)
+  * Disable network during the installation. (LP: #1309410)
+  * Delete swap partition after disabled. (LP: #1284474)
+  * Fix disk_layout misjudgement issue. (LP: #1324394)
+  * If there is a Kylin overlay, set language to zh_CN.UTF-8. (LP: #1321607) 
+  * Increase the cushion of recovery partition up to 600mb.
+  * Improve emergency scripts support.
+  * Disable hibernate (S4) if RAM >= 4GB. (LP: #1284474)
+  * Use /casper/vmlinuz.efi instead of /casper/vmlinuz in grub menu entries.
+  * Fix no swap issue that makes no hibernate option. (LP: #1284474)
+  * Improve isodevice support.
+  * Manually install all matched DKMS packages instead of using autoinstall of
+    ubuntu-drivers-common.
+  * Add basic ubuntu-drivers autoinstall support and improve isodevice
+    support.
+  * udev/96-dell-recovery-partition.rules: Hide recovery partition.
+    ubiquity/dell-bootstrap.py: Avoid some issues from UEFI BIOS.
+  * Avoid some issues from UEFI BIOS.
+  * Fix the partition string decoding issue that causes the language page
+    missing issue and other issues about the recovery partition.
+  * Fix the potential factory issue for UEFI BIOS.
+  * Using `udevadm settle` to wait for the event queue to finish.
+  * Some disk's logical sector size is smaller than physical sector size so
+    that using 'optimal' alignment type to get better performance.
+  * Avoid using mkpartfs of parted. (LP: #1309410)
+  * Avoid using sleep_network in factory install. (LP: #1309410)
+  * Fix the wrong calculation of memory size. (LP: #1284474)
+
+  [ Shengyao Xue ]
+  * We disabled Ethernet in phase 1 and 2 of installation, now enable it back.
+    (LP: #1329148) 
+
+  [ Kai-Heng Feng ]
+  * Force using utf-8 when writing grub menu. (LP: #1416280)
+  * Add an additional size assertion when finding installation drive to avoid
+    installing on non-disk persistent block device (e.g. Realtek rts5139.)
+    (LP: #1401422)
+  * Explicitly specify UTF-8 encoding when opening multilingual files.
+    (LP: #1380900)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 09 Apr 2014 17:57:28 -0500
+
+dell-recovery (1.31) trusty; urgency=low
+
+  * refresh grub2 patches for trusty grub2 2.02~beta2-7.
+  * fix some deprecated usage of python3 w/ gtk
+  * drop argument in find_partitions()
+  * Update to udisks2.  Drop support for older udisks and devkit-disks
+    (LP: #1288253)
+  * debian/control: new standards version
+  * set booting kernel name to vmlinuz.efi now.
+  * drop old GRUB patches, only want to be booting to trusty+ now.
+  * disable dereference in building initrd.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 19 Mar 2014 00:30:55 -0500
+
+dell-recovery (1.30.1) trusty; urgency=medium
+
+  * Rewrite the python shebang path to /usr/bin/python3.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 20 Feb 2014 16:06:21 +0100
+
+dell-recovery (1.30) saucy; urgency=low
+
+  [ Michael Vogt ]
+  * debian/dell-recovery.postinst:
+    - use python3 -c 'import Dell' as its py3 only (LP: #1199776)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 30 Sep 2013 13:13:56 -0500
+
+dell-recovery (1.29) saucy; urgency=low
+
+  [ Mario Limonciello ]
+  * fix the prefix for grub2 ISO bootloader build.
+  * Add a basic tool for installing a BIOS update.
+  * During postinst if the BIOS update GRUB option wasn't installed during
+    OOBE, add it.
+  * Fix udev rules for udisks1->udisks2.
+  * Correct some misuses of request_mount causing crashes (LP: #1173688)
+  * Modify the ubiquity desktop file to run in automatic mode too in case
+    it was executed from that desktop file.
+  * Correct some deprecated GI imports.
+
+  [ Martin Pitt ]
+  * Dell/driver_gtk.py: Port from ConsoleKit to logind.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 02 May 2013 13:04:19 -0500
+
+dell-recovery (1.28) raring; urgency=low
+
+  [ Mario Limonciello ]
+  * Add another override for post rts deliverables to on ISO
+    grub configuration.
+  * Disable swap in very large memory configurations ( >32GB ).
+  * Split out swap test to avoid code duplication.
+  * Move os-prober test out of chroot section to guarantee passing
+    in other scenarios.
+  * Remove unused UUID statement from bootstrap.
+  * If preseeded to 'factory', automatically install to the first hard disk 
+    on the system.
+  * Fix a typographical error causing dell-recovery.seed, gfx.seed, and 
+    wlan.seed to not get loaded.
+  * Make the debconf updates work in stage 1 in the 'factory' preseeded 
+    automagic case.
+  * Rebase GRUB patches on GRUB 2.00
+  * recovery_backend: Set the genisoimage call to nonblocking on Popen.
+  * merge in precise GRUB patch reworks.
+  * build using ming-w64 rather than mingw32.
+  * drop extra has_key reference.
+  * grub-setup -> grub-bios-setup
+  * drop support for oneiric and precise.  enough has changed that
+    the code base won't work there anymore.
+  * Merge translations from LP.
+  New Driver Tool:
+  * Drop ancient modalias installation on 01-jockey late script.
+  * 01-jockey: Call update-initramfs w/ full path.
+  * recovery_xml: Return all matching nodes for a tag, not just one.
+  * recovery_common: Cleanup standalone files if in walk_cleanup list.
+  * recovery_common: Add an environment feature to fetch_output.
+  * recovery_common/dell-bootstrap: move ISO_MOUNT and CDROM_MOUNT.
+  * recovery_common/dell-bootstrap: Move upgrade and autoinstall calculation.
+  * Introduce new driver package installation tool.
+  * Add a helper script that can be used to manually upgrade an old format
+    package to be usable in driver package installation tool.
+  * Don't install signed bootloaders in the OS, require that we're booted into
+    them from the ISO and install from there.
+
+  [ Liu Hao-Ran ]
+  * No longer run with nomodeset to prevent kernel oops on quantal kernels.
+  * Set the security host for preseed.
+  * Add secure boot support.
+  * Adjust string for dell-recovery/disable-driver-install (LP: #1103810)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 25 Feb 2013 13:24:02 -0600
+
+dell-recovery (1.27build1) raring; urgency=low
+
+  * Rebuild against python3.3.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 26 Oct 2012 18:55:48 +0100
+
+dell-recovery (1.27) quantal; urgency=low
+
+  [ Mario Limonciello ]
+  * Forwardport fix from precise branch to fix 64GB SSD recipe.
+  * Add support to override preseed and GRUB cmdline configurations
+    for updated gfx and wlan peripherals.
+
+  [ Shih-Yuan Lee ]
+  * Add debug support for SVGDIR.
+
+  [ Adam Conrad ]
+  * xz-lzma has been rolled into xz-utils, as of 5.1.1alpha+20120614-1
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 20 Jun 2012 07:56:47 -0500
+
+dell-recovery (1.26) quantal; urgency=low
+
+  * Capture more debugging information in genisoimage failures in logs.
+  * Fix logic for adding updated dell-recovery deb to avoid double inclusions.
+  * Strip stdout when capturing information in debug mode.
+  * Add an extra stanza indicating what to do with existing EFI partitions
+    to workaround the regression caused by the fix to bug 855871.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 11 Jun 2012 18:24:08 -0500
+
+dell-recovery (1.25) quantal; urgency=low
+
+  [ Mario Limonciello ]
+  * Pass the destination as found in the SDR to target system.
+  * Drop OIE support.  Only used for 10.10 release.
+  * Fix lintian NMU override to include wildcard.
+  * debian/control: bump to standards 3.9.3.
+  * In builder mode, don't allow proceeding with an unknown base image.
+  * For default distributor (via lsb_release), make sure it's lower case.
+  * Don't allow the create_ubuntu backend to even attempt making ISO images
+    when the recovery partition only contains Windows.
+  * Enable logging by default on the backend to /var/log/dell-recovery.log
+  * Increase the debugging logging covereage on the backend.
+  * Output exceptions sent from the backend to frontend terminal too.
+  * Increase debugging logging for uuid writer.
+  * If no language set, preseed en_US.UTF-8 instead of en.
+  * Python 3 port:
+    - dell-bootstrap: Set the bootloader path to a raw string literal.
+    - ubiquity plugins: set shebang to python3 to match other ubiquity plugins.
+    - For fetch_output's subprocess call, encode data sent as utf8.
+    - Import GLib from gi.repository.
+    - Drop the debian_support version test in the GTK frontend.  Older versions
+      of dell-recovery will fail in more creative ways now.
+    - Add a quick hack around debian_support version test in the backend until
+      python3 support for python-debian shows up.
+    - Remove unused utf8_strings argument in python3 dbus.
+    - Drop python2 compatibility.
+    - debian/control: Add python3 build depends/depends/python stanzas
+    - debian/rules: Build for only python3.
+    - debian/control: drop python-vte
+    - debian/control: update to python3-progressbar recommends (not yet
+      in ubuntu though).
+    - Update bto autobuilder for changes in python3-progressbar.
+    - Fix dbus service activation unicode issues by sourcing 
+      /etc/default/locale before spawning service.
+    - Write new UUID in binary mode.
+  * Update translations from launchpad.
+  * dell-recovery-bootloader:
+    - Add a quantal set of patches.  Currently duplicated from precise.
+      Expectation is that during quantal GRUB2 will be updated and these
+      would no longer be symlinks to precise, so this will avoid an upgrade
+      problem.
+
+  [ Colin Watson ]
+  * Port to Python 3:
+    - Use Python 3-compatible print functions.
+    - Use "except Exception as e" syntax rather than the old-style "except
+      Exception, e".
+    - Use "raise Exception(value)" syntax rather than the old-style "raise
+      Exception, value".
+    - Only pass unicode=True to gettext.install in Python 2.
+    - Open subprocesses with universal_newlines=True when expecting to read
+      text from them.  On Python 2, this only enables \r\n conversion and
+      the like, but on Python 3 this also causes subprocess-related file
+      objects to read str rather than bytes.
+    - Use 'isinstance(obj, collections.Callable)' instead of 'callable(obj)'
+      in Python 3.
+    - Open files in binary mode where necessary.
+    - Use new-style octal literals.
+    - Use "key in mapping" rather than "mapping.has_key(key)".
+    - Port to python-apt 0.8 API.
+    - Use "dict.items()" rather than "dict.iteritems()".
+    - Make XML handling more explicit about binary/text distinctions so that
+      it works with Python 3.
+    - Modernise use of unittest methods.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 31 May 2012 17:11:43 -0500
+
+dell-recovery (1.24) precise; urgency=low
+
+  * Disable memory check for swap determination.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 23 Apr 2012 17:15:25 -0500
+
+dell-recovery (1.23) precise; urgency=low
+
+  * Disable unnecessary efiemu in the 32 bit factory bootloader.  Prevents
+    failed postinst due to grub2 1.99-18ubuntu1.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 22 Mar 2012 17:02:41 -0500
+
+dell-recovery (1.22) precise; urgency=low
+
+  * Drop new_autotools.patch.  It's no longer necessary with GRUB2 
+    1.99-17ubuntu1.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 07 Mar 2012 16:31:31 -0600
+
+dell-recovery (1.21) precise; urgency=low
+
+  * If any directories are found in /kernel on the CD, symlink them
+    into /lib/modules on the overlayfs to ensure that alternate kernels
+    can be loaded.
+  * If 'prepackage.dell' is found in a tarball, ignore it.  Only applicable
+    for other tools that will be processing packages.
+  * Merge translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 14 Feb 2012 18:57:06 -0600
+
+dell-recovery (1.20) precise; urgency=low
+
+  * Backport support for newer autotools to the precise set of grub patches.
+    (LP: #928881)
+  * Make the oneiric patches individual symlinks to precise patches rather
+    than a full symlinked directory.
+    - Add a preinst to clean up the old scenario.
+  * debian/control:
+    - Bump standards version.
+  * Make 99_dell_recovery executable in source package.
+  * Override more lintian warnings we don't care about.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 09 Feb 2012 00:54:49 -0600
+
+dell-recovery (1.19) precise; urgency=low
+
+  * B-d on lsb-release too.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 16 Jan 2012 16:12:34 -0600
+
+dell-recovery (1.18) precise; urgency=low
+
+  * Fix bootloader build test so it works on machines without dell-recovery
+    already installed too to avoid a circular dependency.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 16 Jan 2012 15:37:10 -0600
+
+dell-recovery (1.17) precise; urgency=low
+
+  * When showing the install complete screen, set the timeout to -1.
+  * Include the 'vbe' module in factory mode too.
+  * Add a test to make sure most GRUB binaries will build in the chroot.
+  * Build depends on grub-efi-amd64-bin and grub-pc-bin to make sure we test
+    building those bootloaders.
+  * Remove the theme README (unnecessary)
+  * Disable PNG optimization.  Causes problems with GRUB2 theme (GRUB2 can't
+    read indexed PNG's).
+  * Make GRUB2 theme text white instead of black.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 16 Jan 2012 14:50:35 -0600
+
+dell-recovery (1.16) precise; urgency=low
+
+  * When building binaries in grub/build-binaries.sh, also build an i386-pc 
+    DVD/USB bootloader.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 10 Jan 2012 09:39:21 -0600
+
+dell-recovery (1.15) precise; urgency=low
+
+  * Update all screenshots in the help document to a current version.
+  * Include a GRUB2 theme based on the default GRUB2 upstream theme.
+  * If either an i386-pc or x86_64-efi based GRUB is found in the base image
+    copy the theme in place.
+  * If copying in the GRUB theme, check that the dejavu fonts are already
+    generated.  If not, create them.
+  * In the grub.cfg files sourced before loading the common one on ISO/USB
+    boot, load the appropriate backends first.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 09 Jan 2012 19:45:45 -0600
+
+dell-recovery (1.14) precise; urgency=low
+
+  * Correct the location that GRUBCFG gets written in the binary writing tool.
+  * Remove all instances of #UUID# not just the ones that start on the line.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 03 Jan 2012 17:26:26 -0600
+
+dell-recovery (1.13) precise; urgency=low
+
+  [ Mario Limonciello ]
+  * Include some updated patches from tyson for XML parsing in bad BIOS
+    scenarios.
+  * If no matching rec_part initially (blank disk) then don't crash
+  * Don't build grub.cfg again if building binaries from bootstrap.
+  * Query the release that we're running on to figure out whether to
+    use patches for that release when building grub-setup.exe.
+  * Include patches for both trunk and precise.
+  * Fix file cleanup for dell-recovery-bootloader during purge.
+
+  [ David Chen ]
+  * Update the maximum size of a partition in the ubuntu.seed recipe
+    to make sure partman doesn't make bad decisions about swap partition
+    size when working with a >=2TB HDD.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 14 Dec 2011 18:02:03 -0500
+
+dell-recovery (1.12) precise; urgency=low
+
+  [ Mario Limonciello ]
+  * Update bootloader patches to current grub2-trunk.
+  * Add support to run GRUB2 binary builder out of tree via environment
+    variables.
+  * Add a 10 second countdown and automatic reboot at the end of stage 1.
+  * Call emergency.sh as LAST item in casper.
+  * If running in persistent mode, forcefully regenerate the apt-cache
+    on boot.
+  * Copy files using a blacklist excluding casper-rw rather than an all
+    inclusive whitelist.  Fixes problems with persistence and dell-recovery.
+  * Update the GPT utility partition creation logic.  (LP: #877858)
+  * Capture the state of all packages after post install scripts to prevent
+    bad interactions with remove_oem_extras after ubiquity r5804
+  * Update README for more current information.
+  * Don't regenerate the UUID during stage 1 anymore.  Instead, pre-populate
+    the disk's UUID on the kernel command line of the target install.
+    Requires casper 1.290 or later to work.
+  * Add some preseeded language fixes that are reactive to casper 1.289 
+    from precise and 1.287.1 from oneiric. (LP: #888298)
+    - Don't preseed the language in a standard preseed file as it overrides
+      casper's attempt at setting the language.
+    - Don't let dell-bootstrap set language based on locale.  Only have it
+      set English if no other language has been specified yet.
+  * Create a flag on the disk filesystem to indicate an install is in progress.
+  * Remove the casper UUID in SUCCESS_SCRIPT as well as stage 1 of recovery.
+    This will prevent the RP from booting unless the UUID is present on 
+    /proc/cmdline.
+  * Don't include grubenv in the files that go in /factory on install media.
+  * Include a grub.cfg script that will be copied into the recovery media and
+    source the proper location of installs in progress.
+  * Always set install_finished on completion to ensure sticks aren't booted
+    again.
+  * Unset install_finished when mounting the RP during OOBE.
+
+  [ Kent Baxley ]
+  * Preseed chinese installs as zh_CN.UTF-8 rather than just zh_CN.  Fixes
+    translation problems for chinese factory installs. (LP: #879114)
+
+  [ Chen Hsin-Yi ]
+  * Encode all strings stored in XML as UTF-8. (LP: #890113)
+  * Add a unit test to test for bug 890113.
+
+  [ Chris Townsend ]
+  * Fix pyflakes error of assigned but unused variable 'e' from UTF-8 XML
+    patch.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 17 Nov 2011 19:04:21 -0600
+
+dell-recovery (1.11) oneiric; urgency=low
+
+  * If dell-eula is in the pool mark it for installation.  No changes for livefs
+    type installs.
+  * Only do the extra check for OS prober disable when using FIST.
+  * Update translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 06 Oct 2011 16:07:30 -0500
+
+dell-recovery (1.09) oneiric; urgency=low
+
+  * In EFI installs, make sure to preseed the disk layout question to ensure
+    the MBR isn't rewritten in the cleanup stages.
+  * In late scripts, double check that os-prober is disabled.  On EFI installs
+    GRUB gets reinstalled, so the conffile might not persist.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 28 Sep 2011 13:42:11 -0500
+
+dell-recovery (1.08) oneiric; urgency=low
+
+  * grub-setup.exe: ignore failures in the embedding test that may be caused by
+    seek errors.
+  * grub-setup.exe: set root_dev to dest_dev for the case that DEVICE needs to
+    be specified (avoiding having to add -r for the same argument).
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 26 Sep 2011 16:05:30 -0500
+
+dell-recovery (1.07) oneiric; urgency=low
+
+  * Whoops, actually make the change I was talking about in 1.06.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 14 Sep 2011 10:29:41 -0500
+
+dell-recovery (1.06) oneiric; urgency=low
+
+  * Recommends on dpkg-dev to fix mingw32 grub-setup.exe build.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 14 Sep 2011 10:18:50 -0500
+
+dell-recovery (1.05) oneiric; urgency=low
+
+  * If binaries already have been built for dell-recovery-bootloader, don't
+    build them again.
+  * Clean up all dell-recovery-bootloader built binaries on purge.
+  * Drop devicekit-disks references.
+  * Add extra variables to hide EFI recovery partition as well as legacy
+    recovery partition.
+  * Add support to build grub-setup.exe for a mingw32 target in postinst.
+  * Add depends of ubiquity for dell-recovery-bootloader and -casper to force
+    them to be removed during OOBE.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 13 Sep 2011 12:52:05 -0500
+
+dell-recovery (1.04) oneiric; urgency=low
+
+  * Drop all code related to setting default u/i.  The u/i is always
+    unity now, it will be 2D or 3D depending on the level of support
+    of the graphics stack.
+  * Pass utf8_strings=True to connect_to_signal handlers to fix handling
+    of unicode directories for storing ISOs
+  * Update translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 09 Sep 2011 17:52:51 -0500
+
+dell-recovery (1.03) oneiric; urgency=low
+
+  * Move all the "code" from dell-recovery-bootloader to it's own script
+    so that it can be invoked from other places too.
+  * Store all GRUB configs in /factory from now.  Don't use /boot/grub
+    as that's where the on disk bootloaders will land for EFI as well
+    as later MBR installs.
+  * Don't use grub-install at all.  Always build bootloader binaries
+    ourselves that rely items in /factory.
+  * Set up the FAIL and SUCCESS scripts to work out of /factory for grubenv.
+  * Reinstall GRUB to the MBR on fail if fist isn't around and not EFI.
+  * Add missing RP declaration in FAIL-SCRIPT.
+  * Lookup the recovery partition on demand during oem-config early
+    command in case the devices were different during install.
+  * Depending on when FAIL_COMMAND happened, we might have mountpoints.
+    Clean them up.
+  * Delay the write of the new MBR until the last step in the set active
+    partition command.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 08 Sep 2011 17:55:42 -0500
+
+dell-recovery (1.02) oneiric; urgency=low
+
+  * Install prebuilt GRUB to MBR and newly built GRUB to RP when possible.  
+    - This allows a more complete emulation of factory process by reusing
+      the prebuilt GRUB in the recovery scenario too.
+    - The GRUB on the RP will only be used to RED screen after the MBR is
+      replaced.
+  * Only delete *.{dll|exe|bat} from /factory so that prebuilt GRUB binaries
+    can be reused in other scenarios too.
+  * Include the embedded GRUB configuration for prebuilt i386 and x86_efi-efi
+    binaries.
+  * Allow building both x86_64 and i386-pc prebuilt images if the -bin packages
+    are installed for both.
+  * Recommends grub-pc-bin and grub-efi-amd64-bin instead of grub-pc and 
+    grub-efi-amd64.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 07 Sep 2011 14:03:58 -0500
+
+dell-recovery (1.01) oneiric; urgency=low
+
+  * produce both i386-pc and x86_64-efi outputs in dell-recovery-bootloader.
+  * Don't install grub to the RP during stage 2 anymore (no longer necessary
+    with grub-setup in PE).
+  * During stage 1 of recovery, if a pre-built EFI bootloader is present,
+    install that rather than building a new one.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 31 Aug 2011 14:31:11 -0500
+
+dell-recovery (1.00) oneiric; urgency=low
+
+  [ Kent Baxley ]
+  * Move lzma and xz-lzma to "Depends" instead of "Recommends"
+  * Fixed parted syntax error when naming the EFI System Partition in dell-boostrap.py
+
+  [ Mario Limonciello ]
+  * Clean up a bunch of pyflakes warnings and unused imports.
+  * Add python syntax tests to clean rule, borrowed from ubiquity,
+    Thanks Evan.
+  * Merge with the natty EFI branch:
+    - Add some new options for preseeding UP and RP.
+    - Default the UP, RP, OS, Swap partitions to be dynamically determined.
+    - Add a partition map to configure for either EFI, dual boot, or MBR installs.
+    - Name the EFI system partition "EFI System Partition" to match partman-efi.
+    - Match case insensitive on labels when trying to find partitions.
+  * Default the recovery partition to be called 'OS'
+  * Import translations from launchpad.
+  * Merge the oneiric PyGI branch.
+    - Convert all ubiquity pages to PyGI/Gtk3
+    - Convert OIE to PyGI
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 18 Aug 2011 12:26:57 -0700
+
+dell-recovery (0.99) oneiric; urgency=low
+
+  [ Kent Baxley ]
+  * Fixed versioning comparison error in recovery_advanced_gtk.py.
+  * Fixed memory calculation issue. (LP: #817610)
+
+  [ Mario Limonciello ]
+  * Convert the userspace application and daemon to PyGI and GTK3.
+  * Correct chroot.sh's test for a symlink.
+  * Fix the path of the driver disable func in dell-bootstrap. (LP: #790108)
+  * Update late bind mounts to use /run rather than /var/run.
+  * Add missing debhelper token to dell-recovery-bootloader postrm
+  * Add missing ${misc:Depends} to other packages in debian/control.
+  * Update standards version.
+  * Switch to dh_python2.
+  * Add recommends for lzma (needed on the backend when creating custom ISOs)
+  * Drop support for GIT FID overlays.  It's been unused for about 1 year now.
+    All FID overlays should be in packages.
+  * Fix the spacing in the tool_selector widgets from GTK3 transition.
+  * Fix the line wrapping in the builder widgets from GTK3 transition.
+  * Move both of the built in pages outside of the wizard declaration to make them
+    easier to edit.
+  * Update the network manager sleep/wake call for stuff used with the new API.
+  * Prepopulate the new Gtk.Assistant sidebar with titles rather than individually.
+  * Shorten titles of all pages since they now show in Gtk.Assistant sidebar.
+  * Fix python aptdaemon for gtk3 transition.
+  * Merge the natty EFI fixes branch:
+    - Don't fail if /mnt/efi already exists in EFI install.
+    - Install to EFI with the correct command.
+    - Copy conf files to EFI system partition when applicable.
+    - Set up the GRUB graphics and terminal for EFI.
+    - Drop grub-pc to Recommends on dell-recovery-bootloader, but
+      offer reduced functionality in the postinst when doing so to stop the
+      installer from throwing a hissy fit about removing the bootloader package.
+    - Disable failsafe graphics by default when installing in EFI mode.
+    - Name the EFI system partition "ESP".
+  * Import translations from LP.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 03 Aug 2011 13:06:52 -0500
+
+dell-recovery (0.98.2) natty-proposed; urgency=low
+
+  * Fixed memory calculation issue. (LP: #817610)
+
+ -- Kent Baxley <kent.baxley@canonical.com>  Thu, 28 Jul 2011 11:02:55 -0500
+
+dell-recovery (0.98.1) natty-proposed; urgency=low
+
+  * Move os-prober out of $PATH if installing to a single OS machine to prevent
+    WinPE from setting off os-prober during grub-installer. (LP: #771560)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 26 Apr 2011 20:27:21 -0500
+
+dell-recovery (0.98) natty; urgency=low
+
+  * Check the extensions of all initrd's found in casper directories to avoid
+    clashing in images that have more than one kernel in the squashfs.
+    (LP: #737058)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 25 Apr 2011 13:01:07 -0500
+
+dell-recovery (0.97) natty; urgency=low
+
+  * dell-default-ui: If chinese install, force to 2D unity.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 15 Apr 2011 10:38:19 -0500
+
+dell-recovery (0.96) natty; urgency=low
+
+  * Revert "Check UP for SDR in MFG Media".  Caused problems with factory process.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 14 Apr 2011 16:07:45 -0500
+
+dell-recovery (0.95) natty; urgency=low
+
+  * If destination in SDR on recovery partition is CN, set the language to zh_CN.
+  * Check UP for SDR in MFG Media.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 11 Apr 2011 16:05:07 -0500
+
+dell-recovery (0.94) natty; urgency=low
+
+  * debs go into debs not debs/main.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 08 Apr 2011 12:22:39 -0500
+
+dell-recovery (0.93) natty; urgency=low
+
+  * Fix missing OIE argument in recovery media generation from OOBE.
+  * Sleep the network for the duration of the install in stage 2.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 07 Apr 2011 16:06:44 -0500
+
+dell-recovery (0.92) natty; urgency=low
+
+  * casper/bootstrap: If an MBR was backed up before install started, restore it
+  * ubiquity/bootstrap: If an MBR was backed up before install, don't restore DRMK
+    or syslinux MBR's.
+  * late: On bind mounts, create a compatibility symlink for /media/cdrom.
+    - Fxies installation of packages in late.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 30 Mar 2011 15:06:03 -0500
+
+dell-recovery (0.91) natty; urgency=low
+
+  * Move the choose-mirror sed workaround into SUCCESS_SCRIPT.  Fixes problems
+    with apt cache during install. (LP: #737066)
+  * Explicitly remove all APT Package lists at the end of install to guarantee
+    success during oem-config.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 22 Mar 2011 20:04:32 -0500
+
+dell-recovery (0.90) natty; urgency=low
+
+  * Remove grubenv in dell-recovery-bootloader postinst too.
+  * Make sure to align partitions properly and to start on 1M boundary instead.
+  * Force a cleanup of memory used for apt cache.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 17 Mar 2011 16:54:39 -0500
+
+dell-recovery (0.89) natty; urgency=low
+
+  * Fix a corner case found for injecting dell recovery.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 04 Mar 2011 12:17:16 -0600
+
+dell-recovery (0.88) natty; urgency=low
+
+  * Don't run os-prober during install unless dual boot.
+  * debian/control:
+    - Depends on dpkg-repack.
+  * If the dell-recovery instance is running from the same series
+    (eg natty) as the recovery partition:
+    - Check the latest version in the recovery partition
+    - Compare to the running version.  
+    - If the running version is newer, include it in the new image 
+      that was generated.
+    - This is meant for the SRU case.  If an SRU is pushed for say 0.88.1
+      then that SRU could be included in target media too.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 03 Mar 2011 16:40:41 -0600
+
+dell-recovery (0.87) natty; urgency=low
+
+  * Fix disk creation in non DRMK case.
+  * A bit of an experiment:
+    - Force installation to run in safe graphics mode.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 02 Mar 2011 14:25:55 -0600
+
+dell-recovery (0.86) natty; urgency=low
+
+  * Drop the hack for LP: #650703 now that there is a proper solution in ubiquity.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 20 Feb 2011 06:08:39 -0600
+
+dell-recovery (0.85) natty; urgency=low
+
+  * Add a hack for LP: #650703 to not allow oem-config to start on the rc
+    runlevel stopping to prevent a race between gdm and oem-config.
+    - If a proper solution is added to oem-config/ubiquity, this hack can
+      be dropped.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 14 Feb 2011 18:40:40 -0600
+
+dell-recovery (0.84) natty; urgency=low
+
+  * OIE Archives: use tar format instead of tar.gz.
+    - This is mostly because of limitations of tar.exe for WinPE.
+    - A lot of the content (debs and squashfs) are already compressed using gzip,
+      bz2, or lzma anyway.
+  * Include a grubenv in factory config.
+  * In recovery partition grub.cfg, use $prefix rather than hardcoding.
+  * In recovery partition grub.cfg, use -- to delimit the end of line.
+  * After SUCCESS, clean up the factory directory (regardless of if this was
+    a factory install).
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 10 Feb 2011 17:45:27 -0600
+
+dell-recovery (0.83) natty; urgency=low
+
+  * Move the UP partition writing code to common so it can be called more easily
+    outside of ubiquity if necessary.
+  * Rewrite the UP bootsector if running in OIE mode.
+  * dell-recovery-bootloader:
+    - Set the prefix to /factory.
+  * In OIE mode, generate a gzip'ed tarball rather than ISO image.
+  * Create OIE images in their own directory.
+  * Create an OIE diskpart recipe with the OIE image (w/ cushion of 300mb).
+  * Update translations from Launchpad.
+  * Update OIE help page for above changes.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 10 Feb 2011 00:33:54 -0600
+
+dell-recovery (0.82) natty; urgency=low
+
+  * Preseed the new ubiquity/poweroff parameter to false for the standard
+    recovery process to allow the reboot to work by default.
+  * Update SUCCESS/FAIL late scripts to the updated location for grubenv.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 05 Feb 2011 01:16:46 -0600
+
+dell-recovery (0.81) natty; urgency=low
+
+  * In the wizard and in bto autobuilder offer a new option to run an image in
+    OIE mode.  This connects the image through all of the plumbing from 0.80
+    and also disables it after the first successful run through.
+  * With several different distinct installation methods, we don't know how we
+    booted necessarily.  However, for a utility partition to function, a DOS
+    MBR is required by the end of install.  Test the MD5 of the first 440 bytes
+    of the MBR to make sure that it's one that we support.
+  * Add support on the OIE page to specify custom scripts for SUCCESS or FAIL
+    scenarios.
+    - Update the BTO autobuilder
+    - Update the GTK page
+    - Update the backend
+    - Update the documentation
+  * Update translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 03 Feb 2011 18:44:44 -0600
+
+dell-recovery (0.80) natty; urgency=low
+
+  * If the kernel command line option 'oie' is found, enable OIE
+    green/red screen.
+  * Turn off OIE image runs after install.
+  * BTO Autobuilder:
+    - Touch the file as the user running autobuilder so it's owned by them rather
+      than root when finished.
+    - Add support for [native] isos.
+  * Don't propogate dell-recovery configuration options through the command line.
+    Instead store them in preseed/dell-recovery.seed on the recovery partition.
+  * Support reading in old preseed/dell-recovery.seed from recovery partition
+    before starting.
+  * Fix the default preseed to not ask questions about the keyboard for newer
+    versions of console-setup in natty.
+  * Make OIE a debian template that can be preseeded and enabled from the GUI.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 01 Feb 2011 02:18:38 -0600
+
+dell-recovery (0.79) natty; urgency=low
+
+  * Update UI setting logic to the current names of sessions in 11.04. It will
+    still need to be adjusted based upon requirements.
+  * Run usb-creator-gtk under dbus-launch too.  It seems to allow more errors
+    to propogate up when necessary.
+  * Disable UI overrides.  Default to Unity on all devices for now.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 20 Jan 2011 15:54:44 -0600
+
+dell-recovery (0.78) natty; urgency=low
+
+  * Correct a rounding error when calculating the size of the resultant utility
+    partition during recovery that would cause otherwise failed recoveries.
+  * Add a more in depth workaround for bug 700910.
+  * Create 'reset' modalias files to block driver installation.
+  * Automatically mark all upgradable packages in the apt cache for upgrade.
+  * Store ISOs created during OOBE in the user's Downloads directory
+  * Add an optional method to directly invoke the burner during first boot.
+    (disabled initially)
+  * Attempt to invoke 'usb-creator-gtk' as the user 'oem' to help work around
+    SIGSEGV's happening when launched as root.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 18 Jan 2011 20:26:15 -0600
+
+dell-recovery (0.77) natty; urgency=low
+
+  * bootstrap: set the proper types in the population array.  New GTK seems to be
+    more picky.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 12 Jan 2011 10:33:12 -0600
+
+dell-recovery (0.76) natty; urgency=low
+
+  [ Mario Limonciello ]
+  * Add a new binary package, dell-recovery-bootloader.
+  * Translate the recovery line that is inserted into grub.cfg based
+    upon the initial language selected during OOBE.
+  * Include a Chinese translation of the above.
+  * Use dbus-launch to start brasero (LP: #698347)
+  * Remove superfolous --set parameters in grub.cfg's.
+  * Adjust to current modules available in natty for bootloader postinst.
+  * If the utility partition is corrupted, abort DRMK install, but don't
+    cause the installer to crash.
+  * If a package specifies a modaliases field, don't mark it for automatic
+    installation if it's in debs/main.
+  * Mark Jockey to install both free and non-free drivers.
+  * On native BTO compatible images make sure to record in bto.xml that they're
+    native during stage1.
+  * On native BTO compatible images also record the date during stage1.
+  * Add a test for bug 700910.  If encountered, skip that phase of install.
+  * Update translations from Launchpad.
+
+  [ Bryan Kemp ]
+  * Updated Error string for non Dell/Alienware Systems  
+  * Added support for Alienware platforms 
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 11 Jan 2011 01:46:01 -0600
+
+dell-recovery (0.75) natty; urgency=low
+
+  * Adjust the memory calculation to use /sys/firmware/memmap as 
+    dmi-available-memory is no longer available in natty.
+  * Check for an omsk recovery option in /proc/cmdline and in the squashfs
+    during the initrd.  If it's found, don't run standard recovery/install.
+  * Make sure /var/log/syslog actually exists before backing it up.
+  * Check for running on an omsk image, and force dual boot to true if so.
+  * During OOBE save the first set language as the language that recovery
+    from HDD is ran as. (LP: #687480)
+  * When the grub menu is regenerated, make sure LANG is properly set.
+  * Fix widget translation for gtk Buttons.
+  * Fix a backend crash when running in a more translated chinese.
+  * Fix a backend crash with unicode paths.
+  * Make sure the GRUB locale is properly set before rebooting in recovery.
+  * Update translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 14 Dec 2010 23:25:52 -0600
+
+dell-recovery (0.74) natty; urgency=low
+
+  * Reset the location that grub is installed and looked for on the RP
+    to be /boot/grub rather than /grub.
+    - This has implications for the dual boot configuration.  Now to 
+      activate a reinstall, /boot/grub/grub.cfg needs to be placed on the
+      recovery partition.  The logic will still prefer one on the OS paritition
+      however.
+    - This also means that 0.74 and later are incompatible with any earlier
+      BTO frameworks.  If this is used on something earlier than 11.04, then the
+      integrated BTO framework from this package should be used instead.
+  * If an image already provides a grub.cfg or common.cfg in /boot/grub, back
+    it up to $file.old while building a recovery partition and restore it when 
+    rebuilding the image again.
+  * Check that the RP is actually a Linux RP before adding to the grub.cfg.
+  * Test for 99_dell_recovery rather than trusting find_partitions when offering
+    the recovery from the OS option.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 10 Nov 2010 17:35:46 -0600
+
+dell-recovery (0.73) natty; urgency=low
+
+  * Fix the dual boot seed's command a little
+  * Add support to boot loopback mounted ISO images on the recovery partition.
+    - They must be titled 'ubuntu.iso' to function because some parts of the
+      code can't dynamically detect the filename.
+  * Run oem-config early and late commands from a shell script rather than a
+    long chained list of && commands.
+  * Remove the functionality of setting the pool command.
+  * Add a new black_tree function that copies files off of a blacklist.
+  * Only mount the ISO for SDR explosion when in a non-standalone ISO.
+  * Add support for installing to a primary or logical partition.
+  * When installing in logical partition mode, generate g2ldr on the
+    partition of the primary OS.
+    - This will chainload a /grub/grub.cfg from the recovery partition
+      for recovery purposes.
+    - This will chainload a /boot/grub/grub.cfg from the Linux OS partition
+      for standard purposes.
+  * Copy grub configuration files to the RP in dual boot mode so they can be
+    executed from a Windows utility.
+  * Build g2ldr earlier so that it can be used during install.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 03 Nov 2010 00:49:00 -0500
+
+dell-recovery (0.72) natty; urgency=low
+
+  * Pull a lot of the FID tree directly into this package.
+  * Add a new package, dell-recovery-casper intended to be installed in a livefs
+    seed in order to add dell-recovery support directly to an initrd.
+  * Detect if there is no scripts/bootstrap.sh in image, then try to put it into
+    the initrd.
+  * Set the recovery_type to a new "dynamic" setting by default.  This will probe
+    for recovery partitions to find one that matches the booted device.
+  * Modify the dual boot seed option to now be boolean.
+  * Add support for a deb only FID overlay.
+  * Test the initrd for containing 99dell_bootstrap too.
+  * Show a spinner while testing the initrd (it can take a while now).
+  * Produce a bto.xml rather than a collection of bto_* files.
+  * Allow any return arguments for dbus_sync calls.
+  * Only write out an xml file with padding if it's a new file.
+  * Merge in the manufacturing site time zone logic.
+  * Move the utility partition code out of this package and into a new dell-drmk
+    package.
+  * Add missing dependency on genisoimage.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 15 Oct 2010 16:48:24 -0500
+
+dell-recovery (0.71) maverick; urgency=low
+
+  * Adjust the sandybridge blacklist to match that in the latest compiz.
+    (LP: #644372)
+  * Ubiquity bootstrap: sync before reboots.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 21 Sep 2010 09:40:31 -0500
+
+dell-recovery (0.70) maverick; urgency=low
+
+  * Fix recovery from recovery of a recovery. (LP: #643889)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 20 Sep 2010 16:10:17 -0500
+
+dell-recovery (0.69) maverick; urgency=low
+
+  * Unset dbus session address before spawning burning apps for recovery media.
+    - Recent versions of ubiquity (2.3.18+) set the dbus session address in the
+      environment.  This causes issues because root can't speak on the session
+      bus (and that's what plugininstall.py runs as).
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 17 Sep 2010 13:34:42 -0500
+
+dell-recovery (0.68) maverick; urgency=low
+
+  * Add another id to blacklist for sugar bay.  Thanks Robert Hooker!
+  * Include the architecture in the target ISO names.
+  * Add one more rotational character to allow a full rotation.
+  * Dynamically populate the list of available UI's.
+  * For atom class, if une-efl is available, set to that by default.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 16 Sep 2010 19:11:45 -0500
+
+dell-recovery (0.67) maverick; urgency=low
+
+  * Parse the architecture of debs in debs/main to help figure out which
+    to install.
+  * Modify the dell-default-ui logic to match goals better for 10.10.
+  * Run dell-default-ui during install rather than on first boot.
+  * Preseed any advanced questions in case this is non-RP install.
+  * Update the text for the restart dialog.
+  * In the swap recipe fixup, detect large memory (>= 4GB) and don't create
+    swap in these scenarios either.
+  * Fix the efi set_advanced logic to not accidentally force msdos.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 13 Sep 2010 17:29:23 -0500
+
+dell-recovery (0.66) maverick; urgency=low
+
+  [ Mario Limonciello ]
+  * If boot/grub/efi.img is found, create a mutlti-catalog ISO image.
+  * Support FISH packages of nested archives for OIE.
+  * Support media that uses GRUB to boot.
+  * Mark a boot as an EFI boot if /sys/firmware/efi exists too.
+  * Run grub-install in EFI mode too (it will use efibootmgr for us)
+  * Fix Y-align on some labels.
+  * If a disk is grub based, don't include the isolinux directory in the ISO.
+  * Be more rigid about the scenarios that grub gets reinstalled on
+    first boot.
+  * Don't run part of the recovery plugin in bootstrap mode.
+  * If dmi-available-memory isn't available (such as x86_64), fall back to
+    /proc/meminfo.
+  * No need to run efibootmgr to cleanup after install, the OS handles it.
+  * Fixup creating media from recovery partitions containing eltorito.img.
+  * Make sure the image complete dialog is centered.
+  * Import translations from launchpad.
+
+  [ Peter Petrakis ]
+  * Autobuilder Frontend:
+    - Cleanup of help text.
+    - Add support to set iso prefix.
+    - Add support to set specific dell-recovery package.
+    - Add an option to skip the local git tree update.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 09 Sep 2010 19:29:19 -0500
+
+dell-recovery (0.65) maverick; urgency=low
+
+  [ Mario Limonciello ]
+  * Save files in XDG Downloads directory by default (LP: #616671)
+  * Re-encode strings to utf8 when checking ISOs in builder mode. (LP: #616663)
+  * Remove unused misc import in dell-recovery ubiquity plugin.
+  * If choosing resize mode, still hide the UI pieces that make the page grow.
+  * Clean up pylint warnings and errors in the ubiquity plugins.
+  * Don't allow the bootstrap plugin to run if not in automatic mode.
+  * Hide the plugin_widgets page in factory mode to prevent the app from
+    growing and showing the wrong sized slideshow.
+
+  [ Peter Petrakis ]
+  * Add bto-autobuilder for standalone build features. (LP: #619452)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 17 Aug 2010 15:42:17 -0500
+
+dell-recovery (0.64) maverick; urgency=low
+
+  [ Mario Limonciello ]
+  * Use the newly available progress bar from all ubiquity plugins to display
+    status while building the RP.
+  * Split out the propagated kernel options into their own file, to make sure
+    they are common to the RP after install too.
+  * If common.cfg is missing, don't flip out.
+  * Make sure that BOOT_IMAGE is not propagating into the RP.
+  * Always output the name of the plugin in debug strings.
+  * Fix backwards list for une/ude in UI chooser.
+  * Correct a rounding regression with the switch to parted for making partitions.
+  * Add some additional debugging for all installs to share more about the creation
+    of the UP and grub.
+  * Strip the stray characters at the end of extra command line.
+  * Backup the logs to the RP at the end of building RP for later debug purposes.
+  * When booting grub from partition 4, search that partition before the rp for
+    a common.cfg
+
+  [ Peter Petrakis ]
+  * Record the base iso used in the bto_manifest
+  * Calculate the md5sum of each driver fish and record it in bto_md5sum
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 10 Aug 2010 20:16:46 -0500
+
+dell-recovery (0.63) maverick; urgency=low
+
+  * Fix a regression with tgz type fish packages from previous pylint cleanup
+    due to tarfile not containing an __exit__ method.
+  * When operating on a newer ubiquity version, hide the progress_section
+    at window bottom.
+  * Drop the title string on the bootstrap page.  It looks funny.
+  * Don't propagate BOOT_IMAGE either to target system.
+  * Add a title string to the recovery page, it looks funny without it.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 05 Aug 2010 17:43:39 -0500
+
+dell-recovery (0.62) maverick; urgency=low
+
+  * Work around a bug with interactions between a non-KMS plymouth and
+    casper running when VT7 is active by not running casper stop if
+    'noprompt' is not present in /proc/cmdline.
+  * Add a (hidden) advanced settings popup window for dell-bootstrap.
+  * New side effects for the advanced settings popup:
+    - All advanced configuration options get propogated to the /proc/cmdline
+      used during installation (off the RP).
+    - The number of callbacks, set_, and get_ functions needed to be reduced
+      to allow code to be reused.
+    - All template questions that were used a lot were reused multiple times
+      now have common definitions to avoid keeping the strings all over.
+    - Set the table of advanced features inactive when running on non-genuine
+      HW and also when running in HDD recovery mode.
+  * Set type as the last action in updating the UI to avoid dual boot settings
+    mucking with it.
+  * Drop the dell-language ubiquity plugin.  It was only used to keep a constant
+    title, which ubiqutiy now has support for.
+  * Merge in the dell-default-ui plugin from dell-oobe (which is now unnecessary).
+  * Merge translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 02 Aug 2010 18:37:18 -0500
+
+dell-recovery (0.61) maverick; urgency=low
+
+  [ Mario Limonciello ]
+  * Be clearer in the logging what "Fixed up device" means.
+  * Don't show an error for being unable to run dell-recovery in non-oem
+    mode.
+  * Don't override the ubiquity title with a hack anymore.  Rely on doing
+    this via ubiquity/custom_title_text in the preseed.
+  * Make adjustments to be compatible with the ubiquity Maverick redesign.
+    - Don't modify step_label.
+    - Add a plugin_title key so that we show title_section.
+  * Update deprecated ParseSection for TagSection in dell-bootstrap.
+  * Add a new method to the backend that causes the system to be prepared
+    to run in recovery mode on the next boot.
+  * Correct usage of the builtin function 'filter'.  Thanks Peter Petrakis.
+  * Add basic support for a new start page that isn't part of GTKAsssitant
+    allowing the use of menus, more dialogs, and launching restoration
+    directly from a frontend.
+  * Cleanup a variety of warnings that pylint was throwing.
+  * Update translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 24 Jul 2010 17:52:27 -0500
+
+dell-recovery (0.60) maverick; urgency=low
+
+  * When genisoimage fails, be more informative in it's error message
+    to the user about why it may have failed.
+  * Merge translations from launchpad.
+  * Mark some more strings translatable that previously weren't.
+  * For FISH scripts, just execute them rather than special casing python and
+    shell.  This means all scripts need #!/bin/sh or #!/bin/python at the top.
+  * If FIST is found, don't extract the UP.  This means factory process ( of
+    some sort )
+  * Reverse the order of calling /tmp/set_active_partition and SUCCESS_SCRIPT
+    to prevent problems with BTO Anywhere.
+  * When calling scripts in non-negotiable, don't use exec. (LP: #602414)
+  * Update for deprecated isInstalled to use is_installed instead.
+  * Add a new tri-state knob for configuring the behavior of swap
+    dell-recovery/swap = (true, [dynamic], false)
+    - false will force swap on
+    - false will force swap off
+    - dynamic (default) will detect small drives (<=64GB).  If one of these 
+      is found, disable the creation of a swap partition. (LP: #601780)
+  * Disable terminal spawning if debug-ubiquity mode is enabled since the
+    same effect can be achieved with ctrl-alt-T.
+  * Drop support for running in virtualbox.  If it's actually desirable, vbox
+    has support to modify the DMI information.
+  * For grub conffiles, write out in the new 10.10 syntax when working with
+    newer media.
+  * Write out a UUID to search for in the grub conffile in the event that it's
+    not actually on hd0.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 17 Jun 2010 15:09:45 -0500
+
+dell-recovery (0.59) maverick; urgency=low
+
+  * Add a new preseedable option to set a disk layout (supports mbr or gpt).
+    - During install if we are in GPT mode (but not EFI), then install grub
+      to the partition as our success failover
+  * If we detect /proc/efi on the system, force the disk layout to gpt.
+  * Use efibootmgr to twiddle the NVRAM to set the active device if on
+    an EFI system.
+  * Drop old fdisk based hacks for making partition tables when in mbr
+    mode.  
+    - Now use a parted wrapper.  
+    - python-parted would be nice to use, but would add another dependency.
+    - parted_server/partman would be nice too, but are a little cumbersome
+      to work with outside the context of d-i or ubiquity partitioning.
+  * Don't try to build a recovery partition if we detect that we are booted
+    to the same device.
+  * Drop kexec support.
+  * When working in gpt mode, workaround a partman-partitioning bug that
+    would otherwise prevent the bootloader from being installed.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 11 Jun 2010 16:33:48 -0500
+
+dell-recovery (0.58) lucid; urgency=low
+
+  * Adjust alignment from ubiquity changes in v2.2.23.
+    - Bootstrap page now has yalign 0 and no fixed width
+    - Recovery Media creation page, yalign 0 and remove some fixed widths
+  * Merge translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 26 Apr 2010 14:59:06 -0500
+
+dell-recovery (0.57) lucid; urgency=low
+
+  [ Mario Limonciello ]
+  * Import translations from launchpad.
+  * Add the ability to disable nvidia driver installation during install too.
+  * Add an additional postinstallation script directory for non-negotiable items
+    shipped with this package.
+  * Add a script to call the DKMS autoinstallation script to catch any modules
+    that may have failed to build/install during install such as PAE kernels. 
+    (LP: #563906)
+  * match_system_device: Don't allow matching anything without a 0x preceding it.
+    - Still allows base 16 ints
+    - Still allows base 16 ints encapsulated in a string
+  * Invert topdown for match system device.
+  * Ignore devices / vendor id that are too long.
+  * Add a test to test all devices on a system to the source package.
+
+  [ James Ferguson ]
+  * match_system_device: Don't recursively follow symlinks after the first
+    level.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 21 Apr 2010 23:12:35 -0500
+
+dell-recovery (0.56) lucid; urgency=low
+
+  * Handle the exception that no casper UUID or no initrd are in the image by
+    displaying it more nicely.
+    - Although we can probably work around this, it will be troublesome down
+      the road, so it's better to catch it and notify the user it's a broken
+      image.
+  * Try harder to detect the locale chosen at bootstrap.
+  * Filter more gfxboot menu selections from propagating through the system
+    from the locale that they had selected.
+  * Default to use git:// protocol rather than http://.  It's far quicker for
+    checkouts anyhow.
+  * Render the icon at 128x128 to avoid GTK warnings.
+  * Don't remove any items during SDR or UP explosion.  Rely on them being
+    cleaned up at during the success command instead.
+  * Shuffle the widgets around on the bootstrap page so that they stop getting
+    clipped when translations are loaded.
+  * Move gtk.Spinner into an eventbox so that glade doesn't nuke it every time
+    the gtk.Builder file is modified.
+  * Fix up the padding a little bit on the create recovery media page.
+  * Import translations from launchpad.
+  * Set the cancel button to an imported Cancel rather than always english.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sat, 17 Apr 2010 12:55:03 -0500
+
+dell-recovery (0.55) lucid; urgency=low
+
+  * Add support for type 0x27 partitions (NTFS Win7 Recovery partition).
+  * When first building the UP, check for all possible upimg filenames.
+  * Add two binary files taken directory from factory process that are used
+    to produce a compatible MBR and PBR such that DellDiags can be launched
+    from a BIOS menu.
+  * Use some crafty maneuvering to create the UP using parted rather than
+    mkfs.vfat.  The latter appears to not properly fill out bytes 11-35 of
+    the PBR causing it to not be bootable.
+  * Take the necessary bytes out of the two binary files to place them in
+    place, making the PBR properly bootable.
+  * debian/control:
+    - Drop recommends for syslinux since we use our own mbr now.
+  * When operating in ubiquity debug mode, expose exceptions even if we're
+    in a factory boot.
+  * If we didn't include an autoexec.bat/config.sys (as is the case from normal
+    DellDiags releases), then make the files we need to be bootable.
+  * Update icon to new Dell branding icon and render it at a higher resolution.
+  * Do a better job at filtering command line options that shouldn't propagate
+    to the target system.
+  * Replace dell-dvd png with an svg so that is scales better at high resolution.
+  * Filter extra kernel command line arguments in all scenarios, not just if
+    dell-recovery is in the kernel command line.
+  * Shuffle the dell-bootstrap plugin to come before language again.
+    - This will allow us to use debian-installer/language to preseed the install
+      to a particular language.
+    - This also allows the rest of the UI to be customized besides just the
+      dell-bootstrap plugin.
+  * Fix translation support.  We should be able to load translations for all
+    widgets now.
+  * Introduce a 3rd ubiquity plugin that forces the title of the parent window.
+    This is necessary because bootstrap runs before the language page, which
+    which reset the title again.
+    - Only load it if we don't have dell-recovery/recovery_type on kernel 
+      command line (which means factory mode)
+  * Adjust the names of some of the templates to not show items as bold in
+    the bootstrap plugin.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 15 Apr 2010 00:55:47 -0500
+
+dell-recovery (0.54) lucid; urgency=low
+
+  * Fix a crash in HDD mode from get_selected_device not being initialized
+    in that context.
+  * Import translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Sun, 11 Apr 2010 00:38:17 -0500
+
+dell-recovery (0.53) lucid; urgency=low
+
+  * Add a preseedable template to mark which partition should be active
+    after a successful installation.
+    - For an installation that is resizing another OS, don't set this key.
+  * Pull in portions of the SUCCESS, FAIL, and chroot scripts to this package.
+    - The ones on the recovery partition will still be executed if they exist,
+      but they will also be removed after execution.
+  * Produce a shell script to make sure that sfdisk is called on the right
+    device.
+  * Don't copy kernel command line parameters to the extra debug options in the
+    recovery partition grub.cfg
+  * Don't propagate debian-installer preseeds through.
+  * Add a preseedsable template to mark which partition should be active
+    after a failed installation.
+  * If active or failed partition isn't preseeded, set a sane default for the 
+    resize case.
+  * Don't propagate any ubiquity (automatic-ubiquity, debug-ubiquity) kernel
+    command lines through to the actual system install.
+  * When in dual boot mode, don't install grub onto the RP.
+  * When in dual boot mode, calculate the size of and produce additional
+    partitions for the other OS to install into.
+  * When in dual boot mode, install grub onto the 4th partition so that install
+    can kick itself off.
+  * When in dual boot mode, don't offer the resize options.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sat, 10 Apr 2010 10:30:05 -0500
+
+dell-recovery (0.52) lucid; urgency=low
+
+  * dell-bootstrap:
+    - Actually append drivers to the to_remove list
+    - Allow multiple drivers to be blocked from install (by comma separated list).
+    - On the debug image, output the version number.
+    - Enable some level of translation.  It's still got some issues, but is better
+      than before.
+  * Add an argument to check the currently installed version.
+  * Only import GTK for the necessary pieces.
+  * backend:
+    - Add a new function: query_have_dell_recovery that will determine if a 
+      dell-recovery deb or rpm is on the filesystem of an image or in a BTO tree.
+  * builder:
+    - If dell-recovery isn't included in the chosen image or in the chosen FID
+      tree, then support injecting it into the image.
+    - Make sure to clean up dynamic buttons when necessary.
+  * Don't allow building the list store if git was installed and removed.
+  * Catch exceptions when errors happen installing packages.
+  * Import translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 05 Apr 2010 22:50:45 -0500
+
+dell-recovery (0.51) lucid; urgency=low
+
+  * Don't fail reinstall if missing an SDR.
+  * Import translations from launchpad.
+  * Add a new template: dell-recovery/disable-driver-install, which will block
+    the installation of a preseeded list of drivers during postinstall phase 
+    from Jockey.
+  * When running in ubiquity debug mode, spawn a terminal to use.
+  * Add a new dual boot template used to enable a dual boot preseed.
+  * Propagate the dual boot parameters through the command line on installation
+  * Add a new template: dell-recovery/dual_boot_seed.
+    - This template's primary purpose is to add an additional seed to stack on
+      the default seed.
+    - When configured, the dell-recovery, dell-oobe, and dell-eula packages will
+      not be installed.
+    - For this to work, you need to be using casper 1.215 or later.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 01 Apr 2010 19:07:49 -0500
+
+dell-recovery (0.50) lucid; urgency=low
+
+  * Add some strings that may be used in a EULA plugin.
+  * Set the orientation to vertical on some vboxes that were showing horizontal.
+  * GTK Frontend:
+    - Raise exceptions when having errors initializing the backend.
+  * BTO Frontend:
+    - Rename fish page to drivers page
+    - Guard drivers page from same file multiple times
+    - Add a new applications page that matches applications to SRVs
+  * Backend:
+    - Support building a folder of SRVs that will be processed in
+      the ubiquity frontend.
+  * Bootstrap:
+    - Add support to scan the RP for an SDR and explode SRVs that match it.
+    - Automatically remove all SRVs after explosion.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 31 Mar 2010 03:31:26 -0500
+
+dell-recovery (0.49) lucid; urgency=low
+
+  * Another correction that should help widget translation in BTO builder
+    mode.
+  * If the media contains a pool script, then configure it to be called
+    during the oem-config early command.
+  * When propagating kernel parameters, filter out any dell-recovery/
+    specific ones.
+  * Ensure that the recovery partition is mounted read only during the OOBE.
+  * Add a new template for preseeding the pool rebuild command used during
+    install as well as during OOBE early preparation.
+  * Import translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 29 Mar 2010 01:16:58 -0500
+
+dell-recovery (0.48) lucid; urgency=low
+
+  * Dell/recovery_common.py:
+    - Introduce a python version of create-new-uuid that is more flexible on
+      names of casper uuid's and formats of initrds.
+    - Move walk_cleanup here.
+  * Dell/recovery_backend.py:
+    - Don't preserve symlinks on the overlay of the FID tree.  Can cause issues
+      during generation.
+    - Move the walk_cleanup function out
+    - Use the python version of create-new-uuid instead.
+  * debian/control:
+    - Recommends for parted.
+    - Drop git-core from recommends.  it will be pulled in during runtime if
+      needed.
+  * ubiquity/bootstrap:
+    - Hide loopback devices from being offered.
+    - Always replace a grub.cfg on the recovery partition.
+    - Automatically propagate any extra kernel command line options (after --)
+      into the installed system and any grub menu recovery options.
+    - Add the builder into the ubiquity array of builders so it can be
+      translated.
+  * ubiquity/dell-recovery:
+    - Add the builder into the ubiquity array of builders so it can be
+      translated.
+  * Update text for reboot dialog to not tell people to take out their media
+    so soon.  It's actually OK now to do an install with the media in the drive
+    too.
+  * Mark all BTO image builder strings for translation too.
+  * Enable translation for all GTK based frontends, not just standard.
+  * create-new-uuid:
+    - Drop, superceded by a python version
+  * Update translations from launchpad.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sat, 27 Mar 2010 05:05:35 -0500
+
+dell-recovery (0.47) lucid; urgency=low
+
+  * Fix timestamp on stepDellBootstrap.ui to fix FTBFS.
+  * Update translations from launchpad.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 24 Mar 2010 20:18:49 -0500
+
+dell-recovery (0.46) lucid; urgency=low
+
+  * Default to a 32mb UP rather than no UP if upimg.bin is missing.
+  * Add support to also extract a .zip or .tgz for a UP rather than an image.
+  * Move the UP explosion step to the beginning of install rather than during
+    the RP build.
+  * Allow handling early exceptions.  For interactive type installs, show the
+    error.  For noninteractive installs, the error will be logged in syslog.
+  * Offer in the frontend to produce an image with a utility partition in BTO
+    mode.
+  * Fix the frontend to declare the intro page as an intro page and all other
+    pages as progress pages.
+  * Move the declarations of valid up names to recovery_common.
+  * In the backend, clear out any existing UP's in an image if we are providing
+    a new one.
+  * Add logic to process .zip and .tgz type UP's in the backend.
+  * Update translations from launchpad.
+  * Install the 99_dell_recovery in /usr/share/dell/grub rather than
+    /usr/share/dell.
+  * Move grub.cfg from the ubuntu-fid tree into dell-recovery.
+  * Move the functions for dynamically filling out grub files into
+    recovery_common.
+  * Dynamically fill grub.cfg's partition and OS information out.
+  * Clean up the text for the reboot dialog to clarify the action that needs
+    to happen.
+  * Add a tooltip to the dell-dvd image to show the device the recovery media
+    is mounted on, for debug purposes.
+  * Convert the swap detection unmount routine to use udisks.
+  * Convert the install disk detection routine to use udisks.
+  * No longer rely on the preseeded value for partman-auto/disks.  We'll be
+    detecting entirely independently now for that.
+  * Since we can more accurately detect disks, don't enable EDD for any of the
+    default boot options anymore.
+  * Set the default recovery partition grub menu colors to red/white rather than
+    red/black to better emulate what we see in the factory with failures.
+  * Detect invalid recovery partition filesystems and notify the user.
+  * Send the detected potential devices list to the frontend.
+  * Allow the user to select a different disk than the first one in the UI if
+    they would like to.
+  * Add support for FAT32 LBA.
+  * Default to FAT32 LBA.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 24 Mar 2010 19:34:52 -0500
+
+dell-recovery (0.45) lucid; urgency=low
+
+  * Remove the bootsplash theming as it may be adding an unnecessary delta
+    to boot speed.
+  * Only install dell-recovery if we have an RP during the install and will
+    be going through the OOBE from the Linux side.
+  * Hide NTFS based WinRE partitions (whether they have linux content or not)
+  * Add basic support for installing from alternative partition types.
+    - Support NTFS and VFAT initially
+    - Don't hardcode the mount type when mounting freshly formatted partitions.
+    - Don't install grub to an NTFS RP during factory install, kexec, or post
+      reboot situations.
+    - Iterate the labels before the devices.  Inefficient, but saves us trouble
+      from the wrong device getting picked up early.
+    - Allow detection of recovery partitions to pick up NTFS w/ the right label
+      (RECOVERY)
+  * Use udisks to find the details for the RP rather than parsing files manually
+    in /dev
+  * Don't install the grub.d line on all systems with dell-recovery.  Instead
+    during OOBE, detect if there is an RP and conditionally install it.
+  * During the backend's create_ubuntu function, check for .disk/info to verify
+    this is really a partition containing Ubuntu.
+  * Adjust spacing on the bootstrap page.
+  * Don't show HDD recovery if not genuine.
+  * Dynamically fill the content of the 99_dell_recovery during OOBE.
+  * Catch errors trying to cleanup during unmount on the backend.
+  * Import translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 19 Mar 2010 16:08:52 -0500
+
+dell-recovery (0.44) lucid; urgency=low
+
+  Ubiquity bootstrap plugin:
+  * Run after the language page rather than before all pages.  This should
+    allow the UI to be fully translated (if available).
+  * Set the icon for recovery media to 'desktop' rather than 'start-here'.
+    The default 'start-here' icon isn't very visible.
+  * Use partx to force an update to the kernel about what devices are on the
+    system after removing them using parted during bootstrap.
+  * Also cleanup extended partitions.  Some assumptions are made here, so this
+    might need to be expanded upon if it breaks.
+  * Update boot background to reflect new branding.
+  * Add help text to explain the minimum size necessary for flash drives.
+  * Move the info_window into the main window rather than as a popup.
+  * Clean up some unnecessary widgets from the bootstrap page.
+  * Hide close/minimize from any popup windows.
+  * Draw attention away from the steps portion of the window by setting it non
+    sensitive and hiding it when the recovery partition build starts.
+  * Fix whitelist building for dell-bootstrap to not miss files in the root
+    directory.
+
+  Recovery Backend:
+  * List out any FISH packages in a bto_manifest that gets stored in the ISO.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 16 Mar 2010 13:40:15 -0500
+
+dell-recovery (0.43) lucid; urgency=low
+
+  * Add a new function to recovery_common to support checking if the devices
+    in a system match an ID.
+  * Use sysfs to read dmi info rather than dmidecode.
+  * Add all the strings from the ubiquity pages to debian/templates, which 
+    should enable translation for all of them.
+  * Don't raise permissions for check vendor anymore since it's just parsing.
+  * Always try to install dell-recovery, and adobe-flashplugin even if they
+    aren't in debs/main.
+  * Don't show device nodes on the summary page.
+  * Merge translations from launchpad.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 11 Mar 2010 18:39:51 -0600
+
+dell-recovery (0.42) lucid; urgency=low
+
+  * Unbreak BTO image builder mode from previous commit.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 09 Mar 2010 18:38:29 -0600
+
+dell-recovery (0.41) lucid; urgency=low
+
+  * Ask for PW only after last wizard page.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Tue, 09 Mar 2010 09:52:19 -0600
+
+dell-recovery (0.40) lucid; urgency=low
+
+  * Create separate udev rules for devkit and udisks since they need
+    to match on different things.
+  * ubiquity/dell-recovery.py:
+    - Only show the page if a dvd or usb burner is available.  No use showing
+      when the only option is "None"
+    - Update the Install class to use current ubiquity functions.
+  * ubiquity/dell-bootstrap.py:
+    - Only touch the oem-config run file if oem-config was preseeded.
+    - Allow starting from a partition called RECOVERY in case we came from
+      a Win7 RE.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 07 Mar 2010 01:12:28 -0600
+
+dell-recovery (0.39) lucid; urgency=low
+
+  * dell-bootstrap:
+    - Unset oem-config/{early,late}_commands when doing an install that doesn't
+      include an RP.
+    - Fill in the data dynamically for the oem-config early command.
+    - Reference partition numbers and /cdrom mount from variables to more easily
+      change later as necessary.
+    - Use the casper init script to cache all the binaries and libraries needed
+      to reboot.
+  * Allow setting the OS and Swap partitions that are cleared during install
+    from preseed parameters, dell-recovery/{os_partition, swap_partition}
+  * Remove unused has_separator from ubiquity bootstrap plugin.
+  * Adjust 99_dell_recovery to refer to ubuntu.seed instead for reinstall.
+  * Don't allow the recovery window to be closed or minimized.
+  * Disable kexec by default.  It appears to cause problems on non-KMS HW.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 05 Mar 2010 17:48:57 -0600
+
+dell-recovery (0.38) lucid; urgency=low
+
+  * dell-bootstrap:
+    - Don't eject the media for the user.  This appears to cause some problems with
+      current daily media in that portions of the squashfs needed for displaying
+      that dialog haven't yet been cached.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 23 Feb 2010 15:47:48 -0600
+
+dell-recovery (0.37) lucid; urgency=low
+
+  * Port another missed area from devkit-disks to udisks.
+  * debian/control:
+    - drop python-central build depends.
+    - Enhances: ubiquity-frontend-gtk
+    - Recommends: syslinux
+  * Add a function to ensure this is running on Dell hardware during OEM config.
+  * Move white_tree into common to allow it to be used by the ubiquity GUI too.
+  * Introduce bootstrap mode if the package is installed pre-ubiquity run.
+    - (N/A) for oem-config run.
+    - Causes the bootstrap/ portion of git to be unnecessary
+    - Pulls in some of the post install portions of git to earlier in the install.
+    - (LP: #525136)
+  * debian/postinst:
+    - Don't fail if dbus can't be reloaded.
+  * Only ask for permissions to mount hard drives, feel free to loop mount devices
+    without additional permissions.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 22 Feb 2010 19:21:08 -0600
+
+dell-recovery (0.36) lucid; urgency=low
+
+  * Fix translations stuff so that we only use one template (dell-recovery)
+    that should be imported from Launchpad in a mergable branch.
+  * Don't continually loop mount ISOs when they are selected in the GUI.
+    Most systems run out of loopback devices at 7 and dell-recovery doesn't like
+    that too much.
+  * Encode strings that sent over dbus when mounting directories (LP: #514452)
+  * debian/control:
+    - Add a depends on udisks.
+  * Add support for UDisks, followed by falling back to Devkit-disks and lastly
+    HAL.
+  * Convert package to dh7 rather than cdbs.
+  * Convert package to a v3 source package.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 16 Feb 2010 17:39:18 -0600
+
+dell-recovery (0.35) lucid; urgency=low
+
+  * Correct a minor error that prevented the backend from running when a utility
+    partition was present but upimg.bin wasn't on the recovery partition.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 15 Jan 2010 17:03:11 -0600
+
+dell-recovery (0.34) lucid; urgency=low
+
+  * Put all the builder code into it's own python file to clean up the frontend
+    code.  Move the logic to determine if to use builder into the main startup
+    script instead.
+  * Remove extraneous builder_ prefix from all builder specific functions.
+  * Fix running in builder mode on a non-preloaded system.
+  * Clean up arguments in main launcher script that determines whether or not
+    to be running in builder mode.
+  * Move the logic to increment the BTO version into the various frontends
+    rather than incrementing during the backend query_bto_version method.
+  * Only offer DVD burning if DVD burning hardware is on the system.
+  * Rather than just greying out the DVD burner radio buttons when DVD burning
+    hardware isn't available, hide the widgets all together to avoid confusion
+    as to why the widget is greyed out.
+  * Clean up the OEM config page to line up the widgets and add some nicer
+    icons.
+  * Add icons for the normal GTK frontend's media selection page.
+  * Don't show the full path on the summary page.  Prevents the GUI from
+    growing in size (in normal circumstances) in builder mode.
+  * Use query_iso_information in the frontend rather than query_bto_version to
+    ensure the information being queried is reflective of the OS on the RP
+    not the running OS.
+  * Move the default value of 'A00' when no BTO version is defined into the
+    increment_bto_version function used in recovery_common.
+  * Automatically close the fetch window when complete.
+  * Don't show the terminal for fetching, but allow it to be expanded.
+  * Add a cancel button to the fetch if the user wants to abort it.
+  * Add a pulsing thread to the backend so that it can report during activities
+    that it has no idea when they will  be done.
+  * If the progress is -1% done, pulse the  bar in the GTK frontend
+  * In the OEM-Config frontend, show some ASCII characters when we don't know
+    the true progress.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Thu, 14 Jan 2010 18:29:58 -0600
+
+dell-recovery (0.33) lucid; urgency=low
+
+  [ Mario Limonciello ]
+  * Split out the common stuff that is used by the backend and frontend into a
+    common python script.
+  * Don't require an utility partition to declare a system a preloaded system.
+    During development it's possible that UP's aren't included.
+  * Move the function to find burners into -common so alternative frontends
+    can use it.
+  * Introduce an OEM-Config plugin to force the user to at least be questioned
+    to create recovery media for the first time.
+  * Don't install an icon on new users' desktops anymore since the questions
+    are posed via OEM-config.
+  * Clean up the old icon from the skel folder in case other new users are made.
+  * debian/control: Mark as enhances for oem-config-gtk
+  * Fix "Error parsing subject struct" when running on Lucid (no apparent 
+    regressions on Karmic with this fix)
+  * Since .desktop file is no longer on the desktop, rename it's action to be
+    more appropriate.
+  * Add a lintian overrides file for errors that are irrelevant.
+  * Add translation support to templates for strings shown only in Ubiquity.
+  * If git-core isn't installed, but the user is running in builder mode, offer
+    to install it using aptdaemon if available.
+  * debian/control: Recommends on python-aptdaemon-gtk
+  * Prevent a crash if the git server is unaccessible when trying to fetch
+    the list of items.
+
+  [ Javier Collado ]
+  * Use re to parse the BTO version number more flexibly.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 06 Jan 2010 16:23:02 -0600
+
+dell-recovery (0.32) karmic; urgency=low
+
+  * Now that Dell's internal tools have support for FISH packages that
+    are single debs, pdfs, python scripts or shell scripts
+    not published in FI format, allow them on the FISH page.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Thu, 03 Dec 2009 21:58:20 -0600
+
+dell-recovery (0.31) karmic; urgency=low
+
+  * Add support for reading .discinfo from RHEL disks.
+  * When reading in a base image, set self.distributor before updating git info.
+  * If lsb_release isn't available, set some sane variables.
+  * Strip out the possible enterprise and server bits from lsb_release.
+  * Catch exceptions when spawning the backend and try to log them if possible
+    to improve debugability.
+  * Hook up the command line argument --target to actually do things.
+  * Test for "Download" in ~ before just assuming "Downloads" is our ideal dir.
+  * In the backend, clobber all files with FID overlay regardless of date.
+    This helps billerica images as well as FID changes that were created
+    before an image was published.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 18 Nov 2009 09:32:02 -0600
+
+dell-recovery (0.30) karmic; urgency=low
+
+  * Make the regeneration of the UUID optional, and only if the appropriate 
+    files are present.  Allows Billerica images to proceed a little bit 
+    further.
+  * Iterate the list of items in .disk/info to find the first floating point 
+    number to assign to the release series.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 09 Nov 2009 17:32:32 -0600
+
+dell-recovery (0.29) karmic; urgency=low
+
+  * Add a short README directing users to the right places for HOWTOs.
+  * Don't show X-rev tags in builder mode if A-rev tags are present unless
+    an extra command line argument is added.
+  * Don't erroneously call builder_fid_toggled a whole bunch of times when
+    choosing an ISO image.
+  * Optionally allow choosing branches via a command line override.  Useful
+    for one-off projects where tip is known stable.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Thu, 05 Nov 2009 15:44:17 -0600
+
+dell-recovery (0.28) karmic; urgency=low
+
+  * if .disk/info exists, just assume ubuntu rather than trying to read
+    a string out of it.  Prevents issues with moblin and kubuntu images.
+  * drop python-vte to recommends, and don't fail if it can't import.
+    Just provide a warning about how builder mode will likely not work.
+  * depends on policykit-1-gnome to ensure that the proper things to allow
+    this to work on KDE are installed.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Nov 2009 13:21:17 -0600
+
+dell-recovery (0.27) karmic; urgency=low
+
+  * Don't import gtk.glade.  It's not used anymore.
+  * Set the backend timeout to 0.  Prevents the app timing out inbetween
+    long runs.
+  * If the recovery partition is not detected, offer to run the application
+    in BTO image builder mode.  There aren't many other uses for it.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 02 Nov 2009 12:22:18 -0600
+
+dell-recovery (0.26) karmic; urgency=low
+
+  * Introduce a builder mode that can be used for generating BTO images from
+    their different components.
+  * Rename existing method query_version to query_bto_version and only check
+    it at the last step in case it gets filled earlier (with builder mode)
+  * Correct an error in the backend handling code for when an image can't mount.
+  * debian/control:
+    - Depends on python-vte for builder git features.
+    - Recommends on git-core, usb-creator-gtk
+    - Bump standards version
+  * Don't ask a question about where to store the ISO.  Instead, lets always
+    assume it ends up in Downloads.  This is useful now because usb-creator
+    will look there anyway by default.
+  * Apply markup to the summary page in both modes.
+  * Close the backend when we are finished, either from the close dialog or
+    the success dialog.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 30 Oct 2009 17:26:57 -0500
+
+dell-recovery (0.25) karmic; urgency=low
+
+  * Add support to the backend for querying/incrementing the version of the
+    ISO via RP/bto_version.
+  * Add support for the override the version of the ISO via a frontend command
+    line argument.
+  * Add support for the backend to write out RP/bto_version during ISO
+    generation if it doesn't exist, and replace it if it does.
+  * Add support for both initrd.lz and initrd.gz
+  * sync bin/create-new-uuid with casper to add lzma support.
+  * Rename the create function to create_ubuntu as realistically it's an ubuntu
+    only backend.  We'll need to evaluate a separate backend for other OSes, and
+    then maybe create a common backend function that can be shared.
+  * If the RP is already mounted before starting, try to use that old mount
+    point if at all possible when querying existing BTO version.
+  * Don't delete .exe and .sys files from the RP, just ignore them when creating
+    an image.
+  * Mount the RP read only.  We really shouldn't be changing it with this tool
+    anyway.  This has huge side effects on how we have to recreate files in a
+    temporary directory that will have to be changing rather than loop mounting
+    them around.
+  * Replace all string addition with os.path.join to avoid missing '/' characters.
+  * Move all mounting and unmounting logic into singular functions.
+  * Only unmount directories that we've mounted
+  * Try to use existing system mount points if already mounted if possible.
+  * Add support for producing an image from a directory, rather than mount point.
+  * debian/postinst:
+    - Refresh dbus rules on package install so it works immediately.
+  * Be more informative about the status indicators.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 19 Oct 2009 13:37:05 -0500
+
+dell-recovery (0.24) karmic; urgency=low
+
+  * Port over to polkit-1.
+  * debian/control:
+    - Depends on policykit-1.
+  * Update translations from launchpad.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 29 Sep 2009 16:24:36 -0500
+
+dell-recovery (0.23) karmic; urgency=low
+
+  * boot:
+    - Use initrd.lz as Ubuntu 9.10+ switched to this.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Thu, 30 Jul 2009 12:50:37 -0500
+
+dell-recovery (0.22) karmic; urgency=low
+
+  * recovery_frontend:
+    - Support using usb-creator, usb-creator-gtk, or usb-creator-kde for burning
+      ISO images to a USB stick.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 27 Jul 2009 11:48:32 -0500
+
+dell-recovery (0.21) karmic; urgency=low
+
+  * boot:
+    - Update to new syntax for the grub2 in Ubuntu 9.10.
+  * udev:
+    - Rename rule to have priority of 96.  didn't work at 95.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 22 Jul 2009 18:36:01 -0500
+
+dell-recovery (0.20) karmic; urgency=low
+
+  * udev:
+    - Add a udev rule so that devicekit-disks will hide Dell recovery
+      partitions on factory shipped Linux systems.
+  * recovery_frontend:
+    - Add support for devicekit-disks.  If this fails, fall back to HAL.
+  * debian/control:
+    - Depends on devicekit-disks or hal for system detection.
+    - Drop depends on python-glade2
+  * Migrate from libglade to gtkbuilder.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 22 Jul 2009 18:13:20 -0500
+
+dell-recovery (0.19) karmic; urgency=low
+
+  * Add a manpage showing current usage.
+  * COPYING:
+    - Put a copy of the GPL2, not GPL3.
+  * debian/control:
+    - Set maintainer to have an @ubuntu.com
+    - Add bzr info.
+    - Set section more sanely to utils.
+    - Set standards version to 3.8.1 (no changes necessary).
+    - Add a Suggests for grub-pc.  The app works fine without it, but is
+      more feature-filled with it installed.
+  * debian/changelog:
+    - Update to be GPL2, not GPL3.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sat, 23 May 2009 14:28:45 -0500
+
+dell-recovery (0.18) jaunty; urgency=low
+
+  * Only fill in the UP or RP variables independently if they are 
+    already empty.
+  * Don't offer a retry dialog in the event a burning fails.  Some burners
+    don't actually have reliable return codes.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 28 Apr 2009 14:46:34 -0500
+
+dell-recovery (0.17) jaunty; urgency=low
+
+  * Add support for command line arguments.
+  * Update string indicating recovery is complete.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 10 Apr 2009 16:28:49 -0500
+
+dell-recovery (0.16) jaunty; urgency=low
+
+  * Add a COPYING file w/ license for when we start to make tarballs.
+  * Add a CHANGES file (which is really just a symlink to debian/changelog)
+  * Detect the filesystem of the rp.  A Linux RP is vfat.  Anything else
+    means that it's not an RP. (Windows RP is ntfs-3g)
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Thu, 09 Apr 2009 17:55:03 -0500
+
+dell-recovery (0.15) jaunty; urgency=low
+
+  * Downgrade usb-creator to Recommends
+  * Add brasero | nautilus-cd-burner to Recommends.
+  * Add support for not using a burner.  If none of the burning software
+    above was detected, then we'll just default to creating an ISO somewhere.
+  * Touch the file we are creating before actually creating it from the dbus
+    backend.  This makes the file owned by the first user who touched it (Us!)
+    rather than root:root from the dbus backend.
+  * Add optional support to use lsb-release to show information about 
+    what release this ISO is being generated for.
+  * Fix a GTKWarning about a separator setting that was getting ignored.
+  * Add translation support to the .desktop file.
+  * Drop first run note.  It wasn't working anyway.
+  * Update translations from launchpad.
+  * Add missing ${misc:Depends} to debian/control.
+  * Update description in debian/control.
+  * Add some artwork from dell-recovery directly to this package.
+  * Remove explicitly hardcoded paths from .desktop file.
+  * Explicitly set icon path in glade file instead.
+  * Rename all translations from dell-recovery-LANG to LANG.  See launchpad answers
+    #66257 for more information.
+  * Merge in grub2 bootsplash stuff to this package.  We'll only show the bootsplash
+    when the package is installed.  This rids us of the last dependency on dell-artwork.
+  * Update 06_dell_theme to not use deprecated methods from grub2 anymore.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Thu, 02 Apr 2009 13:34:55 -0500
+
+dell-recovery (0.14) jaunty; urgency=low
+
+  * Rather than calling the backend with a gksudo wrapper,
+    use policy kit to authorize it's call.
+  * Call the backend via an async dbus call.  The method to do this
+    was borrowed from Jockey as normal async calls were mixing up
+    exceptions and what not.
+  * Rename progress_dialogs.glade to the more appropriate 
+    recovery_media_creator.glade.
+  * Check for CD and USB burning applications when initializing the UI.  If a 
+    particular type isn't found, then don't allow the application to run.
+  * Add 99_dell_recovery (taken from china customizations) to the install.  This
+    will prepare dell-recovery for when grub2 is made default.
+  * Update 99_dell_recovery to match the string that we have for grub1
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 31 Mar 2009 18:18:02 -0500
+
+dell-recovery (0.13) jaunty; urgency=low
+
+  * Don't enable or disable volume manager anymore.  Not necessary
+    with the HAL FDI file we ship now.
+  * Split up all activity between a frontend and backend script.  This
+    allows the GUI to run without root priv's and the actual script to
+    run with root priv's.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 24 Mar 2009 17:21:17 -0500
+
+dell-recovery (0.12) jaunty; urgency=low
+
+  * Cleanup an isolinux directory if it exists at the same
+    time as a syslinux directory.
+  * If the UP already exists, say if we are recovering from
+    a recovery, no need to go and make it again.
+  * Use brasero instead of nautilus-cd-burner since nautilus
+    cd burner is no longer included in 9.04.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 23 Mar 2009 15:13:01 -0500
+
+dell-recovery (0.11) jaunty; urgency=low
+
+  * Don't build the MBR backup when creating recovery media.
+    We'll dynamically create the partition table instead.
+  * Don't gzip the UP.  We've plenty of space on the DVD media, so might as well
+    speed up the process of backup and recovery.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 17 Mar 2009 11:46:34 -0500
+
+dell-recovery (0.10) jaunty; urgency=low
+
+  * debian/control:
+    - Drop dependency on menu.
+  * debian/links:
+    - Install actual .desktop file to /etc/skel rather than symlink.
+  * import translations from launchpad.
+  * Don't allow this tool to run on systems without a UP and RP.
+    This is an undefined case that would likely fail anyway.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Mar 2009 12:39:41 -0600
+
+dell-recovery (0.9) jaunty; urgency=low
+
+  * Update FDI file for changes in jaunty.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 25 Feb 2009 12:16:57 -0600
+
+dell-recovery (0.8) jaunty; urgency=low
+
+  * Add HAL FDI file for hiding recovery partition (LP: #325008)
+  * Add updated translations from launchpad.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 03 Feb 2009 14:38:41 -0600
+
+dell-recovery (0.7) intrepid; urgency=low
+
+  * Import more translations from launchpad.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 26 Nov 2008 10:18:46 -0600
+
+dell-recovery (0.6) intrepid; urgency=low
+
+  * Add translations from launchpad.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 25 Nov 2008 20:59:31 -0600
+
+dell-recovery (0.5) intrepid; urgency=low
+
+  * Move syslinux.cfg if it exists to isolinux.cfg.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Tue, 25 Nov 2008 02:16:47 -0600
+
+dell-recovery (0.4) intrepid; urgency=low
+
+  * Allow retrying failed burns.  This works around what appears to be either
+    a GTK or nautilus-cd-burner bug where nautilus-cd-burner is crashing
+    immediately.
+  * Clean up some warnings on startup.
+  * Remove old separators that were not necessary.
+  * Add taskbar hints to all relevant dialogs.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 24 Nov 2008 12:58:58 -0600
+
+dell-recovery (0.3) intrepid; urgency=low
+
+  * New release.
+    - Move syslinux to isolinux in case we want to recover from a recovery.
+  * Filter out all .sys files in / so that there aren't errors later with
+    usb-creator.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Wed, 05 Nov 2008 13:59:32 -0600
+
+dell-recovery (0.2) intrepid; urgency=low
+
+  * New release.
+    - Adds USB Drive support
+    - Adds a popup nag dialog
+  * debian/control:
+    - Bump standards version
+    - Depend upon usb-creator for USB support.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 31 Oct 2008 17:24:13 -0400
+
+dell-recovery (0.1) hardy; urgency=low
+
+  * Initial Release.
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 21 Mar 2008 18:58:40 -0500
+

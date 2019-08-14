@@ -1,0 +1,610 @@
+# Bulgarian translation for dell-recovery
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-05 15:27-0600\n"
+"PO-Revision-Date: 2010-12-14 05:42+0000\n"
+"Last-Translator: Boyan Sotirov <lz1dsb@abv.bg>\n"
+"Language-Team: Bulgarian <bg@li.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-09-11 04:46+0000\n"
+"X-Generator: Launchpad (build 13900)\n"
+
+#: ../Dell/recovery_gtk.py:108
+msgid "Cannot connect to dbus"
+msgstr "Невъзможна връзката с dbus"
+
+#: ../Dell/recovery_gtk.py:110
+msgid "Permission Denied"
+msgstr "Достъпът отказан"
+
+#: ../Dell/recovery_gtk.py:117
+msgid "Exception"
+msgstr ""
+
+#: ../Dell/recovery_gtk.py:197 ../gtk/dell-recovery-media.desktop.in.h:1
+#: ../gtk/tool_selector.ui.h:2
+msgid "Dell Recovery"
+msgstr ""
+
+#: ../Dell/recovery_gtk.py:198
+msgid "Copyright 2008-2012 Dell Inc."
+msgstr ""
+
+#: ../Dell/recovery_basic_gtk.py:58
+msgid "Confirm Selections"
+msgstr "Потвърждение на изборите"
+
+#: ../Dell/recovery_basic_gtk.py:59
+msgid "Media Type"
+msgstr ""
+
+#: ../Dell/recovery_basic_gtk.py:168
+msgid "Building Base image"
+msgstr ""
+
+#: ../Dell/recovery_basic_gtk.py:181
+msgid "Opening Burner"
+msgstr "Отваряне на записващо устройство"
+
+#: ../Dell/recovery_basic_gtk.py:206
+msgid "Recovery Media Creation Process Complete"
+msgstr "Създаването на носител за възстановяване завърши"
+
+#: ../Dell/recovery_basic_gtk.py:207
+msgid ""
+"If you would like to archive another copy, the generated image has been "
+"stored under the filename:\n"
+msgstr ""
+"Ако желаете да архивирате още едно копие, генерираният имидж беше запазен "
+"под името:\n"
+
+#: ../Dell/recovery_basic_gtk.py:221
+msgid "Unable to proceed"
+msgstr ""
+
+#: ../Dell/recovery_basic_gtk.py:222
+msgid ""
+"System does not appear to contain Dell factory installed partition layout."
+msgstr ""
+
+#: ../Dell/recovery_basic_gtk.py:333
+msgid "Image File"
+msgstr ""
+
+#: ../Dell/recovery_basic_gtk.py:335
+msgid "Media Type: "
+msgstr "Тип носител: "
+
+#: ../Dell/recovery_basic_gtk.py:338 ../Dell/recovery_basic_gtk.py:341
+msgid "Recovery Partition: "
+msgstr "Дял за възстановяване: "
+
+#: ../Dell/recovery_basic_gtk.py:342
+msgid "Included"
+msgstr "Включени"
+
+#. wizard.resize(400,400)
+#: ../Dell/recovery_advanced_gtk.py:68
+msgid " (BTO Image Builder Mode)"
+msgstr " (BTO Режим на изграждане на имидж)"
+
+#: ../Dell/recovery_advanced_gtk.py:70
+msgid ""
+"This will integrate a Dell OEM FID framework & driver package set into a "
+"customized OS media image.  You will have the option to create an USB key or "
+"DVD image."
+msgstr ""
+
+#. insert builder pages in reverse order
+#: ../Dell/recovery_advanced_gtk.py:89
+msgid "Application Packages"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:90
+msgid "Driver Packages"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:91 ../Dell/recovery_advanced_gtk.py:295
+msgid "Utility Partition"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:92
+msgid "FID Content"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:93
+msgid "Base OS Image"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:180
+msgid "Builder Summary"
+msgstr "Обобщение на изграгдащата програма"
+
+#: ../Dell/recovery_advanced_gtk.py:181
+msgid "Base Image Distributor"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:183
+msgid "Base Image Release"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:186
+msgid "BTO Base Image"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:189
+msgid "Base Image"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:193
+msgid "Utility Partition: "
+msgstr "Програма за възстановяване: "
+
+#: ../Dell/recovery_advanced_gtk.py:196
+msgid "Application"
+msgstr "Приложение"
+
+#: ../Dell/recovery_advanced_gtk.py:197
+msgid "Driver"
+msgstr "Драйвер"
+
+#: ../Dell/recovery_advanced_gtk.py:203
+msgid "Packages"
+msgstr "Пакети"
+
+#: ../Dell/recovery_advanced_gtk.py:209
+msgid "Inject Dell Recovery Package"
+msgstr ""
+
+#. update gui
+#: ../Dell/recovery_advanced_gtk.py:219
+msgid "Assembling Image Components"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:298
+msgid "No Additional Utility Partition"
+msgstr ""
+
+#: ../Dell/recovery_advanced_gtk.py:494
+msgid "All SRVs must be filled to proceed."
+msgstr "Всички SRV трябва да бъдат попълнени за продължаване."
+
+#: ../Dell/recovery_backend.py:344
+msgid "Processing FISH packages"
+msgstr ""
+
+#: ../Dell/recovery_backend.py:469
+msgid "Adding in base image"
+msgstr "Добявяне в базовия имидж"
+
+#: ../Dell/recovery_backend.py:1050
+msgid "Preparing nested image"
+msgstr ""
+
+#: ../Dell/recovery_backend.py:1069
+msgid "Building Dell Utility Partition"
+msgstr "Изграждане на Dell ютилити дял"
+
+#: ../Dell/recovery_backend.py:1131
+msgid "Regenerating UUID / Rebuilding initramfs"
+msgstr "Регенериране UUID / Изграждане наново initramfs"
+
+#: ../Dell/recovery_backend.py:1160
+msgid "Building GRUB core image"
+msgstr ""
+
+#: ../Dell/recovery_backend.py:1285
+msgid "Building ISO"
+msgstr "Създаване на ISO"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:1
+msgid "Query BTO Version"
+msgstr "Запитване за BTO версия"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:2
+msgid "System policy prevents reading raw devices"
+msgstr "Системните политики не позволяват четенето на блокови (raw) устройства"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:3
+msgid "Query ISO Information"
+msgstr "Запитване за ISO информация"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:4
+msgid "Restore to Factory state"
+msgstr ""
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:5
+msgid "System policy prevents changing system bootup"
+msgstr ""
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:6
+#, fuzzy
+msgid "Boot utility partition to flash BIOS"
+msgstr "Изберете ютилити дял"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:7
+#, fuzzy
+msgid "Install Dell driver packages"
+msgstr "Изберете пакити драйвери"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:8
+#, fuzzy
+msgid "System policy prevents installing packages."
+msgstr "Системните политики не позволяват четенето на блокови (raw) устройства"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:9
+msgid "Create/Assemble Dell Recovery ISO"
+msgstr "Създаване/Сглобяване на Dell Recovery ISO"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:10
+msgid "Request closing the backend"
+msgstr "Заявка за затваряне на бекенда"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:11
+msgid "System policy prevents closing processes without notice"
+msgstr "Системните политики не позволяват затварянето на процес без известие"
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:12
+msgid "Toggle Network Connectivity"
+msgstr ""
+
+#: ../backend/com.dell.recoverymedia.policy.in.h:13
+msgid "System policy prohibits changing network without user consent"
+msgstr ""
+
+#: ../gtk/dell-driver-installer.desktop.in.h:1
+msgid "Dell Driver Installer"
+msgstr ""
+
+#: ../gtk/recovery_media_creator.ui.h:1
+msgid "Cancel Recovery Media Creator"
+msgstr "Отказ"
+
+#: ../gtk/recovery_media_creator.ui.h:2
+msgid "Are you sure you want to cancel the Recovery Media creation process?"
+msgstr ""
+"Сигурни ли сте, че искате да откажете процеса по създаване на Recovery Media?"
+
+#: ../gtk/recovery_media_creator.ui.h:3
+msgid "Version:"
+msgstr "Версия:"
+
+#: ../gtk/recovery_media_creator.ui.h:4
+msgid ""
+"An existing image was found (possibly from a previous run).  Would you like "
+"to remove this old copy and regenerate the image?"
+msgstr ""
+"Съществуващ имидж беше открит (вероятно от предишно пускане). Искате ли да "
+"премахнете това старо копие и да регенерирате имиджа?"
+
+#: ../gtk/recovery_media_creator.ui.h:5
+msgid "DVD+/-RW Disc"
+msgstr "DVD+/-RW диск"
+
+#: ../gtk/recovery_media_creator.ui.h:6
+msgid "This requires writable DVD media."
+msgstr "Това изисква записваем DVD диск."
+
+#: ../gtk/recovery_media_creator.ui.h:7
+msgid "USB Flash Drive"
+msgstr "USB флаш памет"
+
+#: ../gtk/recovery_media_creator.ui.h:8
+msgid "This requires a USB flash drive with approximately 2GB free."
+msgstr "Това изисква USB флаш диск с приблизително 2GB свободно пространство."
+
+#: ../gtk/recovery_media_creator.ui.h:9
+msgid "No media, create image"
+msgstr ""
+
+#: ../gtk/recovery_media_creator.ui.h:10 ../gtk/tool_selector.ui.h:1
+msgid "Dell Recovery Media Creator"
+msgstr "Създаване на Dell носител за възстановяване"
+
+#: ../gtk/recovery_media_creator.ui.h:11
+msgid "<activity placeholder>"
+msgstr "<activity placeholder>"
+
+#: ../gtk/builder.ui.h:1
+msgid ""
+"During Factory Installation, applications are only installed if the order "
+"record (SDR) refers to the service release vehicle (SRV).  This populates "
+"the possible SRVs to be queried during installation."
+msgstr ""
+"По време на фабричната инсталация, приложенията са инсталирани само ако реда "
+"на записа (SDR) има референция към SRV (Service Release Vehicle). Това дава "
+"възможност SRV-та да бъдат запитвани по време на инсталацията."
+
+#: ../gtk/builder.ui.h:2
+msgid ""
+"The Base OS image provides the majority of the content for a BTO image.  It "
+"can be a Vanilla OS image, or existing BTO Image."
+msgstr ""
+"Базовият имидж на операционната система предоставя основното съдържание за "
+"BTO имиджа. Той може да бъде Vanilla OS имидж, или съществуващ BTO имидж."
+
+#: ../gtk/builder.ui.h:3
+msgid "ISO Image"
+msgstr "ISO образ"
+
+#: ../gtk/builder.ui.h:4
+msgid "Extracted Directory"
+msgstr "Извлечена Папка"
+
+#: ../gtk/builder.ui.h:5
+msgid "Detected Recovery Partition"
+msgstr "Открит дял за възстановяване"
+
+#: ../gtk/builder.ui.h:6
+msgid "Choose Image"
+msgstr "Избор на имидж"
+
+#: ../gtk/builder.ui.h:7
+msgid "Selected Image Details:"
+msgstr "Избрани детайли на имиджа:"
+
+#: ../gtk/builder.ui.h:8
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+
+#: ../gtk/builder.ui.h:11
+msgid "Add Dell Recovery"
+msgstr "Добавяне на Dell Recovery"
+
+#: ../gtk/builder.ui.h:12
+msgid ""
+"Part of the FID overlay requires a dell-recovery package to be included."
+msgstr ""
+
+#: ../gtk/builder.ui.h:13
+msgid "Browse for a dell-recovery package"
+msgstr "Разглеждане за dell-recovery пакет"
+
+#: ../gtk/builder.ui.h:14
+msgid "Choose package"
+msgstr "Избиране на пакет"
+
+#: ../gtk/builder.ui.h:15
+msgid "Build dell-recovery package from this system"
+msgstr "Изграждане на dell-recovery пакет от тази система"
+
+#: ../gtk/builder.ui.h:16
+msgid "Install dpkg-repack"
+msgstr "Инсталиране на dpkg-repack"
+
+#: ../gtk/builder.ui.h:17
+msgid ""
+"Any add-on drivers or applications that need to be integrated into the image "
+"can be added here."
+msgstr ""
+"Всички добавяеми драйвери или приложения, които трябва да бъдат интегрирани "
+"в имиджа, могат да бъдат добавени тук."
+
+#: ../gtk/builder.ui.h:18
+msgid ""
+"The BTO FID framework is the first thing injected into a base vanilla "
+"image.  If you are generating from an existing BTO compatible image, you may "
+"use the built-in framework."
+msgstr ""
+
+#: ../gtk/builder.ui.h:19
+msgid "FID framework built into BTO image"
+msgstr "FID рамка изградена в BTO имидж"
+
+#: ../gtk/builder.ui.h:20
+msgid "FID Framework enclosed in debian package"
+msgstr ""
+
+#: ../gtk/builder.ui.h:21
+msgid "Selected Overlay Details:"
+msgstr "Изпрани насложени детайли:"
+
+#: ../gtk/builder.ui.h:22
+msgid "SRV Entry"
+msgstr "SRV запис"
+
+#: ../gtk/builder.ui.h:23
+msgid "Please enter the SRV to use:"
+msgstr "Моля въведете SRV, който да се използва:"
+
+#: ../gtk/builder.ui.h:24
+msgid ""
+"BTO images can optionally include a Utility Partition for diagnostic "
+"utilities."
+msgstr ""
+"BTO имиджи могат да включват опционално Ютилити дял за диагностични помощни "
+"програми."
+
+#: ../gtk/builder.ui.h:25
+msgid "No additional Utility Partition"
+msgstr "Няма допълнителен Ютилити дял"
+
+#: ../gtk/builder.ui.h:26
+msgid "Select content for Utility Partition"
+msgstr "Избиране на съдържание за Ютилити дял"
+
+#: ../gtk/builder.ui.h:27
+msgid "Detected Utility Partition"
+msgstr "Открит Ютилити дял"
+
+#: ../gtk/builder.ui.h:28
+msgid "Choose Content"
+msgstr "Избор на съдържание"
+
+#: ../gtk/builder.ui.h:29
+msgid "Selected Content Details:"
+msgstr "Избрани детайли на съдържанието:"
+
+#: ../gtk/tool_selector.ui.h:3
+msgid "_Help"
+msgstr ""
+
+#: ../gtk/tool_selector.ui.h:4
+msgid ""
+"This will create OS Recovery Media that can be used to restore the computer "
+"to its factory shipped state.  You will have the option to create an USB key "
+"or DVD image."
+msgstr ""
+
+#: ../gtk/tool_selector.ui.h:5
+msgid ""
+"This will restore the system to the factory shipped state using the recovery "
+"partition stored on the hard drive."
+msgstr ""
+
+#: ../gtk/tool_selector.ui.h:6
+msgid "Build OS Media"
+msgstr ""
+
+#: ../gtk/tool_selector.ui.h:7
+msgid "Restore System"
+msgstr ""
+
+#: ../gtk/tool_selector.ui.h:8
+msgid ""
+"This will install a Dell driver package that you downloaded from the "
+"Internet."
+msgstr ""
+
+#: ../gtk/tool_selector.ui.h:9
+#, fuzzy
+msgid "Install Drivers"
+msgstr "Инсталиране на git"
+
+#: ../gtk/tool_selector.ui.h:10
+msgid "This will flash a DOS based BIOS image."
+msgstr ""
+
+#: ../gtk/tool_selector.ui.h:11
+msgid "Flash BIOS"
+msgstr ""
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:1
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr ""
+"Dell Recovery Media може да се използва за възстановяване на вашата система "
+"до същото състояние в което тя ви е била доставена."
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:2
+msgid ""
+"<b>It is highly recommended that you generate media and store it in a safe "
+"place.</b>"
+msgstr ""
+"<b>Силно препоръчетелно е да генерирате носител и да го съхранявате на "
+"безопасно място.</b>"
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:3
+msgid "Restore #OS# to factory state"
+msgstr ""
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:4
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:5
+msgid "Save recovery media to an external USB flash drive"
+msgstr "Запазване на носителя за възстановяване на външен USB флаш диск"
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:6
+msgid ""
+"<b>Note:</b> This requires a USB flash drive with approximately 2GB free."
+msgstr ""
+"<b>Бележка:</b> Това изисква USB флаш с приблизително 2GB свободно "
+"пространство."
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:7
+msgid "Save recovery media to DVD"
+msgstr "Запазване на носителя за възстановяване на DVD"
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:8
+msgid "<b>Note:</b> This requires writable DVD media."
+msgstr "<b>Бележка:</b> Това изисква записваем DVD носител."
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:9
+msgid "Don't generate recovery media at this time"
+msgstr "Не генерирай носител за възстановяване по това време"
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:10
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr ""
+"Recovery Media може да бъде генериран по-късно като се избере инструмента то "
+"менюто Система"
+
+#: ../ubiquity/stepRecoveryMedia.ui.h:11
+msgid "<b>ERROR:</b> This media is only valid on Dell systems."
+msgstr "<b>ГРЕШКА:</b> Този носител е валиден само за системи Dell."
+
+#~ msgid "Choose Media Type"
+#~ msgstr "Изберете тип носител"
+
+#~ msgid "No media, create ISO image"
+#~ msgstr "Няма носител, създаване на ISO образ"
+
+#~ msgid "python-vte is missing"
+#~ msgstr "python-vte липсва"
+
+#~ msgid "Builder mode requires python-vte to function"
+#~ msgstr "Режима на изграждане изисква python-vte за да функционира"
+
+#~ msgid "<b>ERROR</b>: git is not installed"
+#~ msgstr "<b>ГРЕШКА</b>: git не е инсталиран"
+
+#~ msgid "Choose Application Packages"
+#~ msgstr "Изберете приложни пакети"
+
+#~ msgid "Choose Base OS Image"
+#~ msgstr "Изберете основен имидж на операционна система"
+
+#~ msgid "Choose FID Overlay"
+#~ msgstr "Изберете FID припокриване"
+
+#~ msgid "Overlaying FID content"
+#~ msgstr "Покриване на FID съдържанието"
+
+#~ msgid "Missing Dell-Recovery"
+#~ msgstr "Липсващ Dell-Recovery"
+
+#~ msgid "Not present in ISO or GIT tree"
+#~ msgstr "Не налично в ISO или GIT дървото"
+
+#~ msgid ""
+#~ "<b>The GIT fetch is in progress.  </b>\n"
+#~ "This window will close automatically when the process is complete. \n"
+#~ "<b>NOTE:</b> Please be patient, the initial fetch may take a while."
+#~ msgstr ""
+#~ "<b>Изтегляне на GIT. </b>\n"
+#~ "Този прозорец ще се затвори автоматично, когато процеса е завършен. \n"
+#~ "<b>БЕЛЕЖКА:</b> Моля бъдете търпеливи, първоначалното изтегляне може да "
+#~ "отнеме време."
+
+#~ msgid "GIT Tree Status"
+#~ msgstr "GIT статус на дървото"
+
+#~ msgid "FID GIT Tree"
+#~ msgstr "FID GIT дърво"
+
+#~ msgid "Fetch/Update GIT Tree"
+#~ msgstr "Изтегляне/Обновяване на GIT дървото"
+
+#~ msgid "GIT Tags/Branches:"
+#~ msgstr "GIT Тагове/Разклонения:"
+
+#~ msgid "Show Details"
+#~ msgstr "Показване на подробности"

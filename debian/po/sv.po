@@ -1,0 +1,298 @@
+# Swedish translation for dell-recovery
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: dell-recovery@packages.debian.org\n"
+"POT-Creation-Date: 2013-02-25 18:38-0600\n"
+"PO-Revision-Date: 2010-12-14 05:36+0000\n"
+"Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:00+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:17001
+msgid "Building Dell Recovery Media..."
+msgstr "Bygger återställningsmedia för Dell..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:19001
+msgid "Opening Burner..."
+msgstr "Öppnar brännare..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:20001
+msgid "Dell Recovery"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:21001
+msgid "Recovery Type"
+msgstr "Återställningstyp"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:22001
+msgid ""
+"This Dell Recovery Media can be used to restore the original factory "
+"software."
+msgstr ""
+"Detta återställningsmedia för Dell kan användas för att återställa "
+"programvara till de ursprungliga fabriksinställningarna."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:23001
+msgid ""
+"It is recommended you back up all important data before running this tool."
+msgstr ""
+"Det rekommenderas att du säkerhetskopierar allt viktigt data innan du kör "
+"detta verktyg."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:24001
+msgid "Restore Linux OS partitions"
+msgstr "Återställ partitioner för Linux"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:25001
+msgid "This will rebuild all OS and swap partitions to factory defaults."
+msgstr ""
+"Detta kommer att bygga om alla partitioner för operativsystem och "
+"växlingsutrymme till fabriksinställningarna."
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:26001 ../dell-recovery.templates:29001
+msgid "WARNING: All personal files and changes will be lost."
+msgstr "VARNING: Alla personliga filer och ändringar kommer att förloras."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:27001
+msgid "Restore entire hard drive."
+msgstr "Återställ hela hårddisken."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:28001
+msgid "This will rebuild all utility, recovery, and OS partitions."
+msgstr ""
+"Detta kommer att bygga om alla partitioner för verktyg, återställning och "
+"operativsystem."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:30001
+msgid "Restore only Linux OS partition."
+msgstr "Återställ endast partition för Linux."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:31001
+msgid "This option allows you to resize any existing partitions."
+msgstr "Detta alternativ låter dig ändra storlek på befintliga partitioner."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:32001
+msgid ""
+"ERROR: This recovery media only functions on Dell and Alienware systems."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:33001
+msgid "Building Recovery Partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:34001
+msgid "NOTE: Please be patient, this may take a while."
+msgstr "OBSERVERA: Var god vänta, detta kan ta en stund."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:35001
+msgid "Your system will restart automatically several times."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:36001
+msgid "Create Dell Recovery Media"
+msgstr "Skapa Dell återställningmedia"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:37001
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr ""
+"Återställningsmedia för Dell kan användas för att återställa din dator till "
+"samma tillstånd som den befann sig i när den levererades till dig."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:38001
+msgid ""
+"It is highly recommended that you generate media and store it in a safe "
+"place."
+msgstr ""
+"Det rekommenderas starkt att du genererar ett media och lagrar det på en "
+"säker plats."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:39001
+msgid "Save recovery media to an external USB flash drive"
+msgstr "Spara återställningsmedia till en extern USB-lagringsenhet"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:40001
+msgid "Note: This requires a USB flash drive with approximately 2GB free."
+msgstr ""
+"Observera: Detta kräver en USB-lagringsenhet med ungefär 2 GB ledigt utrymme."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:41001
+msgid "Save recovery media to DVD"
+msgstr "Spara återställningsmedia till DVD"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:42001
+msgid "Note: This requires writable DVD media."
+msgstr "Observera: Detta kräver ett skrivbart DVD-media."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:43001
+msgid "Don't generate recovery media at this time"
+msgstr "Generera inte återställningsmedia för tillfället"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:44001
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr ""
+"Återställningsmedia kan genereras senare genom att välja verktyget från "
+"System-menyn."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:45001
+msgid "ERROR: This media is only valid on Dell systems."
+msgstr "FEL: Detta media är endast giltigt på Dell-system."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:46001
+msgid "Dell End User License Agreement"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:47001
+msgid "I have read and accept these terms."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:48001
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:49001
+msgid "Restore #OS# to factory state"
+msgstr ""
+
+#~ msgid "DVD+/-RW Disc"
+#~ msgstr "DVD+/-RW-skiva"
+
+#~ msgid "<activity placeholder>"
+#~ msgstr "<platshållare för aktivitet>"
+
+#~ msgid "Dell Recovery Media Creator"
+#~ msgstr "Skapa återställningsmedia för Dell"
+
+#~ msgid "Cancel Recovery Media Creator"
+#~ msgstr "Avbryt skapandet av återställningsmedia"
+
+#~ msgid "USB Flash Drive"
+#~ msgstr "USB-enhet"
+
+#~ msgid "Opening Burner"
+#~ msgstr "Öppnar brännare"
+
+#~ msgid "Media Type: "
+#~ msgstr "Mediatyp: "
+
+#~ msgid "Confirm Selections"
+#~ msgstr "Bekräfta"
+
+#~ msgid "Choose Media Type"
+#~ msgstr "Välj mediatyp"
+
+#~ msgid "Recovery Media Creation Process Complete"
+#~ msgstr "Återställningsmediat är färdigt"
+
+#~ msgid "Recovery Partition: "
+#~ msgstr "Återställningspartition: "
+
+#~ msgid "Permission Denied"
+#~ msgstr "Åtkomst nekad"
+
+#~ msgid "System policy prevents reading raw devices"
+#~ msgstr "Systemprincip förhindrar läsning av obehandlade enheter"
+
+#~ msgid "Building ISO"
+#~ msgstr "Bygger ISO"
+
+#~ msgid "Utility Partition: "
+#~ msgstr "Tillbehörspartition: "
+
+#~ msgid "Are you sure you want to cancel the Recovery Media creation process?"
+#~ msgstr ""
+#~ "Är du säker på att du vill avbryta processen för att skapa "
+#~ "återställningsmedia?"
+
+#~ msgid "Cannot connect to dbus"
+#~ msgstr "Kan inte ansluta till dbus"
+
+#~ msgid "ISO Image"
+#~ msgstr "ISO-avbildning"
+
+#~ msgid "No media, create ISO image"
+#~ msgstr "Inget media, skapa ISO-avbildning"
+
+#~ msgid ""
+#~ "An existing image was found (possibly from a previous run).  Would you "
+#~ "like to remove this old copy and regenerate the image?"
+#~ msgstr ""
+#~ "En befintlig avbildning hittades (eventuellt från en tidigare körning). "
+#~ "Vill du ta bort den gamla kopian och generera avbildningen igen?"

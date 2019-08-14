@@ -1,0 +1,296 @@
+# Russian translation for dell-recovery
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: dell-recovery@packages.debian.org\n"
+"POT-Creation-Date: 2012-05-04 15:41-0500\n"
+"PO-Revision-Date: 2012-10-15 11:53+0000\n"
+"Last-Translator: Eugene Marshal <Unknown>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-10-16 04:47+0000\n"
+"X-Generator: Launchpad (build 16137)\n"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:17001
+msgid "Building Dell Recovery Media..."
+msgstr "Сборка носителя средства восстановления Dell..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:19001
+msgid "Opening Burner..."
+msgstr "Oткрытие программы записи..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:20001
+msgid "Dell Recovery"
+msgstr "Средство восстановления Dell"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:21001
+msgid "Recovery Type"
+msgstr "Тип восстановления"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:22001
+msgid ""
+"This Dell Recovery Media can be used to restore the original factory "
+"software."
+msgstr ""
+"Носитель средства восстановления Dell может использоваться для "
+"восстановления первоначальной рабочей среды."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:23001
+msgid ""
+"It is recommended you back up all important data before running this tool."
+msgstr ""
+"Рекомендуется создать резервную копию всех важных данных до запуска этого "
+"инструмента."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:24001
+msgid "Restore Linux OS partitions"
+msgstr "Восстановление разделов Linux"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:25001
+msgid "This will rebuild all OS and swap partitions to factory defaults."
+msgstr ""
+"Это позволит собрать все разделы ОС и разделы подкачки в первоначальное "
+"состояние."
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:26001 ../dell-recovery.templates:29001
+msgid "WARNING: All personal files and changes will be lost."
+msgstr "ВНИМАНИЕ: Все личные файлы и изменения будут утеряны."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:27001
+msgid "Restore entire hard drive."
+msgstr "Восстановить рабочую среду на жёстком диске полностью"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:28001
+msgid "This will rebuild all utility, recovery, and OS partitions."
+msgstr "Это позволит собрать все средства восстановления и разделы ОС."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:30001
+msgid "Restore only Linux OS partition."
+msgstr "Восстановить только раздел Linux OS."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:31001
+msgid "This option allows you to resize any existing partitions."
+msgstr "Эта возможность позволяет вам изменить размер существующих разделов."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:32001
+msgid ""
+"ERROR: This recovery media only functions on Dell and Alienware systems."
+msgstr ""
+"ОШИБКА: Этот носитель средства восстановления, совместим только с системами "
+"Dell и Alienware."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:33001
+msgid "Building Recovery Partition"
+msgstr "Сборка раздела восстановления"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:34001
+msgid "NOTE: Please be patient, this may take a while."
+msgstr "ПРИМЕЧАНИЕ: Пожалуйста, подождите, это может занять некоторое время."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:35001
+msgid "Your system will restart automatically several times."
+msgstr "Система будет перезапущена автоматически несколько раз."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:36001
+msgid "Create Dell Recovery Media"
+msgstr "Создать носитель восстановления Dell"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:37001
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr ""
+"Диск восстановления Dell может использоваться для восстановления "
+"первоначального состояния компьютера."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:38001
+msgid ""
+"It is highly recommended that you generate media and store it in a safe "
+"place."
+msgstr ""
+"Настоятельно рекомендуем вам создать носитель и сохранить его в безопасном "
+"месте."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:39001
+msgid "Save recovery media to an external USB flash drive"
+msgstr "Сохранить диск восстановления на USB-накопитель"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:40001
+msgid "Note: This requires a USB flash drive with approximately 2GB free."
+msgstr ""
+"Примечание: Необходимо использовать USB-флеш с доступным объёмом не менее 2 "
+"ГБ."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:41001
+msgid "Save recovery media to DVD"
+msgstr "Сохранить диск восстановления на DVD"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:42001
+msgid "Note: This requires writable DVD media."
+msgstr "Примечаниe: Необходимо использовать записываемый диск DVD."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:43001
+msgid "Don't generate recovery media at this time"
+msgstr "Не создавать диск восстановления сейчас"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:44001
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr ""
+"Носитель средства восстановления можно создать позже, выбрав инструмент из "
+"системного меню."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:45001
+msgid "ERROR: This media is only valid on Dell systems."
+msgstr "ОШИБКА: Этот носитель совместим только с системами Dell."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:46001
+msgid "Dell End User License Agreement"
+msgstr "Лицензионное соглашение конечного пользователя Dell"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:47001
+msgid "I have read and accept these terms."
+msgstr "Я прочитал(а) и принимаю эти условия."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:48001
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:49001
+msgid "Restore #OS# to factory state"
+msgstr "Восстановить #OS# в первоначальное состояние"
+
+#~ msgid "Choose Media Type"
+#~ msgstr "Выберите тип носителя"
+
+#~ msgid "Media Type: "
+#~ msgstr "Тип носителя: "
+
+#~ msgid "ISO Image"
+#~ msgstr "Образ ISO"
+
+#~ msgid "DVD+/-RW Disc"
+#~ msgstr "Диск DVD+/-RW"
+
+#~ msgid "USB Flash Drive"
+#~ msgstr "Съёмный USB диск (флэшка)"
+
+#~ msgid "Recovery Media Creation Process Complete"
+#~ msgstr "Создание диска восстановления завершено"
+
+#~ msgid "Building ISO"
+#~ msgstr "Создание образа ISO"
+
+#~ msgid "Confirm Selections"
+#~ msgstr "Подтвердить выбор"
+
+#~ msgid "Dell Recovery Media Creator"
+#~ msgstr "Создание дисков восстановления Dell"
+
+#~ msgid "Cancel Recovery Media Creator"
+#~ msgstr "Отменить работу по созданию диска восстановления"
+
+#~ msgid "No media, create ISO image"
+#~ msgstr "Нет диска, создаётся образ ISO"
+
+#~ msgid "Recovery Partition: "
+#~ msgstr "Восстановление раздела: "
+
+#~ msgid "Permission Denied"
+#~ msgstr "Доступ запрещён"
+
+#~ msgid "Cannot connect to dbus"
+#~ msgstr "Невозможно соединиться с dbus"
+
+#~ msgid "Opening Burner"
+#~ msgstr "Открытие программы записи"
+
+#~ msgid "Utility Partition: "
+#~ msgstr "Средство раздела: "
+
+#~ msgid "System policy prevents reading raw devices"
+#~ msgstr "Системная политика предотвращает чтение RAW устройств"
+
+#~ msgid ""
+#~ "An existing image was found (possibly from a previous run).  Would you "
+#~ "like to remove this old copy and regenerate the image?"
+#~ msgstr ""
+#~ "Был обнаружен существующий образ (возможно от предыдущего запуска). Вы "
+#~ "действительно хотите удалить устаревшую копию и создать новый образ?"
+
+#~ msgid "Are you sure you want to cancel the Recovery Media creation process?"
+#~ msgstr ""
+#~ "Вы уверены, что хотите отказаться от процесса создания аварийного диска "
+#~ "восстановления?"

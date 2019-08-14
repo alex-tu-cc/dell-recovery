@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omf>
+  <resource>
+    <creator>
+     mario_limonciello@dell.com
+    </creator>
+    <title>
+     Dell Recovery
+    </title>
+    <date>
+     2010-07-23
+    </date>
+    <version identifier="0.1" date="2009-09-07" 
+	     description="Initial release"/>
+    <subject category="System"/>
+    <description>
+     Creating and using recovery media
+    </description>
+    <type>
+     user's guide
+    </type>
+    <format mime="text/xml" dtd="-//OASIS//DTD DocBook XML V4.1.2//EN"/>
+    <identifier url="file:/usr/share/gnome/help/dell-recovery/C/dell-recovery.xml"/>
+    <language code="C"/>
+    <rights type="GNU FDL" license.version="1.1"
+	    license="http://www.gnu.org/licenses/fdl.html" 
+	    holder="Dell Inc."/>
+  </resource>
+</omf>

@@ -1,0 +1,33 @@
+%{!?python_sitearch: %define python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
+%{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+
+Summary: Dell Recovery Media Creation Package
+Name: dell-recovery
+Version: __VERSION__
+Release: 1%{?dist}
+URL: http://launchpad.net/dell-recovery
+
+License: GPL3
+Group: Applications/System
+
+BuildArch: noarch
+
+BuildRequires: python-devel, python-setuptools, gettext
+Requires: python-glade2, uuid-runtime
+
+%description
+ This package is used to produce a Dell recovery media image.
+ It then uses known open source tools to write the image to
+ a USB flash drive or DVD writer.
+
+%build
+%{__python} setup.py build
+cd $(CURDIR)/po; make update-po
+
+%install
+rm -rf %{buildroot}
+%{__python} setup.py install -O1 --skip-build --root %{buildroot}
+
+%changelog
+ * Apr 3 2009 Mario Limonciello <mario_limonciello@dell.com>
+ - Initial release

@@ -1,0 +1,2 @@
+usr/share/dell/casper/hooks/dell-bootstrap usr/share/initramfs-tools/hooks/dell-bootstrap
+usr/share/dell/casper/scripts/99dell_bootstrap usr/share/initramfs-tools/scripts/casper-bottom/99dell_bootstrap

@@ -1,0 +1,294 @@
+# Hungarian translation for dell-recovery
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: dell-recovery@packages.debian.org\n"
+"POT-Creation-Date: 2012-05-04 15:41-0500\n"
+"PO-Revision-Date: 2012-04-08 16:39+0000\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:00+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:17001
+msgid "Building Dell Recovery Media..."
+msgstr "Dell helyreállító adathordozó összeállítása…"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:19001
+msgid "Opening Burner..."
+msgstr "Író megnyitása…"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:20001
+msgid "Dell Recovery"
+msgstr "Dell helyreállító"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:21001
+msgid "Recovery Type"
+msgstr "Helyreállítás típusa"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:22001
+msgid ""
+"This Dell Recovery Media can be used to restore the original factory "
+"software."
+msgstr ""
+"Ezen Dell helyreállító adathordozó segítségével visszaállítható az eredeti "
+"gyári szoftver."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:23001
+msgid ""
+"It is recommended you back up all important data before running this tool."
+msgstr ""
+"Az eszköz futtatása előtt ajánlott mentést készíteni minden fontos adatról."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:24001
+msgid "Restore Linux OS partitions"
+msgstr "Linux partíciók helyreállítása"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:25001
+msgid "This will rebuild all OS and swap partitions to factory defaults."
+msgstr ""
+"Az összes rendszer- és swap partíció visszaállítása a gyári "
+"alapértelmezésekre."
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:26001 ../dell-recovery.templates:29001
+msgid "WARNING: All personal files and changes will be lost."
+msgstr "FIGYELMEZTETÉS: minden személyes fájl és módosítás elvész."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:27001
+msgid "Restore entire hard drive."
+msgstr "Teljes merevlemez visszaállítása."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:28001
+msgid "This will rebuild all utility, recovery, and OS partitions."
+msgstr "Az összes szerviz-, helyreállítási és rendszerpartíció visszaállítása."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:30001
+msgid "Restore only Linux OS partition."
+msgstr "Csak a Linux rendszerpartíció helyreállítása."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:31001
+msgid "This option allows you to resize any existing partitions."
+msgstr "Ez lehetővé teszi a meglévő partíciók átméretezését."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:32001
+msgid ""
+"ERROR: This recovery media only functions on Dell and Alienware systems."
+msgstr ""
+"HIBA: ez a helyreállító média csak Dell és Alienware rendszereken működik."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:33001
+msgid "Building Recovery Partition"
+msgstr "Helyreállítási partíció építése"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:34001
+msgid "NOTE: Please be patient, this may take a while."
+msgstr "MEGJEGYZÉS: Legyen türelemmel, a kiinduló lekérés sokáig tarthat."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:35001
+msgid "Your system will restart automatically several times."
+msgstr "A rendszer többször is automatikusan újra fog indulni."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:36001
+msgid "Create Dell Recovery Media"
+msgstr "Dell Recovery Media létrehozása"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:37001
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr ""
+"A Dell helyreállító adathordozó segítségével rendszere visszaállítható a "
+"gyári állapotába."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:38001
+msgid ""
+"It is highly recommended that you generate media and store it in a safe "
+"place."
+msgstr "Ajánlott előállítani az adathordozót, és biztonságos helyen tartani."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:39001
+msgid "Save recovery media to an external USB flash drive"
+msgstr "A helyreállító adathordozó mentése külső USB flash kulcsra."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:40001
+msgid "Note: This requires a USB flash drive with approximately 2GB free."
+msgstr ""
+"Megjegyzés: Ehhez egy USB-kulcsra lesz szükség, körülbelül 2 GB szabad "
+"hellyel."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:41001
+msgid "Save recovery media to DVD"
+msgstr "Helyreállító adathordozó mentése DVD-re"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:42001
+msgid "Note: This requires writable DVD media."
+msgstr "Megjegyzés: Ehhez egy írható DVD-re lesz szükség."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:43001
+msgid "Don't generate recovery media at this time"
+msgstr "Most nem hozok létre helyreállító adathordozót"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:44001
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr ""
+"A helyreállító adathordozó később is előállítható az eszköz kiválasztásával "
+"a Rendszer menüből."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:45001
+msgid "ERROR: This media is only valid on Dell systems."
+msgstr "HIBA: Ez az adathordozó csak Dell rendszereken érvényes."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:46001
+msgid "Dell End User License Agreement"
+msgstr "Dell végfelhasználói licencszerződés"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:47001
+msgid "I have read and accept these terms."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:48001
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:49001
+msgid "Restore #OS# to factory state"
+msgstr "#OS# helyreállítása a gyári állapotra"
+
+#~ msgid "Opening Burner"
+#~ msgstr "Író megnyitása"
+
+#~ msgid "DVD+/-RW Disc"
+#~ msgstr "DVD+/-RW lemez"
+
+#~ msgid "Building ISO"
+#~ msgstr "ISO létrehozása"
+
+#~ msgid "Choose Media Type"
+#~ msgstr "Válassza ki az adathordozó típusát"
+
+#~ msgid "Permission Denied"
+#~ msgstr "Hozzáférés megtagadva"
+
+#~ msgid "Cannot connect to dbus"
+#~ msgstr "Nem sikerült kapcsolódni a D-Bushoz"
+
+#~ msgid "Recovery Media Creation Process Complete"
+#~ msgstr "A helyreállító adathordozó létrehozása kész"
+
+#~ msgid "Recovery Partition: "
+#~ msgstr "Helyreállító partíció: "
+
+#~ msgid "Media Type: "
+#~ msgstr "Adathordozó típusa: "
+
+#~ msgid "Confirm Selections"
+#~ msgstr "Erősítse meg választásait"
+
+#~ msgid "Utility Partition: "
+#~ msgstr "Szervizpartíció: "
+
+#~ msgid "ISO Image"
+#~ msgstr "ISO lemezkép"
+
+#~ msgid "System policy prevents reading raw devices"
+#~ msgstr "A rendszer házirendje megakadályozza a nyers eszközök olvasását"
+
+#~ msgid "<activity placeholder>"
+#~ msgstr "<tevékenység-helykitöltő>"
+
+#~ msgid "Dell Recovery Media Creator"
+#~ msgstr "Dell helyreállító-média készítő"
+
+#~ msgid "Cancel Recovery Media Creator"
+#~ msgstr "Helyreállító adathordozó előállításának megszakítása"
+
+#~ msgid "USB Flash Drive"
+#~ msgstr "USB Flash-meghajtó"
+
+#~ msgid "No media, create ISO image"
+#~ msgstr "Nincs adathordozó, ISO-lemezkép létrehozása"
+
+#~ msgid "Are you sure you want to cancel the Recovery Media creation process?"
+#~ msgstr "Biztos, hogy megszakítja a helyreállító adathordozó létrehozását?"
+
+#~ msgid ""
+#~ "An existing image was found (possibly from a previous run).  Would you "
+#~ "like to remove this old copy and regenerate the image?"
+#~ msgstr ""
+#~ "Már létezik lemezkép, valószínűleg egy előző futtatás eredményeként. El "
+#~ "szeretné távolítani ezt a régi másolatot, és újra előállítani a "
+#~ "lemezképet?"

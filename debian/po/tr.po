@@ -1,0 +1,297 @@
+# Turkish translation for dell-recovery
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: dell-recovery@packages.debian.org\n"
+"POT-Creation-Date: 2013-02-25 18:38-0600\n"
+"PO-Revision-Date: 2010-12-14 05:37+0000\n"
+"Last-Translator: Mario Limonciello <superm1@ubuntu.com>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:00+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:17001
+msgid "Building Dell Recovery Media..."
+msgstr "Dell Yedekleme Ortamı Yapılandırılıyor..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:19001
+msgid "Opening Burner..."
+msgstr "Yazıcı Açılıyor..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:20001
+msgid "Dell Recovery"
+msgstr "Dell Yedekleme"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:21001
+msgid "Recovery Type"
+msgstr "Yedekleme Türü"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:22001
+msgid ""
+"This Dell Recovery Media can be used to restore the original factory "
+"software."
+msgstr ""
+"Bu Dell Yedekleme Ortamı orjinal fabrika yazılımını geri yüklemede "
+"kullanılabilir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:23001
+msgid ""
+"It is recommended you back up all important data before running this tool."
+msgstr "Bu aracı çalıştırmadan tüm önemli bilgilerinizi yedeklemeniz önerilir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:24001
+msgid "Restore Linux OS partitions"
+msgstr "Linux İşletim Sistemine sahip bölümleri geri yükle"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:25001
+msgid "This will rebuild all OS and swap partitions to factory defaults."
+msgstr ""
+"Bu işlem tüm işletim sistemi ve takas alanı bölümlerini varsayılan fabrika "
+"ayarlarına göre yeniden yapılandıracaktır."
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:26001 ../dell-recovery.templates:29001
+msgid "WARNING: All personal files and changes will be lost."
+msgstr "UYARI: Tüm kişisel dosya ve değişiklikleriniz kaybolacak."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:27001
+msgid "Restore entire hard drive."
+msgstr "Tüm sabit diski geri yükle."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:28001
+msgid "This will rebuild all utility, recovery, and OS partitions."
+msgstr ""
+"Bu işlem tüm araçlar, yedekleme ve işletim sistemi bölümlerini yeniden "
+"yapılandıracak."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:30001
+msgid "Restore only Linux OS partition."
+msgstr "Sadece Linux İS. bölümünü geri yükle."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:31001
+msgid "This option allows you to resize any existing partitions."
+msgstr "Bu seçenek var olan bölümleri yeniden boyutlandırmanıza izin verir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:32001
+msgid ""
+"ERROR: This recovery media only functions on Dell and Alienware systems."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:33001
+msgid "Building Recovery Partition"
+msgstr "Yedekleme Bölümü Yapılandırılıyor"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:34001
+msgid "NOTE: Please be patient, this may take a while."
+msgstr "NOT: Lütfen sabırlı olun, bu işlem biraz zaman alabilir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:35001
+msgid "Your system will restart automatically several times."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:36001
+msgid "Create Dell Recovery Media"
+msgstr "Dell Geri Alma Ortamı Oluştur"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:37001
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr ""
+"Dell Yedekleme Ortamı'nı bilgisayarınızı ilk aldığınız günkü durumuna geri "
+"getirmek için kullanabilirsiniz."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:38001
+msgid ""
+"It is highly recommended that you generate media and store it in a safe "
+"place."
+msgstr ""
+"Yedekleme ortamı oluşturmanız ve bunu güvenli bir şekilde saklamanız "
+"şiddetle önerilir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:39001
+msgid "Save recovery media to an external USB flash drive"
+msgstr "Yedekleme ortamını harici USB flash belleğe kaydet"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:40001
+msgid "Note: This requires a USB flash drive with approximately 2GB free."
+msgstr ""
+"Not: Bu işlem tahmini olarak 2 GB boş alanı bulunan USB flash bellek "
+"gerektirir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:41001
+msgid "Save recovery media to DVD"
+msgstr "Yedekleme ortamını DVD'ye kaydet"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:42001
+msgid "Note: This requires writable DVD media."
+msgstr "Not: Bu işlem yazdırılabilir bir DVD gerektirir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:43001
+msgid "Don't generate recovery media at this time"
+msgstr "Bu seferlik yedekleme ortamı oluşturma"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:44001
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr ""
+"Yedekleme Ortamı sistem menüsünden seçilecek araç yardımıyla daha sonra da "
+"oluşturulabilir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:45001
+msgid "ERROR: This media is only valid on Dell systems."
+msgstr ""
+"Yedekleme Ortamı sistem menüsünden seçilecek araç yardımıyla daha sonra da "
+"oluşturulabilir."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:46001
+msgid "Dell End User License Agreement"
+msgstr "Dell Son Kullanıcı Lisans Sözleşmesi"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:47001
+msgid "I have read and accept these terms."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:48001
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:49001
+msgid "Restore #OS# to factory state"
+msgstr ""
+
+#~ msgid "Choose Media Type"
+#~ msgstr "Ortam Türünü Seçin"
+
+#~ msgid "Permission Denied"
+#~ msgstr "İzin verilmedi"
+
+#~ msgid "Cannot connect to dbus"
+#~ msgstr "dbus'a bağlanamadı"
+
+#~ msgid "Opening Burner"
+#~ msgstr "Yazıcı Açılıyor"
+
+#~ msgid "Recovery Media Creation Process Complete"
+#~ msgstr "Geri alma Ortamı Oluşturma İşlemi Tamamlandı"
+
+#~ msgid "Recovery Partition: "
+#~ msgstr "Geri Alma Bölümü: "
+
+#~ msgid "Media Type: "
+#~ msgstr "Ortam Türü: "
+
+#~ msgid "Confirm Selections"
+#~ msgstr "Seçimleri Onayla"
+
+#~ msgid "Utility Partition: "
+#~ msgstr "Araç Bölümü: "
+
+#~ msgid "ISO Image"
+#~ msgstr "ISO Görüntüsü"
+
+#~ msgid "Cancel Recovery Media Creator"
+#~ msgstr "Geri Alma Ortamı Oluşturucuyu İptal Et"
+
+#~ msgid "Building ISO"
+#~ msgstr "ISO Yapılıyor"
+
+#~ msgid "DVD+/-RW Disc"
+#~ msgstr "DVD+/-RW Disk"
+
+#~ msgid "<activity placeholder>"
+#~ msgstr "<activity placeholder>"
+
+#~ msgid "Dell Recovery Media Creator"
+#~ msgstr "Dell Geri Alma Ortam Oluşturucu"
+
+#~ msgid "Are you sure you want to cancel the Recovery Media creation process?"
+#~ msgstr "Geri Alma Ortamı oluşturma işlemini iptal etmek ister misiniz?"
+
+#~ msgid ""
+#~ "An existing image was found (possibly from a previous run).  Would you "
+#~ "like to remove this old copy and regenerate the image?"
+#~ msgstr ""
+#~ "Varolan bir görüntü bulunamadı (muhtemelen önceki bir çalışmadan). Bu "
+#~ "eski kopyayı kaldırmak ve görüntüyü yeniden oluşturmak ister misiniz?"
+
+#~ msgid "USB Flash Drive"
+#~ msgstr "USB Flash Sürücü"
+
+#~ msgid "No media, create ISO image"
+#~ msgstr "Ortam yok, ISO görüntüsü oluştur"
+
+#~ msgid "System policy prevents reading raw devices"
+#~ msgstr "Sistem ilkeleri, raw aygıtlarını okumayı engelliyor."

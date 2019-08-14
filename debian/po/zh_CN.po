@@ -1,0 +1,281 @@
+# Simplified Chinese translation for dell-recovery
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: dell-recovery@packages.debian.org\n"
+"POT-Creation-Date: 2013-02-25 18:38-0600\n"
+"PO-Revision-Date: 2010-12-14 05:39+0000\n"
+"Last-Translator: Eleanor Chen <chenyueg@gmail.com>\n"
+"Language-Team: Simplified Chinese <zh_CN@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:00+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:17001
+msgid "Building Dell Recovery Media..."
+msgstr "创建 Dell 恢复介质..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:19001
+msgid "Opening Burner..."
+msgstr "打开刻录机..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:20001
+msgid "Dell Recovery"
+msgstr "戴尔系统恢复"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:21001
+msgid "Recovery Type"
+msgstr "恢复类型"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:22001
+msgid ""
+"This Dell Recovery Media can be used to restore the original factory "
+"software."
+msgstr "此 Dell 还原镜像可以用来恢复到出厂系统。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:23001
+msgid ""
+"It is recommended you back up all important data before running this tool."
+msgstr "在运行此工具前，建议备份您所有的重要数据和信息。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:24001
+msgid "Restore Linux OS partitions"
+msgstr "恢复 Linux 操作系统分区"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:25001
+msgid "This will rebuild all OS and swap partitions to factory defaults."
+msgstr "重新建立所有操作系统和 swap 分区回到出厂状态。"
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:26001 ../dell-recovery.templates:29001
+msgid "WARNING: All personal files and changes will be lost."
+msgstr "警告： 所有个人文件和设定都会丢失。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:27001
+msgid "Restore entire hard drive."
+msgstr "还原整个硬盘"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:28001
+msgid "This will rebuild all utility, recovery, and OS partitions."
+msgstr "重新建立所有 utility 分区, 还原分区和操作系统分区。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:30001
+msgid "Restore only Linux OS partition."
+msgstr "仅还原 Linux 系统分区。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:31001
+msgid "This option allows you to resize any existing partitions."
+msgstr "此选项允许您重新分配现有分区大小。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:32001
+msgid ""
+"ERROR: This recovery media only functions on Dell and Alienware systems."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:33001
+msgid "Building Recovery Partition"
+msgstr "制作还原分区"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:34001
+msgid "NOTE: Please be patient, this may take a while."
+msgstr "注意： 正在运行，请稍候。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:35001
+msgid "Your system will restart automatically several times."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:36001
+msgid "Create Dell Recovery Media"
+msgstr "制作 Dell 恢复光盘"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:37001
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr "Dell 还原盘可以把您的电脑恢复到出厂系统。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:38001
+msgid ""
+"It is highly recommended that you generate media and store it in a safe "
+"place."
+msgstr "强烈建议您创建还原盘，然后把它存放在安全的地方。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:39001
+msgid "Save recovery media to an external USB flash drive"
+msgstr "保存恢复盘到外接的 USB 闪存盘"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:40001
+msgid "Note: This requires a USB flash drive with approximately 2GB free."
+msgstr "注意： 需要大约 2G 空间的 USB 驱动盘。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:41001
+msgid "Save recovery media to DVD"
+msgstr "保存为 DVD 恢复盘"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:42001
+msgid "Note: This requires writable DVD media."
+msgstr "注意：需要可写入的 DVD 光盘。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:43001
+msgid "Don't generate recovery media at this time"
+msgstr "这次不生成恢复盘"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:44001
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr "可以在“系统”菜单里选择“工具”，稍后再生成恢复盘。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:45001
+msgid "ERROR: This media is only valid on Dell systems."
+msgstr "错误：此光盘只能用于 Dell 系统。"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:46001
+msgid "Dell End User License Agreement"
+msgstr "Dell 最终用户协议"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:47001
+msgid "I have read and accept these terms."
+msgstr "我已阅读并接受上述条款"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:48001
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:49001
+msgid "Restore #OS# to factory state"
+msgstr ""
+
+#~ msgid "DVD+/-RW Disc"
+#~ msgstr "DVD+/-RW 光盘"
+
+#~ msgid "USB Flash Drive"
+#~ msgstr "USB 闪存驱动器"
+
+#~ msgid "Confirm Selections"
+#~ msgstr "确认选择"
+
+#~ msgid "Permission Denied"
+#~ msgstr "权限不足"
+
+#~ msgid "ISO Image"
+#~ msgstr "ISO 镜像"
+
+#~ msgid "Cannot connect to dbus"
+#~ msgstr "无法连接到 dbus"
+
+#~ msgid "Opening Burner"
+#~ msgstr "打开光盘刻录器"
+
+#~ msgid "System policy prevents reading raw devices"
+#~ msgstr "系统策略阻止读取 raw 设备"
+
+#~ msgid "<activity placeholder>"
+#~ msgstr "<启动标识符>"
+
+#~ msgid "Building ISO"
+#~ msgstr "制作 ISO 光盘镜像"
+
+#~ msgid ""
+#~ "An existing image was found (possibly from a previous run).  Would you "
+#~ "like to remove this old copy and regenerate the image?"
+#~ msgstr ""
+#~ "发现已经存在的镜像(可能是上次运行产生的)。是否删除旧的镜像，并重新生成新镜"
+#~ "像？"
+
+#~ msgid "Dell Recovery Media Creator"
+#~ msgstr "Dell 恢复光盘创建程序"
+
+#~ msgid "No media, create ISO image"
+#~ msgstr "没有刻录光盘，只创建 ISO 镜像文件"
+
+#~ msgid "Utility Partition: "
+#~ msgstr "工具分区 "
+
+#~ msgid "Choose Media Type"
+#~ msgstr "选择存储介质类型"
+
+#~ msgid "Recovery Partition: "
+#~ msgstr "还原分区： "
+
+#~ msgid "Recovery Media Creation Process Complete"
+#~ msgstr "恢复介质创建完成"
+
+#~ msgid "Cancel Recovery Media Creator"
+#~ msgstr "中止恢复介质创建程序"
+
+#~ msgid "Are you sure you want to cancel the Recovery Media creation process?"
+#~ msgstr "确定要中止创建恢复光盘吗？"
+
+#~ msgid "Media Type: "
+#~ msgstr "恢复盘类型： "

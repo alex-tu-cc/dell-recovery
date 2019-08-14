@@ -1,0 +1,67 @@
+Source: dell-recovery
+Section: utils
+Priority: optional
+Maintainer: Mario Limonciello <superm1@ubuntu.com>
+XSBC-Original-Maintainer: Mario Limonciello <mario_limonciello@dell.com>
+Build-Depends: debhelper (>= 11), python3-all, python3-distutils-extra, po-debconf, pyflakes, lsb-release, gnu-efi (>= 3.0.2)
+X-Python3-Version: >= 3.2
+Homepage: http://linux.dell.com/
+Vcs-Git: http://github.com/superm1/dell-recovery
+Standards-Version: 3.9.8
+
+Package: dell-recovery
+Architecture: all
+Depends: ${python3:Depends}, 
+         ${misc:Depends},
+         dmidecode,
+         dpkg-repack,
+         fonts-dejavu-core,
+         gir1.2-gtk-3.0,
+         lzma | xz-utils (>= 5.1.1alpha+20120614-1) | xz-lzma,
+         policykit-1,
+         python3-apt,
+         python3-dbus,
+         python3-debian,
+         python3-distutils,
+         python3-gi,
+         udisks2,
+         uuid-runtime,
+Replaces: dell-artwork, dell-oobe
+Conflicts: dell-oobe
+Recommends: cryptsetup,
+            dvd+rw-tools,
+            isolinux,
+            lsb-release,
+            lvm2,
+            mdadm (>> 4.1~rc1-2),
+            parted,
+            python3-progressbar,
+            usb-creator-gtk,
+            wodim,
+            xorriso
+Enhances: oem-config-gtk, ubiquity-frontend-gtk
+Suggests: grub-pc
+Description: Dell Recovery Media Creation Package
+ This package is used to produce a Dell recovery media image.
+ It then uses known open source tools to write the image to 
+ a USB flash drive or DVD writer.
+
+Package: dell-recovery-casper
+Architecture: all
+Depends: dell-recovery, casper, ${misc:Depends}
+Recommends: ubiquity
+Description: Dell Recovery Casper Hooks
+ This package provides hooks to allow the dell-recovery
+ bootstrap to run directly from casper without any other
+ modifications to the media.
+
+Package: dell-recovery-bootloader
+Architecture: all
+Depends: dell-recovery, ubiquity, ${misc:Depends}
+Recommends: grub-efi-amd64-bin
+Description: Bootloader configuration for Dell's factory process
+ This package is used to generate GRUB2 configuration that is 
+ used in the Dell Linux factory installation process.
+ .
+ This package doesn't have much use outside of the Dell environment
+ but is safe to install on other systems.

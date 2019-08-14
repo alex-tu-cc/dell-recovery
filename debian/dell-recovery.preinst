@@ -1,0 +1,34 @@
+#!/bin/sh
+set -e
+
+# Remove a no-longer used conffile (from http://wiki.debian.org/DpkgConffileHandling)
+rm_conffile() {
+    PKGNAME="$1"
+    CONFFILE="$2"
+    if [ -e "$CONFFILE" ]; then
+        md5sum="`md5sum \"$CONFFILE\" | sed -e \"s/ .*//\"`"
+        old_md5sum="`dpkg-query -W -f='${Conffiles}' $PKGNAME | sed -n -e \"\\\\'^ $CONFFILE[[:space:]]'{s/ obsolete$//;s/.* //p}\"`"
+        if [ "$md5sum" != "$old_md5sum" ]; then
+            echo "Obsolete conffile $CONFFILE has been modified by you."
+            echo "Saving as $CONFFILE.dpkg-bak ..."
+            mv -f "$CONFFILE" "$CONFFILE".dpkg-bak
+        else
+            echo "Removing obsolete conffile $CONFFILE ..."
+            rm -f "$CONFFILE"
+        fi
+    fi
+}
+
+
+case "$1" in
+  upgrade)
+    [ -L /etc/skel/Desktop/dell-recovery-media.desktop ] && rm /etc/skel/Desktop/dell-recovery-media.desktop
+    if dpkg --compare-versions "$2" le "0.33"; then
+        rm -f /etc/skel/Desktop/dell-recovery-media.desktop
+    fi
+    if dpkg --compare-versions "$2" le-nl "0.45"; then
+        rm_conffile dell-recovery "/etc/grub.d/06_dell_theme"
+    fi
+esac
+
+#DEBHELPER#

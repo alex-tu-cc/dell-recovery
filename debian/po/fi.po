@@ -1,0 +1,297 @@
+# Finnish translation for dell-recovery
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the dell-recovery package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dell-recovery\n"
+"Report-Msgid-Bugs-To: dell-recovery@packages.debian.org\n"
+"POT-Creation-Date: 2012-05-04 15:41-0500\n"
+"PO-Revision-Date: 2012-03-23 05:24+0000\n"
+"Last-Translator: Timo Jyrinki <timo.jyrinki@canonical.com>\n"
+"Language-Team: Finnish <fi@li.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:00+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:17001
+msgid "Building Dell Recovery Media..."
+msgstr "Rakennetaan Dell-palautusmediaa..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:19001
+msgid "Opening Burner..."
+msgstr "Avataan kirjoittajaa..."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:20001
+msgid "Dell Recovery"
+msgstr "Dell-palautus"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:21001
+msgid "Recovery Type"
+msgstr "Palautuksen tyyppi"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:22001
+msgid ""
+"This Dell Recovery Media can be used to restore the original factory "
+"software."
+msgstr ""
+"Tätä Dell-palautusmediaa voidaan käyttää tehdasohjelmistojen palauttamiseksi."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:23001
+msgid ""
+"It is recommended you back up all important data before running this tool."
+msgstr ""
+"Kaikkien tärkeiden tietojen varmuuskopiointi ennen työkalun suorittamista on "
+"suositeltavaa."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:24001
+msgid "Restore Linux OS partitions"
+msgstr "Palauta Linux-käyttöjärjestelmäosiot"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:25001
+msgid "This will rebuild all OS and swap partitions to factory defaults."
+msgstr ""
+"Tämä rakentaa uudelleen kaikki käyttöjärjestelmä- ja sivutusosiot "
+"tehdasoletuksin."
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:26001 ../dell-recovery.templates:29001
+msgid "WARNING: All personal files and changes will be lost."
+msgstr "VAROITUS: Kaikki henkilökohtaiset tiedot ja muutokset hävitetään."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:27001
+msgid "Restore entire hard drive."
+msgstr "Palauta koko kiintolevy."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:28001
+msgid "This will rebuild all utility, recovery, and OS partitions."
+msgstr ""
+"Tämä rakentaa kaikki työkalu-, palautus- ja käyttöjärjestelmäosiot uudelleen."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:30001
+msgid "Restore only Linux OS partition."
+msgstr "Palauta vain Linux-käyttöjärjestelmäosio."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:31001
+msgid "This option allows you to resize any existing partitions."
+msgstr "Tällä valinnalla voidaan muuttaa olemassa olevien osioiden kokoa."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:32001
+msgid ""
+"ERROR: This recovery media only functions on Dell and Alienware systems."
+msgstr ""
+"Virhe: Tämä palautusmedia toimii vain Dell- ja Alienware-järjestelmissä."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:33001
+msgid "Building Recovery Partition"
+msgstr "Rakennetaan palautusosiota"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:34001
+msgid "NOTE: Please be patient, this may take a while."
+msgstr ""
+"HUOM: Ole kärsivällinen, toiminnon suorittaminen saattaa kestään pitkään."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:35001
+msgid "Your system will restart automatically several times."
+msgstr "Järjestelmä käynnistyy automaattisesti uudelleen useita kertoja."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:36001
+msgid "Create Dell Recovery Media"
+msgstr "Luo Dell-palautusmedia"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:37001
+msgid ""
+"Dell Recovery Media can be used to restore your system to the same state as "
+"when it was first shipped to you."
+msgstr ""
+"Dell-palautusmedialta järjestelmä voidaan palauttaa samaan tilaan, jossa se "
+"oli vastaanottaessasi järjestelmän."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:38001
+msgid ""
+"It is highly recommended that you generate media and store it in a safe "
+"place."
+msgstr ""
+"Median luominen ja sen säilyttäminen turvallisessa paikassa on hyvin "
+"suositeltavaa."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:39001
+msgid "Save recovery media to an external USB flash drive"
+msgstr "Tallenna palautusmedia ulkoiselle USB-muistivälineelle"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:40001
+msgid "Note: This requires a USB flash drive with approximately 2GB free."
+msgstr "Huom: Tämä vaatii USB-muistitikun, jolla on noin 2GB vapaata tilaa."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:41001
+msgid "Save recovery media to DVD"
+msgstr "Tallenna palautusmedia DVD-levylle"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:42001
+msgid "Note: This requires writable DVD media."
+msgstr "Huom: Tämä vaatii kirjoitettavan DVD-levyn."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:43001
+msgid "Don't generate recovery media at this time"
+msgstr "Älä luo palautusmediaa tällä kertaa"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:44001
+msgid ""
+"Recovery Media can be generated later by choosing the tool from the System "
+"menu."
+msgstr ""
+"Palautusmedian voi luoda myöhemmin valitsemalla työkalun Järjestelmä-"
+"valikosta."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:45001
+msgid "ERROR: This media is only valid on Dell systems."
+msgstr "VIRHE: Tämä media on kelvollinen vain Dell-järjestelmissä."
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:46001
+msgid "Dell End User License Agreement"
+msgstr "Dellin loppukäyttäjän lisenssiehdot"
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:47001
+msgid "I have read and accept these terms."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:48001
+msgid "Flash BIOS image from DOS"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../dell-recovery.templates:49001
+msgid "Restore #OS# to factory state"
+msgstr "Palauta #OS# tehdastilaan"
+
+#~ msgid "DVD+/-RW Disc"
+#~ msgstr "DVD+/-RW-levy"
+
+#~ msgid "Cancel Recovery Media Creator"
+#~ msgstr "Peru palautusmedian luonti"
+
+#~ msgid "USB Flash Drive"
+#~ msgstr "USB-Flash-asema"
+
+#~ msgid "Dell Recovery Media Creator"
+#~ msgstr "Dell-palautusmedian luonti"
+
+#~ msgid "Opening Burner"
+#~ msgstr "Avataan kirjoittajaa."
+
+#~ msgid "Media Type: "
+#~ msgstr "Median tyyppi: "
+
+#~ msgid "Confirm Selections"
+#~ msgstr "Vahvista valinnat"
+
+#~ msgid "Choose Media Type"
+#~ msgstr "Valitse median tyyppi"
+
+#~ msgid "Recovery Media Creation Process Complete"
+#~ msgstr "Palautusmedian luominen valmis"
+
+#~ msgid "<activity placeholder>"
+#~ msgstr "<tila varattu toiminnolle>"
+
+#~ msgid "Permission Denied"
+#~ msgstr "Pääsy evätty"
+
+#~ msgid "Cannot connect to dbus"
+#~ msgstr "Dbusiin ei voi yhdistää"
+
+#~ msgid "Recovery Partition: "
+#~ msgstr "Palautusosio: "
+
+#~ msgid "Utility Partition: "
+#~ msgstr "Työkaluosio: "
+
+#~ msgid "ISO Image"
+#~ msgstr "ISO-levykuva"
+
+#~ msgid "System policy prevents reading raw devices"
+#~ msgstr ""
+#~ "Järjestelmän valtuutusasetukset estävät raakalaitteiden (raw) lukemisen"
+
+#~ msgid "Building ISO"
+#~ msgstr "Rakennetaan ISOa"
+
+#~ msgid "No media, create ISO image"
+#~ msgstr "Ei mediaa/levyä, luo ISO-levykuva"
+
+#~ msgid "Are you sure you want to cancel the Recovery Media creation process?"
+#~ msgstr "Haluatko varmasti perua palautusmedian luonnin?"
+
+#~ msgid ""
+#~ "An existing image was found (possibly from a previous run).  Would you "
+#~ "like to remove this old copy and regenerate the image?"
+#~ msgstr ""
+#~ "Olemassa oleva levykuva löytyi (mahdollisesti edelliseltä "
+#~ "suorituskerralta). Haluatko poistaa tämän vanhan kopion ja luoda "
+#~ "levykuvan uudelleen?"

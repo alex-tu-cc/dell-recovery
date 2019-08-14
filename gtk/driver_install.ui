@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkWindow" id="driver_window">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Dell Driver Installer</property>
+    <property name="window_position">center</property>
+    <signal name="delete-event" handler="cancel_clicked" swapped="no"/>
+    <child>
+      <object class="GtkBox" id="box1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkAlignment" id="alignment1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="yalign">0</property>
+            <property name="top_padding">10</property>
+            <property name="bottom_padding">10</property>
+            <property name="left_padding">10</property>
+            <property name="right_padding">10</property>
+            <child>
+              <object class="GtkVBox" id="driver_page">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="spacing">15</property>
+                <child>
+                  <object class="GtkBox" id="browse_vbox">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel" id="driver_info_label">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">Select the driver package that you would like to install.</property>
+                        <property name="wrap">True</property>
+                        <property name="width_chars">60</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkAlignment" id="alignment10">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="xscale">0</property>
+                        <property name="left_padding">10</property>
+                        <property name="right_padding">10</property>
+                        <child>
+                          <object class="GtkButton" id="driver_browse_button">
+                            <property name="label" translatable="yes">Choose Package</property>
+                            <property name="use_action_appearance">False</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="use_action_appearance">False</property>
+                            <signal name="clicked" handler="browse_clicked" swapped="no"/>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkVBox" id="details_vbox">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkLabel" id="label1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">Selected Package Details:</property>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkAlignment" id="alignment11">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="left_padding">15</property>
+                        <child>
+                          <object class="GtkScrolledWindow" id="driver_scrolledwindow">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="shadow_type">in</property>
+                            <property name="min_content_width">500</property>
+                            <property name="min_content_height">150</property>
+                            <child>
+                              <object class="GtkTextView" id="driver_textview">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkAlignment" id="alignment8">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="left_padding">15</property>
+                    <child>
+                      <object class="GtkBox" id="button_box">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="spacing">20</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="driver_install_button">
+                            <property name="label" translatable="yes">Install</property>
+                            <property name="use_action_appearance">False</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="use_action_appearance">False</property>
+                            <signal name="clicked" handler="install_driver" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="pack_type">end</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="driver_cancel_button">
+                            <property name="label">gtk-cancel</property>
+                            <property name="use_action_appearance">False</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="use_action_appearance">False</property>
+                            <property name="use_stock">True</property>
+                            <signal name="clicked" handler="cancel_clicked" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="pack_type">end</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="progress_bar_box">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="apt_status_box">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="frame_restart_required">
+            <property name="can_focus">False</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkAlignment" id="alignment2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkHBox" id="hbox_reboot">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="border_width">6</property>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkLabel" id="label_restart_required">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="use_markup">True</property>
+                        <property name="wrap">True</property>
+                        <property name="selectable">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="button_restart_required">
+                        <property name="label" translatable="yes">_Restart Now</property>
+                        <property name="use_action_appearance">False</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="use_action_appearance">False</property>
+                        <property name="use_underline">True</property>
+                        <signal name="clicked" handler="restart_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator" id="separator1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">2</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box3">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkEventBox" id="driver_spinner_box">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkStatusbar" id="driver_statusbar">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
