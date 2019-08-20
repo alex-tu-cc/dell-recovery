@@ -1,9 +1,25 @@
-dell-recovery (1.60) UNRELEASED; urgency=medium
+dell-recovery (1.62alex1) bionic; urgency=medium
 
+  * bump version for test
+
+ -- Alex Tu <alex.tu@canonical.com>  Tue, 20 Aug 2019 14:21:59 +0800
+
+dell-recovery (1.60ubuntu1) bionic; urgency=medium
+
+  * bump version
+
+ -- Alex Tu <alex.tu@canonical.com>  Tue, 20 Aug 2019 14:21:20 +0800
+
+dell-recovery (1.60) bionic; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
   * Change the order of the kernel parameter options to avoid the propagation
     by accident.
   * Reduce some PyGIWarning messages.
   * Use the regional mirror site instead of the global mirror site.
+
+  [ Alex Tu ]
+  * secureboot: keep original mok for recovery from disk. 
 
  -- Shih-Yuan Lee (FourDollars) <sylee@canonical.com>  Fri, 11 May 2018 18:41:43 +0800
 
