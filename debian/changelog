@@ -8,6 +8,10 @@ dell-recovery (1.66) UNRELEASED; urgency=medium
   * sort disk name by type and size.
   * properly show disk with rst attribute.
 
+  [ Alex Tu ]
+  * remove wake_network to make sure network is disabled during stage 2
+    (Closes: #114)
+
  -- Yuan-Chen Cheng <yc.cheng@canonical.com>  Fri, 03 Jul 2020 16:22:57 +0800
 
 dell-recovery (1.65) groovy; urgency=medium

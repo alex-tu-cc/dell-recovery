@@ -1403,8 +1403,6 @@ class Install(InstallPlugin):
 
         self.remove_ricoh_mmc()
 
-        self.wake_network()
-
         install_misc.record_installed(to_install)
         install_misc.record_removed(to_remove)
 
