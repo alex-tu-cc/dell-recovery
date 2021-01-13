@@ -401,12 +401,13 @@ class Page(Plugin):
     def sleep_network(self):
         """Requests the network be disabled for the duration of install to
            prevent conflicts"""
-        bus = dbus.SystemBus()
-        dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+        #bus = dbus.SystemBus()
+        #dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
         try:
-            backend_iface = dbus.Interface(bus.get_object(magic.DBUS_BUS_NAME, '/RecoveryMedia'), magic.DBUS_INTERFACE_NAME)
-            backend_iface.force_network(False)
-            backend_iface.request_exit()
+            self.log("alex: skip sleep_network")
+            #backend_iface = dbus.Interface(bus.get_object(magic.DBUS_BUS_NAME, '/RecoveryMedia'), magic.DBUS_INTERFACE_NAME)
+            #backend_iface.force_network(False)
+            #backend_iface.request_exit()
         except Exception:
             pass
 
