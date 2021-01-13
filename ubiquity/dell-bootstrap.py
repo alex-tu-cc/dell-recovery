@@ -928,6 +928,7 @@ class Page(Plugin):
             else:
                 if 'dell-recovery/recovery_type=hdd' in open('/proc/cmdline', 'r').read().split():
                     self.ui.toggle_progress()
+                self.log("dell-recovery:cleanup:before_sleep_network#931")
                 self.sleep_network()
                 self.delete_swap()
                 self.clean_recipe()
